@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BrowserShell } from "@/components/BrowserShell";
+import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allPosts, getPost } from "@/lib/content";
 
 type PostPageProps = {
@@ -46,37 +47,40 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <BrowserShell>
-      <article className="post-detail">
-        <Link href="/" className="back-link">
-          ← 返回发现
-        </Link>
-        <div className="detail-hero">
-          <Image
-            src={post.image}
-            alt=""
-            width={1200}
-            height={680}
-            sizes="(max-width: 900px) 92vw, 74vw"
-            className="detail-image"
-            priority
-          />
-          <div className="detail-title">
-            <span>{post.category}</span>
-            <h1>{post.title}</h1>
-            <p>{post.excerpt}</p>
+      <section className="module-detail-page">
+        <ModuleSidebar />
+        <article className="post-detail">
+          <Link href="/" className="back-link">
+            ← 返回发现
+          </Link>
+          <div className="detail-hero">
+            <Image
+              src={post.image}
+              alt=""
+              width={1200}
+              height={680}
+              sizes="(max-width: 900px) 92vw, 74vw"
+              className="detail-image"
+              priority
+            />
+            <div className="detail-title">
+              <span>{post.category}</span>
+              <h1>{post.title}</h1>
+              <p>{post.excerpt}</p>
+            </div>
           </div>
-        </div>
-        <div className="detail-meta">
-          <span>{post.author}</span>
-          <span>{post.date}</span>
-          <span>{post.likes} ♥</span>
-        </div>
-        <div className="detail-body">
-          {post.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </article>
+          <div className="detail-meta">
+            <span>{post.author}</span>
+            <span>{post.date}</span>
+            <span>{post.likes} ♥</span>
+          </div>
+          <div className="detail-body">
+            {post.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </article>
+      </section>
     </BrowserShell>
   );
 }

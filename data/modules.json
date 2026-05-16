@@ -72,7 +72,12 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "blue",
-    "highlights": ["城市配送", "海钓 / 拍照", "家具材料"]
+    "highlights": ["城市配送", "海钓 / 拍照", "家具材料"],
+    "children": [
+      { "slug": "housing", "name": "房产", "count": "待补" },
+      { "slug": "garage", "name": "车库", "count": "待补" },
+      { "slug": "yika-house", "name": "一咖舍", "count": "待补" }
+    ]
   },
   {
     "slug": "pink-paws",
@@ -103,25 +108,5 @@
     "count": "待补",
     "tone": "cream",
     "highlights": ["浔 好感互动", "赠礼收集", "约会事件"]
-  },
-  {
-    "slug": "housing",
-    "name": "房产",
-    "subtitle": "房子信息",
-    "description": "房产、家具、异常家具材料、摆放问题和收益/装饰记录。",
-    "status": "框架已建",
-    "count": "待补",
-    "tone": "navy",
-    "highlights": ["家具材料", "房屋信息", "摆放修复记录"]
-  },
-  {
-    "slug": "garage",
-    "name": "车库",
-    "subtitle": "车辆信息",
-    "description": "车辆、涂装、车钥匙冷却、配送和驾驶相关资料。",
-    "status": "框架已建",
-    "count": "待补",
-    "tone": "orange",
-    "highlights": ["暴雪-V4 涂装", "车钥匙冷却", "雨燕出行"]
   }
 ]
