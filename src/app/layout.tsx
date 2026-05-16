@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/"
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/assets/beiguo-icon.svg"
+  },
   openGraph: {
     title: "呗果 - 异环游戏数据与资讯",
     description: "轻量化异环游戏数据、攻略、资讯与活动情报站。",

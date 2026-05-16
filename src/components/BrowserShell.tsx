@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 type BrowserShellProps = {
@@ -10,7 +11,9 @@ export function BrowserShell({ children }: BrowserShellProps) {
     <main className="site-shell">
       <div className="browser-chrome" aria-label="呗果站点框架">
         <Link className="brand-lockup" href="/" aria-label="回到呗果首页">
-          <span className="brand-mark">贝</span>
+          <span className="brand-mark" aria-hidden="true">
+            <Image src="/assets/beiguo-icon.svg" alt="" width={44} height={44} priority />
+          </span>
           <span>
             <strong>呗果</strong>
             <small>异环导航</small>

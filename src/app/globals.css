@@ -81,13 +81,18 @@ img {
   width: 2.6rem;
   height: 2.6rem;
   place-items: center;
-  color: #101317;
-  font-size: 1.25rem;
-  font-weight: 950;
-  background: linear-gradient(135deg, #fff, #d5f5ff 52%, #ff8db7);
-  border: 3px solid rgba(255, 255, 255, 0.82);
+  padding: 0.12rem;
+  background: #2b3034;
+  border: 2px solid rgba(246, 248, 250, 0.78);
   border-radius: 50%;
-  box-shadow: inset 0 -0.25rem rgba(15, 21, 27, 0.13);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.12),
+    0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+.brand-mark img {
+  width: 100%;
+  height: 100%;
 }
 
 .brand-lockup strong,
