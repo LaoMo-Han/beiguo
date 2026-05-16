@@ -3,11 +3,11 @@
     "slug": "discover",
     "name": "发现",
     "subtitle": "新加入的数据",
-    "description": "最新收录的角色、弧盘、卡带、驱动块、活动、兑换码和修复记录。",
+    "description": "最新收录的角色、弧盘、卡带、驱动块、活动和生活系统资料。",
     "status": "今日更新",
     "count": "17",
     "tone": "pink",
-    "highlights": ["安魂曲 / 卡厄斯 前瞻收录", "浔 限定池", "兑换码更新", "粉爪大劫案路线"]
+    "highlights": ["安魂曲 / 卡厄斯 前瞻收录", "浔 限定池", "装备资料更新", "粉爪大劫案路线"]
   },
   {
     "slug": "tier",
@@ -45,26 +45,6 @@
     ]
   },
   {
-    "slug": "codes",
-    "name": "兑换码",
-    "subtitle": "可用和过期兑换码",
-    "description": "收录当前可兑换码、奖励、过期时间和兑换入口说明。",
-    "status": "5月16日校验",
-    "count": "4+",
-    "tone": "pink",
-    "highlights": ["NTE429vtuber", "NTENENE", "NTEFREE"]
-  },
-  {
-    "slug": "bugs",
-    "name": "bug",
-    "subtitle": "目前未修复bug和已修复bug",
-    "description": "汇总官方维护与热修公告中提到的问题修复，同时保留待确认反馈位。",
-    "status": "持续追踪",
-    "count": "2批",
-    "tone": "orange",
-    "highlights": ["5月1日热修", "5月13日维护修复", "待确认反馈单独标记"]
-  },
-  {
     "slug": "city-life",
     "name": "都市生活",
     "subtitle": "城市玩法和生活系统",
@@ -78,6 +58,16 @@
       { "slug": "garage", "name": "车库", "count": "待补" },
       { "slug": "yika-house", "name": "一咖舍", "count": "待补" }
     ]
+  },
+  {
+    "slug": "affection",
+    "name": "好感度",
+    "subtitle": "送礼表格，约会",
+    "description": "角色好感等级、赠礼偏好、短信、城市约会和座驾互动资料。",
+    "status": "框架已建",
+    "count": "待补",
+    "tone": "cream",
+    "highlights": ["浔 好感互动", "赠礼收集", "约会事件"]
   },
   {
     "slug": "pink-paws",
@@ -98,15 +88,5 @@
     "count": "待补",
     "tone": "cyan",
     "highlights": ["每日任务", "每周目标", "限时活动任务"]
-  },
-  {
-    "slug": "affection",
-    "name": "好感度",
-    "subtitle": "送礼表格，约会",
-    "description": "角色好感等级、赠礼偏好、短信、城市约会和座驾互动资料。",
-    "status": "框架已建",
-    "count": "待补",
-    "tone": "cream",
-    "highlights": ["浔 好感互动", "赠礼收集", "约会事件"]
   }
 ]
