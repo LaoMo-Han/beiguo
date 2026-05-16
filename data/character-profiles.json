@@ -1,133 +1,33 @@
 [
   {
-    "slug": "zero",
-    "name": "零",
-    "english": "Zero (Male)",
-    "rarity": "S",
-    "combatTier": "T0.5",
-    "cityTier": "T1",
-    "element": "光系",
-    "weaponType": "固态",
-    "role": "输出 / 环合轴",
-    "faction": "Eibon Antique Shop",
-    "summary": "主角。即瞬环合启动速度很高，常作为创生、盈蓄等反应队的润滑位。",
-    "recommendedWeapon": "倾世之雨",
-    "diskSet": "按队伍属性补输出或辅助套",
-    "mainStats": "攻击力% / 光属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
-    "teams": [
-      {
-        "name": "娜娜莉创生队",
-        "members": ["娜娜莉", "九原", "零", "早雾"],
-        "description": "零负责快速启动光属性环合，让娜娜莉和九原的灵系输出更快进入创生节奏。"
-      },
-      {
-        "name": "小吱盈蓄队",
-        "members": ["小吱", "九原", "哈索尔", "零"],
-        "description": "零提供光属性反应位，配合灵系和相系触发盈蓄。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/zero-male/"
-  },
-  {
-    "slug": "nanally",
-    "name": "娜娜莉",
-    "english": "Nanally",
-    "rarity": "S",
-    "combatTier": "T0",
-    "cityTier": "T1",
-    "element": "灵系",
-    "weaponType": "等离子",
-    "role": "主输出",
-    "faction": "Eibon Antique Shop",
-    "summary": "开服限定主 C，围绕创生反应和高爆发输出构筑。",
-    "recommendedWeapon": "预备备",
-    "diskSet": "森林萤火之心",
-    "mainStats": "攻击力% / 灵属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 元素精通",
-    "teams": [
-      {
-        "name": "娜娜莉创生队",
-        "members": ["娜娜莉", "九原", "零", "早雾"],
-        "description": "娜娜莉主打灵系输出，九原补聚怪与后台伤害，零和早雾负责反应与增益。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/nanally/"
-  },
-  {
-    "slug": "daffodil",
-    "name": "达芙蒂尔",
-    "english": "Daffodil",
-    "rarity": "S",
-    "combatTier": "T0.5",
-    "cityTier": "T1",
-    "element": "混沌系",
-    "weaponType": "液态",
-    "role": "副输出 / 环合工具人",
-    "faction": "待确认",
-    "summary": "浊燃队关键反应位，常用于白藏或后续混沌系持续伤害体系。",
-    "recommendedWeapon": "待确认",
-    "diskSet": "按混沌/浊燃队补输出套",
-    "mainStats": "攻击力% / 属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
-    "teams": [
-      {
-        "name": "白藏浊燃队",
-        "members": ["白藏", "早雾", "达芙蒂尔", "法帝娅"],
-        "description": "达芙蒂尔作为混沌反应位，是浊燃体系的重要拼图。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/daffodil/"
-  },
-  {
-    "slug": "fadia",
-    "name": "法帝娅",
-    "english": "Fadia",
-    "rarity": "S",
-    "combatTier": "T1",
-    "cityTier": "T0",
-    "element": "魂系",
-    "weaponType": "合成",
-    "role": "生存 / 承伤",
-    "faction": "ETD-4",
-    "summary": "可分摊伤害，适合补白藏队或都市玩法的生存位。",
-    "recommendedWeapon": "永恒圆舞曲",
-    "diskSet": "恶魔之血",
-    "mainStats": "攻击力% / 魂属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 生存词条",
-    "teams": [
-      {
-        "name": "白藏浊燃队",
-        "members": ["白藏", "早雾", "达芙蒂尔", "法帝娅"],
-        "description": "法帝娅补魂系与承伤能力，提高浊燃队容错。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/fadia/"
-  },
-  {
-    "slug": "haniel",
-    "name": "哈尼娅",
-    "english": "Haniel",
+    "slug": "haiyue",
+    "name": "海月",
+    "english": "Haiyue",
     "rarity": "A",
-    "combatTier": "T0.5",
-    "cityTier": "T1",
+    "combatTier": "T1",
+    "cityTier": "T0.5",
     "element": "魂系",
-    "weaponType": "气态",
-    "role": "增伤辅助",
+    "weaponType": "等离子",
+    "role": "输出",
     "faction": "待确认",
-    "summary": "开服泛用攻击增益辅助，资源有限时适合作为免费队功能位。",
+    "summary": "海月为魂系输出角色，弧盘类型为等离子。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
     "recommendedWeapon": "待确认",
-    "diskSet": "辅助增益套",
-    "mainStats": "攻击力% / 充能或功能词条 / 暴击率",
-    "subStats": "攻击力% > 充能 > 暴击率 > 暴击伤害",
+    "diskSet": "待确认",
+    "mainStats": "攻击力% / 属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力%",
     "teams": [
       {
-        "name": "零氪功能队",
-        "members": ["小吱", "九原", "哈尼娅", "阿德勒"],
-        "description": "哈尼娅提供泛用攻击增益，适合低成本补强主 C。"
+        "name": "过渡输出队",
+        "members": [
+          "海月",
+          "九原",
+          "哈尼娅",
+          "阿德勒"
+        ],
+        "description": "资料不足时按泛用输出框架临时组队。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/haniel/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1070"
   },
   {
     "slug": "xun",
@@ -138,9 +38,9 @@
     "cityTier": "T1",
     "element": "光系",
     "weaponType": "固态",
-    "role": "增益 / 爆发",
+    "role": "输出",
     "faction": "待确认",
-    "summary": "1.0 二阶段限定角色，适合光系输出、爆发窗口和辅助增益。",
+    "summary": "浔为光系输出角色，弧盘类型为固态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
     "recommendedWeapon": "待确认",
     "diskSet": "光系输出或增益套",
     "mainStats": "攻击力% / 光属性伤害 / 暴击率",
@@ -148,191 +48,76 @@
     "teams": [
       {
         "name": "光系创生变体",
-        "members": ["娜娜莉", "九原", "浔", "早雾"],
+        "members": [
+          "娜娜莉",
+          "九原",
+          "浔",
+          "早雾"
+        ],
         "description": "浔可作为光属性功能位，替换主角提升限定队上限。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/xun/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1052"
   },
   {
-    "slug": "baicang",
-    "name": "白藏",
-    "english": "Baicang",
+    "slug": "requiem",
+    "name": "安魂曲",
+    "english": "Requiem",
     "rarity": "S",
-    "combatTier": "T0.5",
-    "cityTier": "T0",
-    "element": "咒系",
-    "weaponType": "合成",
-    "role": "主输出 / 浊燃核心",
-    "faction": "ETD-4",
-    "summary": "咒系与浊燃方向核心，队伍刚需混沌反应位。",
-    "recommendedWeapon": "茶花会",
-    "diskSet": "咒系/浊燃输出套",
-    "mainStats": "攻击力% / 咒属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 持续伤害增益",
-    "teams": [
-      {
-        "name": "白藏浊燃队",
-        "members": ["白藏", "早雾", "达芙蒂尔", "法帝娅"],
-        "description": "白藏主 C，早雾加攻聚怪，达芙蒂尔提供混沌反应，法帝娅补容错。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/baicang/"
-  },
-  {
-    "slug": "hathor",
-    "name": "哈索尔",
-    "english": "Hathor",
-    "rarity": "S",
-    "combatTier": "T0.5",
-    "cityTier": "T0.5",
-    "element": "相系",
-    "weaponType": "等离子",
-    "role": "爆发输出 / 都市派送特化",
+    "combatTier": "待评测",
+    "cityTier": "待评测",
+    "element": "暗系",
+    "weaponType": "液态",
+    "role": "输出",
     "faction": "待确认",
-    "summary": "相系爆发角色，也是小吱盈蓄队的重要反应位。",
-    "recommendedWeapon": "等离子输出弧盘",
-    "diskSet": "相系爆发套",
-    "mainStats": "攻击力% / 相属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
+    "summary": "安魂曲为暗系输出角色，弧盘类型为液态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "待确认",
+    "diskSet": "待确认",
+    "mainStats": "待确认",
+    "subStats": "待确认",
     "teams": [
       {
-        "name": "小吱盈蓄队",
-        "members": ["小吱", "九原", "哈索尔", "零"],
-        "description": "哈索尔补相系反应位，配合光灵相三属性触发盈蓄。"
+        "name": "混沌浊燃前瞻",
+        "members": [
+          "安魂曲",
+          "早雾",
+          "达芙蒂尔",
+          "法蒂娅"
+        ],
+        "description": "前瞻构想，等技能组确认后再定最终配队。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/hathor/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1004"
   },
   {
-    "slug": "jiuyuan",
-    "name": "九原",
-    "english": "Jiuyuan",
+    "slug": "nanally",
+    "name": "娜娜莉",
+    "english": "Nanally",
     "rarity": "S",
-    "combatTier": "T0.5",
-    "cityTier": "T0",
+    "combatTier": "T0",
+    "cityTier": "T1",
     "element": "灵系",
-    "weaponType": "固态",
-    "role": "爆发输出 / 聚怪",
-    "faction": "待确认",
-    "summary": "常驻泛用核心，聚怪、后台伤害和灵系反应触发都很关键。",
-    "recommendedWeapon": "固态输出弧盘",
-    "diskSet": "灵系输出或功能套",
+    "weaponType": "等离子",
+    "role": "输出",
+    "faction": "Eibon Antique Shop",
+    "summary": "娜娜莉为灵系输出角色，弧盘类型为等离子。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "预备备",
+    "diskSet": "森林萤火之心",
     "mainStats": "攻击力% / 灵属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 功能词条",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 元素精通",
     "teams": [
       {
         "name": "娜娜莉创生队",
-        "members": ["娜娜莉", "九原", "零", "早雾"],
-        "description": "九原提供聚怪和灵系后台补强，是创生队常驻拼图。"
-      },
-      {
-        "name": "小吱盈蓄队",
-        "members": ["小吱", "九原", "哈索尔", "零"],
-        "description": "九原提供灵系反应位和聚怪。"
+        "members": [
+          "娜娜莉",
+          "九原",
+          "异能者(男)",
+          "早雾"
+        ],
+        "description": "娜娜莉主打灵系输出，九原补聚怪与后台伤害，零和早雾负责反应与增益。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/jiuyuan/"
-  },
-  {
-    "slug": "mint",
-    "name": "薄荷",
-    "english": "Mint",
-    "rarity": "A",
-    "combatTier": "T2",
-    "cityTier": "T1",
-    "element": "灵系",
-    "weaponType": "液态",
-    "role": "输出 / 过渡",
-    "faction": "ETD-4",
-    "summary": "开荒过渡输出，可在缺九原时临时承担灵系反应位。",
-    "recommendedWeapon": "液态输出弧盘",
-    "diskSet": "灵系过渡套",
-    "mainStats": "攻击力% / 灵属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力%",
-    "teams": [
-      {
-        "name": "娜娜莉低配创生队",
-        "members": ["娜娜莉", "薄荷", "零", "早雾"],
-        "description": "薄荷作为九原下位替代，补灵系反应和过渡输出。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/mint/"
-  },
-  {
-    "slug": "adler",
-    "name": "阿德勒",
-    "english": "Adler",
-    "rarity": "A",
-    "combatTier": "T1",
-    "cityTier": "T1",
-    "element": "咒系",
-    "weaponType": "合成",
-    "role": "护盾 / 副输出",
-    "faction": "待确认",
-    "summary": "免费生存位和护盾功能位，适合替换早雾或补队伍容错。",
-    "recommendedWeapon": "合成生存弧盘",
-    "diskSet": "护盾/防护套",
-    "mainStats": "生命% / 防御或护盾 / 功能词条",
-    "subStats": "生命% > 防御% > 充能 > 攻击力%",
-    "teams": [
-      {
-        "name": "零氪功能队",
-        "members": ["小吱", "九原", "哈尼娅", "阿德勒"],
-        "description": "阿德勒负责护盾和容错，适合资源不足时补位。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/adler/"
-  },
-  {
-    "slug": "skia",
-    "name": "翳",
-    "english": "Skia",
-    "rarity": "A",
-    "combatTier": "T2",
-    "cityTier": "T1",
-    "element": "光系",
-    "weaponType": "固态",
-    "role": "输出",
-    "faction": "ETD-4",
-    "summary": "光系过渡输出，可在盈蓄队或光系队中临时补位。",
-    "recommendedWeapon": "失落光芒",
-    "diskSet": "光系输出套",
-    "mainStats": "攻击力% / 光属性伤害 / 暴击率",
-    "subStats": "暴击率 > 暴击伤害 > 攻击力%",
-    "teams": [
-      {
-        "name": "小吱盈蓄替代",
-        "members": ["小吱", "九原", "翳", "零"],
-        "description": "翳可作为哈索尔下位替代补光/相邻反应位。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/skia/"
-  },
-  {
-    "slug": "edgar",
-    "name": "埃德嘉",
-    "english": "Edgar",
-    "rarity": "A",
-    "combatTier": "T2",
-    "cityTier": "T1",
-    "element": "宇宙系",
-    "weaponType": "液态",
-    "role": "治疗 / 过渡",
-    "faction": "待确认",
-    "summary": "前期开荒治疗和生存过渡位，资源有限时不建议深投。",
-    "recommendedWeapon": "治疗/生存弧盘",
-    "diskSet": "治疗过渡套",
-    "mainStats": "生命% / 治疗或功能词条 / 充能",
-    "subStats": "生命% > 充能 > 防御%",
-    "teams": [
-      {
-        "name": "开荒过渡队",
-        "members": ["小吱", "九原", "哈尼娅", "埃德嘉"],
-        "description": "埃德嘉用于前期补治疗，后续可换阿德勒或更高星生存位。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/edgar/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1010"
   },
   {
     "slug": "chiz",
@@ -343,9 +128,9 @@
     "cityTier": "T1",
     "element": "光系",
     "weaponType": "气态",
-    "role": "输出 / 都市经营",
+    "role": "输出",
     "faction": "待确认",
-    "summary": "平民首选主 C，可通过都市大亨系统获取相关养成资源。",
+    "summary": "小吱为光系输出角色，弧盘类型为气态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
     "recommendedWeapon": "光系输出弧盘",
     "diskSet": "盈蓄输出套",
     "mainStats": "攻击力% / 光属性伤害 / 暴击率",
@@ -353,11 +138,266 @@
     "teams": [
       {
         "name": "小吱盈蓄队",
-        "members": ["小吱", "九原", "哈索尔", "零"],
+        "members": [
+          "小吱",
+          "九原",
+          "哈索尔",
+          "异能者(男)"
+        ],
         "description": "小吱作为免费核心，配光灵相三属性触发盈蓄。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/chiz/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1073"
+  },
+  {
+    "slug": "haniel",
+    "name": "哈尼娅",
+    "english": "Haniel",
+    "rarity": "A",
+    "combatTier": "T0.5",
+    "cityTier": "T1",
+    "element": "魂系",
+    "weaponType": "固态",
+    "role": "增益辅助",
+    "faction": "待确认",
+    "summary": "哈尼娅为魂系增益辅助角色，弧盘类型为固态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "待确认",
+    "diskSet": "辅助增益套",
+    "mainStats": "攻击力% / 充能或功能词条 / 暴击率",
+    "subStats": "攻击力% > 充能 > 暴击率 > 暴击伤害",
+    "teams": [
+      {
+        "name": "零氪功能队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈尼娅",
+          "阿德勒"
+        ],
+        "description": "哈尼娅提供泛用攻击增益，适合低成本补强主 C。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1020"
+  },
+  {
+    "slug": "edgar",
+    "name": "埃德嘉",
+    "english": "Edgar",
+    "rarity": "A",
+    "combatTier": "T2",
+    "cityTier": "T1",
+    "element": "光系",
+    "weaponType": "液态",
+    "role": "生存/治疗",
+    "faction": "待确认",
+    "summary": "埃德嘉为光系生存/治疗角色，弧盘类型为液态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "治疗/生存弧盘",
+    "diskSet": "治疗过渡套",
+    "mainStats": "灵% / 治疗或功能词条 / 充能",
+    "subStats": "灵% > 充能 > 防御%",
+    "teams": [
+      {
+        "name": "开荒过渡队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈尼娅",
+          "埃德嘉"
+        ],
+        "description": "埃德嘉用于前期补治疗，后续可换阿德勒或更高星生存位。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1021"
+  },
+  {
+    "slug": "adler",
+    "name": "阿德勒",
+    "english": "Adler",
+    "rarity": "A",
+    "combatTier": "T1",
+    "cityTier": "T1",
+    "element": "咒系",
+    "weaponType": "聚合",
+    "role": "生存/治疗",
+    "faction": "待确认",
+    "summary": "阿德勒为咒系生存/治疗角色，弧盘类型为聚合。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "聚合生存弧盘",
+    "diskSet": "护盾/防护套",
+    "mainStats": "灵% / 防御或护盾 / 功能词条",
+    "subStats": "灵% > 防御% > 充能 > 攻击力%",
+    "teams": [
+      {
+        "name": "零氪功能队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈尼娅",
+          "阿德勒"
+        ],
+        "description": "阿德勒负责护盾和容错，适合资源不足时补位。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1033"
+  },
+  {
+    "slug": "skia",
+    "name": "翳",
+    "english": "Skia",
+    "rarity": "A",
+    "combatTier": "T2",
+    "cityTier": "T1",
+    "element": "相系",
+    "weaponType": "气态",
+    "role": "输出",
+    "faction": "ETD-4",
+    "summary": "翳为相系输出角色，弧盘类型为气态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "失落光芒",
+    "diskSet": "光系输出套",
+    "mainStats": "攻击力% / 光属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力%",
+    "teams": [
+      {
+        "name": "小吱盈蓄替代",
+        "members": [
+          "小吱",
+          "九原",
+          "翳",
+          "异能者(男)"
+        ],
+        "description": "翳可作为哈索尔下位替代补光/相邻反应位。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1008"
+  },
+  {
+    "slug": "jiuyuan",
+    "name": "九原",
+    "english": "Jiuyuan",
+    "rarity": "S",
+    "combatTier": "T0.5",
+    "cityTier": "T0",
+    "element": "灵系",
+    "weaponType": "固态",
+    "role": "输出",
+    "faction": "待确认",
+    "summary": "九原为灵系输出角色，弧盘类型为固态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "固态输出弧盘",
+    "diskSet": "灵系输出或功能套",
+    "mainStats": "攻击力% / 灵属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 功能词条",
+    "teams": [
+      {
+        "name": "娜娜莉创生队",
+        "members": [
+          "娜娜莉",
+          "九原",
+          "异能者(男)",
+          "早雾"
+        ],
+        "description": "九原提供聚怪和灵系后台补强，是创生队常驻拼图。"
+      },
+      {
+        "name": "小吱盈蓄队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈索尔",
+          "异能者(男)"
+        ],
+        "description": "九原提供灵系反应位和聚怪。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1055"
+  },
+  {
+    "slug": "daffodil",
+    "name": "达芙蒂尔",
+    "english": "Daffodil",
+    "rarity": "S",
+    "combatTier": "T0.5",
+    "cityTier": "T1",
+    "element": "暗系",
+    "weaponType": "液态",
+    "role": "输出",
+    "faction": "待确认",
+    "summary": "达芙蒂尔为暗系输出角色，弧盘类型为液态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "待确认",
+    "diskSet": "按暗/浊燃队补输出套",
+    "mainStats": "攻击力% / 属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
+    "teams": [
+      {
+        "name": "白藏浊燃队",
+        "members": [
+          "白藏",
+          "早雾",
+          "达芙蒂尔",
+          "法蒂娅"
+        ],
+        "description": "达芙蒂尔作为暗反应位，是浊燃体系的重要拼图。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1054"
+  },
+  {
+    "slug": "fadia",
+    "name": "法蒂娅",
+    "english": "Fadia",
+    "rarity": "S",
+    "combatTier": "T1",
+    "cityTier": "T0",
+    "element": "魂系",
+    "weaponType": "聚合",
+    "role": "生存/治疗",
+    "faction": "ETD-4",
+    "summary": "法蒂娅为魂系生存/治疗角色，弧盘类型为聚合。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "永恒圆舞曲",
+    "diskSet": "恶魔之血",
+    "mainStats": "攻击力% / 魂属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 生存词条",
+    "teams": [
+      {
+        "name": "白藏浊燃队",
+        "members": [
+          "白藏",
+          "早雾",
+          "达芙蒂尔",
+          "法蒂娅"
+        ],
+        "description": "法蒂娅补魂系与承伤能力，提高浊燃队容错。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1039"
+  },
+  {
+    "slug": "hathor",
+    "name": "哈索尔",
+    "english": "Hathor",
+    "rarity": "S",
+    "combatTier": "T0.5",
+    "cityTier": "T0.5",
+    "element": "相系",
+    "weaponType": "等离子",
+    "role": "输出",
+    "faction": "待确认",
+    "summary": "哈索尔为相系输出角色，弧盘类型为等离子。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "等离子输出弧盘",
+    "diskSet": "相系爆发套",
+    "mainStats": "攻击力% / 相属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
+    "teams": [
+      {
+        "name": "小吱盈蓄队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈索尔",
+          "异能者(男)"
+        ],
+        "description": "哈索尔补相系反应位，配合光灵相三属性触发盈蓄。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1025"
   },
   {
     "slug": "sakiri",
@@ -368,9 +408,9 @@
     "cityTier": "T1",
     "element": "咒系",
     "weaponType": "气态",
-    "role": "增益辅助 / 聚怪",
+    "role": "增益辅助",
     "faction": "Eibon Antique Shop",
-    "summary": "核心增益辅助，能为多数输出队提供聚怪、加攻和功能增益。",
+    "summary": "早雾为咒系增益辅助角色，弧盘类型为气态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
     "recommendedWeapon": "好狗狗走四方",
     "diskSet": "音速蓝刺猬",
     "mainStats": "攻击力% / 攻击力% / 暴击率",
@@ -378,90 +418,155 @@
     "teams": [
       {
         "name": "娜娜莉创生队",
-        "members": ["娜娜莉", "九原", "零", "早雾"],
+        "members": [
+          "娜娜莉",
+          "九原",
+          "异能者(男)",
+          "早雾"
+        ],
         "description": "早雾提供聚怪与增益，是娜娜莉队常用辅助核心。"
       },
       {
         "name": "白藏浊燃队",
-        "members": ["白藏", "早雾", "达芙蒂尔", "法帝娅"],
+        "members": [
+          "白藏",
+          "早雾",
+          "达芙蒂尔",
+          "法蒂娅"
+        ],
         "description": "早雾补咒系增益和聚怪，帮助白藏稳定输出。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/sakiri/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1003"
   },
   {
-    "slug": "lacrimosa",
-    "name": "安魂曲",
-    "english": "Lacrimosa",
+    "slug": "baicang",
+    "name": "白藏",
+    "english": "Baicang",
+    "rarity": "S",
+    "combatTier": "T0.5",
+    "cityTier": "T0",
+    "element": "咒系",
+    "weaponType": "聚合",
+    "role": "输出",
+    "faction": "ETD-4",
+    "summary": "白藏为咒系输出角色，弧盘类型为聚合。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "茶花会",
+    "diskSet": "咒系/浊燃输出套",
+    "mainStats": "攻击力% / 咒属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 持续伤害增益",
+    "teams": [
+      {
+        "name": "白藏浊燃队",
+        "members": [
+          "白藏",
+          "早雾",
+          "达芙蒂尔",
+          "法蒂娅"
+        ],
+        "description": "白藏主 C，早雾加攻聚怪，达芙蒂尔提供暗反应，法蒂娅补容错。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1023"
+  },
+  {
+    "slug": "protagonist-male",
+    "name": "异能者(男)",
+    "english": "Protagonist (Male)",
+    "rarity": "S",
+    "combatTier": "T0.5",
+    "cityTier": "T1",
+    "element": "光系",
+    "weaponType": "固态",
+    "role": "输出",
+    "faction": "Eibon Antique Shop",
+    "summary": "异能者(男)为光系输出角色，弧盘类型为固态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "倾世之雨",
+    "diskSet": "按队伍属性补输出或辅助套",
+    "mainStats": "攻击力% / 光属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
+    "teams": [
+      {
+        "name": "娜娜莉创生队",
+        "members": [
+          "娜娜莉",
+          "九原",
+          "异能者(男)",
+          "早雾"
+        ],
+        "description": "异能者负责快速启动光属性环合，让娜娜莉和九原的灵系输出更快进入创生节奏。"
+      },
+      {
+        "name": "小吱盈蓄队",
+        "members": [
+          "小吱",
+          "九原",
+          "哈索尔",
+          "异能者(男)"
+        ],
+        "description": "零提供光属性反应位，配合灵系和相系触发盈蓄。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1046"
+  },
+  {
+    "slug": "protagonist-female",
+    "name": "异能者(女)",
+    "english": "Protagonist (Female)",
     "rarity": "S",
     "combatTier": "待评测",
     "cityTier": "待评测",
-    "element": "混沌系",
-    "weaponType": "待补",
-    "role": "前瞻主输出 / 持续伤害",
-    "faction": "待确认",
-    "summary": "1.1 前瞻角色，可能成为混沌/浊燃持续伤害方向的新核心。",
-    "recommendedWeapon": "待确认",
-    "diskSet": "待确认",
-    "mainStats": "待确认",
-    "subStats": "待确认",
-    "teams": [
-      {
-        "name": "混沌浊燃前瞻",
-        "members": ["安魂曲", "早雾", "达芙蒂尔", "法帝娅"],
-        "description": "前瞻构想，等技能组确认后再定最终配队。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/blog/nte-v11-collaboration-preview/"
-  },
-  {
-    "slug": "kaos",
-    "name": "卡厄斯",
-    "english": "Kaos",
-    "rarity": "S",
-    "combatTier": "待评测",
-    "cityTier": "待评测",
-    "element": "待确认",
-    "weaponType": "待补",
-    "role": "前瞻角色",
-    "faction": "待确认",
-    "summary": "前瞻角色，当前公开资料不足，先保留基础占位。",
-    "recommendedWeapon": "待确认",
-    "diskSet": "待确认",
-    "mainStats": "待确认",
-    "subStats": "待确认",
-    "teams": [
-      {
-        "name": "待评测",
-        "members": ["卡厄斯"],
-        "description": "技能组和属性确认后再补配队。"
-      }
-    ],
-    "source": "https://nteguide.com/zh/characters/"
-  },
-  {
-    "slug": "haiyue",
-    "name": "海月",
-    "english": "Haiyue",
-    "rarity": "A",
-    "combatTier": "T1",
-    "cityTier": "T0.5",
-    "element": "待确认",
-    "weaponType": "待确认",
+    "element": "光系",
+    "weaponType": "固态",
     "role": "输出",
     "faction": "待确认",
-    "summary": "输出角色，当前先按中文强度榜记录，具体装备待公开资料补齐。",
-    "recommendedWeapon": "待确认",
-    "diskSet": "待确认",
+    "summary": "异能者(女)为光系输出角色，弧盘类型为固态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "固态弧盘",
+    "diskSet": "光系或通用输出/功能卡带",
     "mainStats": "攻击力% / 属性伤害 / 暴击率",
+    "subStats": "暴击率 > 暴击伤害 > 攻击力% > 环合强度",
+    "teams": [
+      {
+        "name": "光系基础队",
+        "members": [
+          "异能者(女)",
+          "异能者(男)",
+          "哈尼娅",
+          "阿德勒"
+        ],
+        "description": "异能者(女)按光系与固态定位组队，优先补同属性反应位、增益和生存。"
+      }
+    ],
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1051"
+  },
+  {
+    "slug": "mint",
+    "name": "薄荷",
+    "english": "Mint",
+    "rarity": "A",
+    "combatTier": "T2",
+    "cityTier": "T1",
+    "element": "灵系",
+    "weaponType": "液态",
+    "role": "输出",
+    "faction": "ETD-4",
+    "summary": "薄荷为灵系输出角色，弧盘类型为液态。当前基础资料、头像与图鉴状态同步自 TapTap 异环工坊。",
+    "recommendedWeapon": "液态输出弧盘",
+    "diskSet": "灵系过渡套",
+    "mainStats": "攻击力% / 灵属性伤害 / 暴击率",
     "subStats": "暴击率 > 暴击伤害 > 攻击力%",
     "teams": [
       {
-        "name": "过渡输出队",
-        "members": ["海月", "九原", "哈尼娅", "阿德勒"],
-        "description": "资料不足时按泛用输出框架临时组队。"
+        "name": "娜娜莉低配创生队",
+        "members": [
+          "娜娜莉",
+          "薄荷",
+          "异能者(男)",
+          "早雾"
+        ],
+        "description": "薄荷作为九原下位替代，补灵系反应和过渡输出。"
       }
     ],
-    "source": "https://nteguide.com/zh/characters/"
+    "source": "https://yh-h5.gamefun66.com/#/h5/operator/detail?itemId=1019"
   }
 ]

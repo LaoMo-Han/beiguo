@@ -5,9 +5,13 @@
     "subtitle": "新加入的数据",
     "description": "最新收录的角色、弧盘、卡带、驱动块、活动和生活系统资料。",
     "status": "今日更新",
-    "count": "17",
+    "count": "18",
     "tone": "pink",
-    "highlights": ["安魂曲 / 卡厄斯 前瞻收录", "浔 限定池", "装备资料更新", "粉爪大劫案路线"]
+    "highlights": [
+      "异环工坊角色图鉴同步",
+      "装备图鉴 44 / 12 / 12",
+      "粉爪大劫案路线"
+    ]
   },
   {
     "slug": "tier",
@@ -17,31 +21,55 @@
     "status": "已收录",
     "count": "18",
     "tone": "cyan",
-    "highlights": ["S：达芙蒂尔 / 法帝娅 / 哈尼娅 / 浔 / 娜娜莉 / 早雾 / 零", "A：白藏 / 小吱", "1.1 前瞻：安魂曲 / 卡厄斯"]
+    "highlights": [
+      "S：达芙蒂尔 / 法帝娅 / 哈尼娅 / 浔 / 娜娜莉 / 早雾 / 零",
+      "A：白藏 / 小吱",
+      "1.1 前瞻：安魂曲 / 卡厄斯"
+    ]
   },
   {
     "slug": "characters",
     "name": "角色",
     "subtitle": "全部角色图鉴和攻略",
-    "description": "首发角色图鉴、定位、属性、弧盘类型、培养优先级和简易上手说明。已收录 1.0 及 1.1 前瞻角色共 18 名。",
+    "description": "同步异环工坊角色图鉴、定位、属性、弧盘类型、培养优先级和简易上手说明。当前收录 18 名角色。",
     "status": "已收录",
     "count": "18",
     "tone": "blue",
-    "highlights": ["零：光系 输出", "娜娜莉：灵系 主 C", "安魂曲：混沌系 主 C / 持续伤害（1.1）"]
+    "highlights": [
+      "异能者(男/女)：光系 输出",
+      "浔：光系 / 固态 / 当前 UP",
+      "安魂曲：暗系 / 液态 / 输出"
+    ]
   },
   {
     "slug": "equipment",
     "name": "装备",
     "subtitle": "弧盘、卡带和驱动块",
-    "description": "把弧盘、卡带、驱动块合并为装备入口，统一查看角色养成、空幕套装和拼图格规则。",
+    "description": "同步异环工坊弧盘、卡带和驱动块图鉴，统一查看角色养成、空幕套装和拼图格规则。",
     "status": "已收录",
-    "count": "44 / 12 / 20格",
+    "count": "44 / 12 / 12",
     "tone": "navy",
-    "highlights": ["弧盘：44 件，含 S/A/B 稀有度", "卡带：12 套，含元素专属和通用套装", "驱动块：空幕 4x5 共 20 格"],
+    "highlights": [
+      "弧盘：44 件，含 S/A/B 稀有度和实图",
+      "卡带：12 套，含 2/4 件套效果",
+      "驱动块：12 个图鉴条目，按空幕 4x5 使用"
+    ],
     "children": [
-      { "slug": "arc-disc-catalog", "name": "弧盘", "count": "44" },
-      { "slug": "cassette-catalog", "name": "卡带", "count": "12" },
-      { "slug": "drive-block-catalog", "name": "驱动块", "count": "20格" }
+      {
+        "slug": "arc-disc-catalog",
+        "name": "弧盘",
+        "count": "44"
+      },
+      {
+        "slug": "cassette-catalog",
+        "name": "卡带",
+        "count": "12"
+      },
+      {
+        "slug": "drive-block-catalog",
+        "name": "驱动块",
+        "count": "12"
+      }
     ]
   },
   {
@@ -52,11 +80,27 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "blue",
-    "highlights": ["城市配送", "海钓 / 拍照", "家具材料"],
+    "highlights": [
+      "城市配送",
+      "海钓 / 拍照",
+      "家具材料"
+    ],
     "children": [
-      { "slug": "housing", "name": "房产", "count": "待补" },
-      { "slug": "garage", "name": "车库", "count": "待补" },
-      { "slug": "yika-house", "name": "一咖舍", "count": "待补" }
+      {
+        "slug": "housing",
+        "name": "房产",
+        "count": "待补"
+      },
+      {
+        "slug": "garage",
+        "name": "车库",
+        "count": "待补"
+      },
+      {
+        "slug": "yika-house",
+        "name": "一咖舍",
+        "count": "待补"
+      }
     ]
   },
   {
@@ -67,7 +111,11 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "cream",
-    "highlights": ["浔 好感互动", "赠礼收集", "约会事件"]
+    "highlights": [
+      "浔 好感互动",
+      "赠礼收集",
+      "约会事件"
+    ]
   },
   {
     "slug": "pink-paws",
@@ -77,7 +125,11 @@
     "status": "已收录",
     "count": "11点",
     "tone": "pink",
-    "highlights": ["办公层 4 个撤离点", "藏品层 4 个撤离点", "金库层 3 个撤离点"]
+    "highlights": [
+      "办公层 4 个撤离点",
+      "藏品层 4 个撤离点",
+      "金库层 3 个撤离点"
+    ]
   },
   {
     "slug": "daily-weekly",
@@ -87,6 +139,10 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "cyan",
-    "highlights": ["每日任务", "每周目标", "限时活动任务"]
+    "highlights": [
+      "每日任务",
+      "每周目标",
+      "限时活动任务"
+    ]
   }
 ]

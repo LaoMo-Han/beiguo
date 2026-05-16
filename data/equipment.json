@@ -1,6 +1,14 @@
 {
-  "updated": "2026-05-16",
+  "updated": "2026-05-17",
   "sources": [
+    {
+      "name": "TapTap 异环工坊",
+      "url": "https://www.taptap.cn/tools/28170"
+    },
+    {
+      "name": "异环工坊 H5",
+      "url": "https://yh-h5.gamefun66.com/"
+    },
     {
       "name": "BWiki 弧盘图鉴",
       "url": "https://wiki.biligame.com/yh/%E8%A3%85%E5%A4%87%E5%9B%BE%E9%89%B4"
@@ -12,586 +20,729 @@
   ],
   "arcDiscs": [
     {
-      "name": "勿忘伞",
-      "rarity": "A",
-      "category": "聚合",
-      "effect": "「雨人」",
-      "description": "生命值提升10.00%。 当装备者生命值高于50%的时候，自身获得10.00%护盾强化。 记得睡觉，记得看天气预报；记得吃饭，记得出门带伞。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/9/96/hmgwiko0u39vxpv7ghun7t5sfwaa422.png/100px-%E5%8B%BF%E5%BF%98%E4%BC%9E.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%8B%BF%E5%BF%98%E4%BC%9E"
-    },
-    {
-      "name": "当心头顶",
-      "rarity": "A",
-      "category": "气态",
-      "effect": "「诡面筝」",
-      "description": "装备者释放「变轨技能」后攻击力提高10.00%，且对受到「延滞」和「浸染」影响的单位造成的相属性异能伤害提高10.00%，持续15秒，该效果无法叠加。 嘻嘻嘻……别怕，不过是一只爱笑的风筝而已……",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/a/a8/1lw5smrcvf6d5rni180bafwcc8xoyqt.png/100px-%E5%BD%93%E5%BF%83%E5%A4%B4%E9%A1%B6.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%BD%93%E5%BF%83%E5%A4%B4%E9%A1%B6"
-    },
-    {
-      "name": "良药苦口",
-      "rarity": "A",
-      "category": "聚合",
-      "effect": "「苦蛋糕」",
-      "description": "装备者受到攻击时，自身防御力提升26.00，持续10秒，20秒内最多触发一次。 些许的苦涩，但也会给你好心情，不是吗？",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/a/a2/ivkj3l5lpphwr7ecu49kmmppi0a58or.png/100px-%E8%89%AF%E8%8D%AF%E8%8B%A6%E5%8F%A3.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E8%89%AF%E8%8D%AF%E8%8B%A6%E5%8F%A3"
-    },
-    {
-      "name": "扭曲之城的呼唤",
-      "rarity": "A",
-      "category": "液态",
-      "effect": "「瓦楞城堡」",
-      "description": "装备者释放「变轨技能」后，自身治疗效率提升12.00%，持续10秒，该效果不可叠加。 当世界开始扭曲，发出无人能解的呐喊，又有谁能维持理智?",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/e/e8/h48bk76hku5brpehq9qmnkeap8zpidl.png/100px-%E6%89%AD%E6%9B%B2%E4%B9%8B%E5%9F%8E%E7%9A%84%E5%91%BC%E5%94%A4.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%89%AD%E6%9B%B2%E4%B9%8B%E5%9F%8E%E7%9A%84%E5%91%BC%E5%94%A4"
-    },
-    {
-      "name": "挂你在心口难开",
-      "rarity": "A",
-      "category": "气态",
-      "effect": "「蜘识藏家」",
-      "description": "装备者通过「普通攻击」造成伤害可使自身获得1层「蜘识」，最多叠加8层，每0.5秒最多获得1层「蜘识」。装备者释放「极轨终结」时消耗所有「蜘识」，每消耗1层「蜘识」可以让全队在10秒内攻击力提升1.00%；若消耗的「蜘识」数量为8，则额外使全队攻击力提升2.00%。 当你在老师的眼睛里看到红光，那一般代表你要挂科了。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/d/d7/db3kdo7jnlax3jhqxis6nnf88mj2d5k.png/100px-%E6%8C%82%E4%BD%A0%E5%9C%A8%E5%BF%83%E5%8F%A3%E9%9A%BE%E5%BC%80.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%8C%82%E4%BD%A0%E5%9C%A8%E5%BF%83%E5%8F%A3%E9%9A%BE%E5%BC%80"
-    },
-    {
-      "name": "该死的邂逅",
-      "rarity": "A",
-      "category": "聚合",
-      "effect": "「团三郎」",
-      "description": "当队伍中与装备者异能属性相同的角色数量大于等于3个(包含自身),所有该异能属性的角色倾陷强度提升70，通过该途径获得的倾陷强度提升不可叠加。 见到你的第一眼，无法抗拒被夺走视线。柔软的毛发，脸上的狡黠，入迷许久，等到你离开后才发现——我烤串呢?",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/7/7e/06yin7srikbs71ehrikp3p86grebgvl.png/100px-%E8%AF%A5%E6%AD%BB%E7%9A%84%E9%82%82%E9%80%85.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E8%AF%A5%E6%AD%BB%E7%9A%84%E9%82%82%E9%80%85"
-    },
-    {
-      "name": "被遗忘者",
-      "rarity": "A",
-      "category": "固态",
-      "effect": "「无画框」",
-      "description": "装备者生命值高于50%的时候攻击力提高20.00%;生命值低于50%的时候，防御力提高20.00%。 即使是那些传世作品的陪衬，但......我也是很漂亮的,对吗?",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/7/78/p3h8uwjazpj5zr5nhgj53f8xjbtvvjf.png/100px-%E8%A2%AB%E9%81%97%E5%BF%98%E8%80%85.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E8%A2%AB%E9%81%97%E5%BF%98%E8%80%85"
-    },
-    {
-      "name": "拔刀",
-      "rarity": "A",
-      "category": "等离子",
-      "effect": "「血染妖刀」",
-      "description": "装备者触发承轨反击时额外附带一次200.00%攻击力的咒属性异能伤害。 孤月，墨云。刃出，魂归。色褪，刃泣。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/6/68/bxoh5jwaukrqvyb23g19om72gndvdgc.png/100px-%E6%8B%94%E5%88%80.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%8B%94%E5%88%80"
-    },
-    {
-      "name": "终有时",
-      "rarity": "A",
-      "category": "聚合",
-      "effect": "「起潮洄天」",
-      "description": "当编队存在不少于3个不同异能属性的时候，装备者获得10.00%攻击力，10.00%防御力,10.00%生命值。 自天而下，重归于天。相信着那命中注定的一日，我们跃入这看不见终点的洄游。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b1/arjdxmulcvl5qe68ngbuux2210j9598.png/100px-%E7%BB%88%E6%9C%89%E6%97%B6.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%BB%88%E6%9C%89%E6%97%B6"
-    },
-    {
-      "name": "时间大盗",
-      "rarity": "A",
-      "category": "固态",
-      "effect": "「撬撬」",
-      "description": "装备者释放「变轨技能」后，倾陷强度提升90，持续10秒，该效果不可叠加。可使用调弧.「撬撬」。调弧.「撬撬」：召唤「撬撬」，打开周围所有可以撬锁的物体。 时间就像海绵旁的水——一不留神就没了。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b5/62ck57nb10b6us31i7kq08lo16pv2tf.png/100px-%E6%97%B6%E9%97%B4%E5%A4%A7%E7%9B%97.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%97%B6%E9%97%B4%E5%A4%A7%E7%9B%97"
-    },
-    {
-      "name": "闪耀的每一天",
-      "rarity": "A",
-      "category": "液态",
-      "effect": "「胶卷-MANISHI」",
-      "description": "倾陷强度提升48。 装备者攻击倾陷单位造成的伤害提升10.00%。 捕捉闪耀的朋间，在梦中都要继续。后悔从来都 不会是美好的，你也并非是孤单一人。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/ba/ffwpf0ubmkacmj5pq0e6txkcdepuvhr.png/100px-%E9%97%AA%E8%80%80%E7%9A%84%E6%AF%8F%E4%B8%80%E5%A4%A9.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E9%97%AA%E8%80%80%E7%9A%84%E6%AF%8F%E4%B8%80%E5%A4%A9"
-    },
-    {
-      "name": "愚者种春",
-      "rarity": "A",
-      "category": "聚合",
-      "effect": "「夏刑草」",
-      "description": "当装备者具有护盾的时候，攻击力提升18.00%。 假如我是一只蝉，我也会用嘶哑的喉咙歌唱。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/3/3a/77k4yijxxk3mxcav75y5kopynxlcuom.png/100px-%E6%84%9A%E8%80%85%E7%A7%8D%E6%98%A5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%84%9A%E8%80%85%E7%A7%8D%E6%98%A5"
-    },
-    {
-      "name": "欧拉欧拉！",
-      "rarity": "A",
-      "category": "等离子",
-      "effect": "「欧拉拳套」",
-      "description": "装备者每次「普通攻击」造成伤害后109秒内，自身「普通攻击」伤害提升（1.60+0.40*混频强度阶数）%，最多叠加10层，每层效果单独结算持续时间。据说在遥远地方，欧拉拳套有一个远方表弟，叫做「木大拳套」",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/7/7e/kytv3cwelgx7a87w0ypohyespddb0u9.png/100px-%E6%AC%A7%E6%8B%89%E6%AC%A7%E6%8B%89%EF%BC%81.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%AC%A7%E6%8B%89%E6%AC%A7%E6%8B%89%EF%BC%81"
-    },
-    {
-      "name": "开始净空",
-      "rarity": "A",
-      "category": "液态",
-      "effect": "「纸翼战队」",
-      "description": "装备者的「变轨技能」和「极轨终结」造成的灵属性异能伤害提升20.00%。 战斗队形已确认，准备夺取制空权。by 千手扉间",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/c/cd/arnepmruqmukun0vhxm5ljm8ab7vksq.png/100px-%E5%BC%80%E5%A7%8B%E5%87%80%E7%A9%BA.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%BC%80%E5%A7%8B%E5%87%80%E7%A9%BA"
-    },
-    {
-      "name": "光波眩晕，迷走狂欢",
-      "rarity": "A",
-      "category": "气态",
-      "effect": "「波普」",
-      "description": "装备者释放「援护技」后10秒内，造成的伤害提高18.00%。每20秒最多触发一次。 Masterpiece made by「Pop Re-Creator」！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/a/a9/0darpi2z8jznp5zt4zirjcqohz9uhfo.png/100px-%E5%85%89%E6%B3%A2%E7%9C%A9%E6%99%95%EF%BC%8C%E8%BF%B7%E8%B5%B0%E7%8B%82%E6%AC%A2.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%85%89%E6%B3%A2%E7%9C%A9%E6%99%95%EF%BC%8C%E8%BF%B7%E8%B5%B0%E7%8B%82%E6%AC%A2"
-    },
-    {
-      "name": "灵感大逃杀",
-      "rarity": "A",
-      "category": "液态",
-      "effect": "「灵感终结者」",
-      "description": "装备者释放「变轨技能」后，自身获得10点终结能量，该效果每20秒最多触发一次。 灵感像薯片，咔滋咔滋，留下一地碎屑，没有理由。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/ba/sceouuappu9h5rx53udu99u24olcce8.png/100px-%E7%81%B5%E6%84%9F%E5%A4%A7%E9%80%83%E6%9D%80.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%81%B5%E6%84%9F%E5%A4%A7%E9%80%83%E6%9D%80"
-    },
-    {
-      "name": "「我们。」",
-      "rarity": "B",
-      "category": "等离子",
-      "effect": "「原核体」",
-      "description": "装备者普通攻击造成的伤害提高12.00%。 我是、你……是……你，是……它、是……我……不，我——是，我们。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b1/0xwtff05rxv0vmzu10w1fs17ijsph9b.png/100px-%E3%80%8C%E6%88%91%E4%BB%AC%E3%80%82%E3%80%8D.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E3%80%8C%E6%88%91%E4%BB%AC%E3%80%82%E3%80%8D"
-    },
-    {
-      "name": "「电音」狂欢",
-      "rarity": "B",
-      "category": "液态",
-      "effect": "「附电灵」",
-      "description": "装备者「变轨技能」造成的伤害提高12.00%。 哪有电音？附电灵发出来的声音怎么不算「电音」呢？",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/3/36/hej7gcwefumxi7jfbvgaryirrb43mjh.png/100px-%E3%80%8C%E7%94%B5%E9%9F%B3%E3%80%8D%E7%8B%82%E6%AC%A2.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E3%80%8C%E7%94%B5%E9%9F%B3%E3%80%8D%E7%8B%82%E6%AC%A2"
-    },
-    {
-      "name": "成功的第一步",
-      "rarity": "B",
-      "category": "固态",
-      "effect": "「诺诺斯」",
-      "description": "装备者释放「变轨技能」后，自身攻击力提升12.00%，持续10秒，20秒内最多触发一次。 优良的自我管理是走上成功道路的第一步。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/c/cc/k27ciq7smtr3lygwesy6raag3sqvkqw.png/100px-%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5"
-    },
-    {
-      "name": "危险游戏",
-      "rarity": "B",
-      "category": "聚合",
-      "effect": "「分解者」",
-      "description": "装备者削减倾陷值时，自身提高60倾陷强度，持续10秒，20秒内最多触发一次。 我跟你打个赌，输的人要吃土。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/bc/noa67hr5ck3eg17dctrhv85j3vva9sc.png/100px-%E5%8D%B1%E9%99%A9%E6%B8%B8%E6%88%8F.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%8D%B1%E9%99%A9%E6%B8%B8%E6%88%8F"
-    },
-    {
-      "name": "笑口常开",
-      "rarity": "B",
-      "category": "气态",
-      "effect": "「抱抱藤」",
-      "description": "装备者击杀敌人时，回复自身12.00%生命值，20秒内最多触发一次。 嗯？你怎么不笑呢？",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/2/2e/fpr2nkw7s0joc5gtxgee49p9e0q8yhk.png/100px-%E7%AC%91%E5%8F%A3%E5%B8%B8%E5%BC%80.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%AC%91%E5%8F%A3%E5%B8%B8%E5%BC%80"
-    },
-    {
-      "name": "「倾世之雨」",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「极漩」",
-      "description": "装备者的「变轨技能」和「极轨终结」造成的光属性异能伤害增加30.00%。装备者释放「变轨技能」后，自身环合强度增加36，持续15秒，重复触发刷新持续时间。在一场让世界颠倒的雨中出现[零]装备时，可改变武器外观。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/0/0a/5c279k5ovqyjjv4e12t3otp2i0rhlkg.png/100px-%E3%80%8C%E5%80%BE%E4%B8%96%E4%B9%8B%E9%9B%A8%E3%80%8D.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E3%80%8C%E5%80%BE%E4%B8%96%E4%B9%8B%E9%9B%A8%E3%80%8D"
-    },
-    {
-      "name": "茶花会",
-      "rarity": "S",
-      "category": "气态",
-      "effect": "「静默庭园」",
-      "description": "装备者在未受到伤害的情况下降低血量后5秒内获得16%暴击伤害提高，至多叠加4次；可使用调弧·「静默庭园」。 调弧·「静默庭园」：扣除自身5.00%当前生命值，随机释放一些一种攻击（冷却时间25秒）： 厉声呵斥：不留情面的呵斥如暴雨中的落叶接二连三，对目标造成5次40.00%攻击力的咒系伤害。 喋喋不休：尖锐刻薄的话语如荆棘般不断刺穿目标，对目标连续造成6次基础伤害为30.00%攻击力的咒系伤害，最后一次攻击造成双倍伤害。 虽然不被允许把失态暴露在花瓣上……那句花可真是深深刺伤我了。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b9/h7iq14tui5l0jd2muzvha7ci2pb6k0y.png/100px-%E8%8C%B6%E8%8A%B1%E4%BC%9A.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E8%8C%B6%E8%8A%B1%E4%BC%9A"
-    },
-    {
-      "name": "「银河暂留」",
+      "name": "银河暂留",
       "rarity": "S",
       "category": "等离子",
       "effect": "「水星图」",
-      "description": "装备者造成的魂属性异能伤害增加12.00%。 装备者造成魂属性异能伤害的时候，自身暴击 伤害提高2.00%，持续5秒,最多叠加10层， 每0.1秒最多叠加一层。 太阳升起后，消失的群星只是回到了它们启程的 地方。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/e/e9/2vuornv6vbqymboqefu513bnr16ufox.png/100px-%E3%80%8C%E9%93%B6%E6%B2%B3%E6%9A%82%E7%95%99%E3%80%8D.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E3%80%8C%E9%93%B6%E6%B2%B3%E6%9A%82%E7%95%99%E3%80%8D"
+      "description": "装备者造成的魂属性异能伤害增加12.00%。 装备者造成魂属性异能伤害的时候，自身暴击 伤害提高2.00%，持续5秒,最多叠加10层， 每0.1秒最多叠加一层。 太阳升起后，消失的群星只是回到了它们启程的 地方。 工坊描述：太阳升起后，消失的群星只是回到了它们启程的地方。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202604/8214ef35-cf98-4bb2-b197-d8094df92236.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0044"
     },
     {
-      "name": "极速之棉",
+      "name": "倾世之雨",
       "rarity": "S",
-      "category": "液态",
-      "effect": "「机车糖」",
-      "description": "当装备者为当前控制角色时，每1秒获得5.00%攻击力提升，该效果最多叠加5层，装备者离场后清零。 猎人公会纪念版弧盘一焰魂狂「毛」!",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/c/cd/id5l641rz7t0gennugw156r7kgsczee.png/100px-%E6%9E%81%E9%80%9F%E4%B9%8B%E6%A3%89.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%9E%81%E9%80%9F%E4%B9%8B%E6%A3%89"
+      "category": "固态",
+      "effect": "「极漩」",
+      "description": "装备者的「变轨技能」和「极轨终结」造成的光属性异能伤害增加30.00%。装备者释放「变轨技能」后，自身环合强度增加36，持续15秒，重复触发刷新持续时间。在一场让世界颠倒的雨中出现[零]装备时，可改变武器外观。 工坊描述：在一场让世界颠倒的雨中出现。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202604/a989c920-3500-4e7f-839f-15c0264a16e0.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0043"
     },
     {
-      "name": "漆黑青春妄想",
-      "rarity": "S",
-      "category": "液态",
-      "effect": "「黑之书」",
-      "description": "倾陷强度提升60。 常态下调弧「黑之书」被两根锁链封锁，每当队伍中任意角色释放「援护技」时，可以解除一根锁链，两根锁链全部解除后可使用调弧「黑之书」：召唤黑之书，黑之书存在于场上20秒，每5秒指定一个敌人，装备者对被指定的敌人造成的暗属性异能伤害提高20.00%。当被指定的敌人受到倾陷伤害的时候，黑之书对其造成装备者200.00%攻击力的暗属性异能伤害。 「秘密」——当它被记录下来的那一刻，就已经被所有人看见了。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/1/1c/55iqg8aryr4cr0x49nbey1ce5p4v1id.png/100px-%E6%BC%86%E9%BB%91%E9%9D%92%E6%98%A5%E5%A6%84%E6%83%B3.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%BC%86%E9%BB%91%E9%9D%92%E6%98%A5%E5%A6%84%E6%83%B3"
-    },
-    {
-      "name": "焰魂狂飙",
-      "rarity": "S",
-      "category": "等离子",
-      "effect": "「无首铁驭」",
-      "description": "相属性异能伤害提升（12.50+2.50*混频强度阶数）%。 释放「极轨终结」后，装备者「变轨技能」和「极轨终结」造成伤害提升（7.50+2.50*混频强度阶数）%，持续10秒。效果生效期间，每次释放「变轨技能」，装备者的「变轨技能」造成伤害提升（4.00+1.00*混频强度阶数）%，通过这一方式获得的伤害提升最多叠加两次。 流淌于吾之体内的是对速度的渴望、轰鸣于吾之胸膛的是引擎的咆哮！来吧，来吧！踏上这以速度之魂相赌的赛道！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/8/83/lss4m5imozuq75fi978i9tjiq7qwr33.png/100px-%E7%84%B0%E9%AD%82%E7%8B%82%E9%A3%99.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%84%B0%E9%AD%82%E7%8B%82%E9%A3%99"
-    },
-    {
-      "name": "「最后一朵玫瑰」",
+      "name": "最后一朵玫瑰",
       "rarity": "S",
       "category": "液态",
       "effect": "「落拓玫瑰」",
-      "description": "攻击力提高14.00%。 装备者每次造成持续伤害时获得一层「暗棘」，暴击伤害提高6.00%，持续3秒，每0.3秒最多触发1次，至多叠加10层，重复触发刷新持续时间；当装备者释放 变轨技能」的时候，会立刻获得10层「暗棘」。 当装备者对处于倾陷状态的敌人造成伤害的时候，会让敌人的倾陷状态延长3秒。(单次倾陷效果内最多触发一次。) 水面上，最后一朵玫瑰独自绽放，她在等待——等待亲爱的朋友或一片无边的梦到来。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/0/04/mxoe0boudevmkd5my3qqf72eb1oyugf.png/100px-%E3%80%8C%E6%9C%80%E5%90%8E%E4%B8%80%E6%9C%B5%E7%8E%AB%E7%91%B0%E3%80%8D.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E3%80%8C%E6%9C%80%E5%90%8E%E4%B8%80%E6%9C%B5%E7%8E%AB%E7%91%B0%E3%80%8D"
-    },
-    {
-      "name": "休息日",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「日蚀」",
-      "description": "装备者的攻击力提升30.00%，可使用调弧·「日蚀」。 调弧·「日蚀」：装备者可暂时利用日蚀的能力创造一场持续40秒的日蚀。在日蚀持续期间，装备者每击杀一名敌方单位可恢复6点终结能量，持续时间内最多触发5次。（冷却时间300秒）。 日蚀说，要有双休。 于是就有了双休（日蚀专属版）。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/4/42/evyexhb94t2ea4k64rv43e5cluvfesx.png/100px-%E4%BC%91%E6%81%AF%E6%97%A5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E4%BC%91%E6%81%AF%E6%97%A5"
-    },
-    {
-      "name": "凶猛之绵",
-      "rarity": "S",
-      "category": "聚合",
-      "effect": "「骑士糖」",
-      "description": "装备者每次造成暴击后自身暴击伤害提高4.00%，持续10秒，最多叠加10层，重复触发刷新持续时间。 猎人工会纪念版弧盘——将无用之物全部舍弃……",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/8/84/qc3lem1xwymcucqp4ox5xqr0yw3i97i.png/100px-%E5%87%B6%E7%8C%9B%E4%B9%8B%E7%BB%B5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%87%B6%E7%8C%9B%E4%B9%8B%E7%BB%B5"
-    },
-    {
-      "name": "现实避难所",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「斑蝶」",
-      "description": "灵属性异能伤害提升15.00%。 装备者的附着物伤害提升10.00%，释放「极轨终结」时，附着物伤害提升效果变为20.00%，持续6秒，该效果不可叠加。 她告诉我，其实我只是一只蝴蝶。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/a/af/q4mt27dkjcy31fqhuu58xfohzuqb3bz.png/100px-%E7%8E%B0%E5%AE%9E%E9%81%BF%E9%9A%BE%E6%89%80.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%8E%B0%E5%AE%9E%E9%81%BF%E9%9A%BE%E6%89%80"
-    },
-    {
-      "name": "引爆全场",
-      "rarity": "S",
-      "category": "气态",
-      "effect": "「音霸魔王」",
-      "description": "装备者位于后台时，当前控制的角色攻击力提高10.00%，且装备者每次造成伤害都会使当前角色攻击力提高2.00%，最多叠加4层，每2秒最多叠加1次，当装备者切换为当前控制角色时候，该效果消失。 当装备者为当前控制角色时，魂属性异能伤害提升12.00%，且每次「普通攻击」造成魂属性异能伤害都会使自身魂属性异能伤害提升2.00%，最多叠加10层，每0.3秒最多触发1次，切换角色时效果消失。 嘘......要来了，要来了！要！来！！了！！！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/7/74/d792syd8oa0k3oimxh4a9ae5ximsk97.png/100px-%E5%BC%95%E7%88%86%E5%85%A8%E5%9C%BA.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%BC%95%E7%88%86%E5%85%A8%E5%9C%BA"
-    },
-    {
-      "name": "千金难买你开心",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「纳库佩达」",
-      "description": "生命值提高24.00%。 装备者释放「极轨终结」时，获得以下随机一个效果: 1.使队伍中血量百分比最低的角色回复其20.00%最大生命值。 2.获得一个装备者20.00%最大生命值的护盾，持续15秒。 3.使全队角色回复10.00%生命值。 该效果每30秒最多触发一次。 嗯，嗯嗯嗯，嗯嗯嗯嗯嗯嗯嗯嗯！（方斯给我，你开心，我也开心！）",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/3/3d/iqiefhcsk752pathkntxisx80a4rnr0.png/100px-%E5%8D%83%E9%87%91%E9%9A%BE%E4%B9%B0%E4%BD%A0%E5%BC%80%E5%BF%83.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%8D%83%E9%87%91%E9%9A%BE%E4%B9%B0%E4%BD%A0%E5%BC%80%E5%BF%83"
-    },
-    {
-      "name": "海特洛的安宁",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「通行正义」",
-      "description": "攻击力提高15.00%。 对boss单位造成的伤害提高15.00%。 可使用调弧·「巡哨鼠鼠」。 调弧·「巡哨鼠鼠」：召唤「巡哨鼠鼠」协助作战，「巡哨鼠鼠」持续攻击造成伤害，每次攻击造成装备者100.00%的伤害。持续30秒，冷却时间60秒。 再一次的，一天平安度过了。感谢巡哨鼠鼠的努力！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/2/20/q0rgh9v7r41xqh35m0ovfv261es4nqj.png/100px-%E6%B5%B7%E7%89%B9%E6%B4%9B%E7%9A%84%E5%AE%89%E5%AE%81.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%B5%B7%E7%89%B9%E6%B4%9B%E7%9A%84%E5%AE%89%E5%AE%81"
-    },
-    {
-      "name": "思考喵",
-      "rarity": "S",
-      "category": "气态",
-      "effect": "「玛门」",
-      "description": "装备者每持有100000方斯，光属性异能伤害提高2.50%，最多叠加10层。 生命的意义……存在的理由……宇宙的答案是——4……毛线团！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b8/axfjdmt6cwvii91d9cqd290zo1pmd6s.png/100px-%E6%80%9D%E8%80%83%E5%96%B5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%80%9D%E8%80%83%E5%96%B5"
-    },
-    {
-      "name": "鲸之歌",
-      "rarity": "S",
-      "category": "等离子",
-      "effect": "「深蓝之恸」",
-      "description": "攻击力提高12.00%。 装备者对处于倾陷状态下的敌人造成的伤害提高12.00%，如果敌人在倾陷状态下被击杀，则回复装备者30.00%生命值，该效果30秒内最多触发1次。 翻涌的浪潮是它的诀别诗。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/2/2b/bnbrk5ssq4dfbf2ahywkzbeqh43l9df.png/100px-%E9%B2%B8%E4%B9%8B%E6%AD%8C.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E9%B2%B8%E4%B9%8B%E6%AD%8C"
-    },
-    {
-      "name": "无畏之绵",
-      "rarity": "S",
-      "category": "固态",
-      "effect": "「爆炸糖」",
-      "description": "装备者释放「极轨终结」后，自身攻击力提高25.00%，持续10秒。该效果不可叠加。 猎人工会纪念版弧盘——真绵糖从不回头看爆炸。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/e/e2/o2lnm06zrvegktmsrs175k9xklkmiof.png/100px-%E6%97%A0%E7%95%8F%E4%B9%8B%E7%BB%B5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%97%A0%E7%95%8F%E4%B9%8B%E7%BB%B5"
-    },
-    {
-      "name": "永恒圆舞曲",
-      "rarity": "S",
-      "category": "聚合",
-      "effect": "「阿拉克涅」",
-      "description": "生命值提高20%。 装备者释放「极轨终结」以后，自身造成的心灵伤害提高10%，持续10秒。 与我一同跳起3/4拍的舞步，感受世界末日般的晕眩感，直到永远！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/ba/t84qy84zaqfdurz80nioyh8ejlm1qkk.png/100px-%E6%B0%B8%E6%81%92%E5%9C%86%E8%88%9E%E6%9B%B2.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E6%B0%B8%E6%81%92%E5%9C%86%E8%88%9E%E6%9B%B2"
-    },
-    {
-      "name": "灵敏之绵",
-      "rarity": "S",
-      "category": "气态",
-      "effect": "「盗贼糖」",
-      "description": "装备者每次极限闪避后自身造成的伤害提高8.00%，持续10秒，最多叠加3层，重复触发刷新持续时间。 猎人工会纪念版弧盘——邂逅并不总是美好的……",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/0/07/g3a068qke9ro6j14rmugzxlevvyj0mo.png/100px-%E7%81%B5%E6%95%8F%E4%B9%8B%E7%BB%B5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E7%81%B5%E6%95%8F%E4%B9%8B%E7%BB%B5"
+      "description": "攻击力提高14.00%。 装备者每次造成持续伤害时获得一层「暗棘」，暴击伤害提高6.00%，持续3秒，每0.3秒最多触发1次，至多叠加10层，重复触发刷新持续时间；当装备者释放 变轨技能」的时候，会立刻获得10层「暗棘」。 当装备者对处于倾陷状态的敌人造成伤害的时候，会让敌人的倾陷状态延长3秒。(单次倾陷效果内最多触发一次。) 水面上，最后一朵玫瑰独自绽放，她在等待——等待亲爱的朋友或一片无边的梦到来。 工坊描述：水面上，最后一朵玫瑰独自绽放，她在等待——等待亲爱的朋友或一片无边的梦到来。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/493a1055-4ff6-47c4-b289-b17c05973cde.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0042"
     },
     {
       "name": "预备备",
       "rarity": "S",
       "category": "等离子",
       "effect": "「司令虎符」",
-      "description": "攻击力提高15.00%。 释放「变轨技能」或「极轨终结」使自身的「普通攻击」和「极限反击」造成伤害提高15.00%，持续15秒，该效果最多叠加2层。 释放「变轨技能」可以获得“左虎符”，释放「极轨终结」可以获得“右虎符”。 若在获得一种虎符的15秒内获得另一种虎符，则可以使用调弧：「司令虎符」。 调弧·「司令虎符」：装备者对Boss单位造成的伤害提升10.00%，持续10秒。 握住我，抱着超越死亡的勇气与决心——向您致敬，伟大的猛虎将士。 [娜娜莉]装备并使用调弧，可改变角色外观。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/2/28/bkdjmc85yme2h0yzi8vnprgsdf5y5ze.png/100px-%E9%A2%84%E5%A4%87%E5%A4%87.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E9%A2%84%E5%A4%87%E5%A4%87"
+      "description": "攻击力提高15.00%。 释放「变轨技能」或「极轨终结」使自身的「普通攻击」和「极限反击」造成伤害提高15.00%，持续15秒，该效果最多叠加2层。 释放「变轨技能」可以获得“左虎符”，释放「极轨终结」可以获得“右虎符”。 若在获得一种虎符的15秒内获得另一种虎符，则可以使用调弧：「司令虎符」。 调弧·「司令虎符」：装备者对Boss单位造成的伤害提升10.00%，持续10秒。 握住我，抱着超越死亡的勇气与决心——向您致敬，伟大的猛虎将士。 [娜娜莉]装备并使用调弧，可改变角色外观。 工坊描述：握住我，抱着超越死亡的勇气与决心——向您致敬，伟大的猛虎将士。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/fb0dfc6b-ea58-4426-b12e-2b6e749cc5a4.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0041"
     },
     {
-      "name": "面具下的泪",
+      "name": "永恒圆舞曲",
       "rarity": "S",
-      "category": "气态",
-      "effect": "「囿巢鸟」",
-      "description": "装备者释放「极轨终结」命中的敌人会被赋予标记「警告视线」，被标记的敌人造成的伤害降低18%，持续20秒，该效果不可叠加。 谁偷走了我的孩子？是你，是他，还是……",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b3/13nwm3np3wezazt3cuujopbuf17xahi.png/100px-%E9%9D%A2%E5%85%B7%E4%B8%8B%E7%9A%84%E6%B3%AA.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E9%9D%A2%E5%85%B7%E4%B8%8B%E7%9A%84%E6%B3%AA"
+      "category": "聚合",
+      "effect": "「阿拉克涅」",
+      "description": "灵值提高20%。 装备者释放「极轨终结」以后，自身造成的心灵伤害提高10%，持续10秒。 与我一同跳起3/4拍的舞步，感受世界末日般的晕眩感，直到永远！ 工坊描述：与我一同跳起3/4拍的舞步，感受仿佛世界末日般的晕眩感，直至永远!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/ea7086fd-723c-4d52-a1f0-fda732c15dee.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0040"
+    },
+    {
+      "name": "引爆全场",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「音霸魔王」",
+      "description": "装备者位于后台时，当前控制的角色攻击力提高10.00%，且装备者每次造成伤害都会使当前角色攻击力提高2.00%，最多叠加4层，每2秒最多叠加1次，当装备者切换为当前控制角色时候，该效果消失。 当装备者为当前控制角色时，魂属性异能伤害提升12.00%，且每次「普通攻击」造成魂属性异能伤害都会使自身魂属性异能伤害提升2.00%，最多叠加10层，每0.3秒最多触发1次，切换角色时效果消失。 嘘......要来了，要来了！要！来！！了！！！ 工坊描述：嘘......要来了，要来了!要!来!!了!!!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/1cff95c1-deb5-443d-9747-3f5f84aa72ff.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0039"
+    },
+    {
+      "name": "焰魂狂飙",
+      "rarity": "S",
+      "category": "等离子",
+      "effect": "「无首铁驭」",
+      "description": "相属性异能伤害提升（12.50+2.50*混频强度阶数）%。 释放「极轨终结」后，装备者「变轨技能」和「极轨终结」造成伤害提升（7.50+2.50*混频强度阶数）%，持续10秒。效果生效期间，每次释放「变轨技能」，装备者的「变轨技能」造成伤害提升（4.00+1.00*混频强度阶数）%，通过这一方式获得的伤害提升最多叠加两次。 流淌于吾之体内的是对速度的渴望、轰鸣于吾之胸膛的是引擎的咆哮！来吧，来吧！踏上这以速度之魂相赌的赛道！ 工坊描述：流淌于吾之体内的是对速度的渴望、轰鸣于吾之胸腔的是引擎的咆哮!来吧，来吧!踏上这以速度之魂相赌的赛道!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/7fb4fbd0-30fa-4051-9f74-503f4faa83bd.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0038"
+    },
+    {
+      "name": "休息日",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「日蚀」",
+      "description": "装备者的攻击力提升30.00%，可使用调弧·「日蚀」。 调弧·「日蚀」：装备者可暂时利用日蚀的能力创造一场持续40秒的日蚀。在日蚀持续期间，装备者每击杀一名敌方单位可恢复6点终结能量，持续时间内最多触发5次。（冷却时间300秒）。 日蚀说，要有双休。 于是就有了双休（日蚀专属版）。 工坊描述：日蚀说，要有双休。\n于是就有了双休(日蚀专属版)。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/bd86bbfe-1afe-4224-9201-3e65799fe606.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0037"
+    },
+    {
+      "name": "凶猛之绵",
+      "rarity": "S",
+      "category": "聚合",
+      "effect": "「骑士糖」",
+      "description": "装备者每次造成暴击后自身暴击伤害提高4.00%，持续10秒，最多叠加10层，重复触发刷新持续时间。 猎人工会纪念版弧盘——将无用之物全部舍弃…… 工坊描述：猎人公会纪念版弧盘——将无用之物全部舍弃……",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/85a5cfc3-a423-4255-aef2-c972c177fb87.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0036"
     },
     {
       "name": "行进于时间之外",
       "rarity": "S",
       "category": "固态",
       "effect": "「时间之外的时间」",
-      "description": "攻击力提高16.00%。 装备者释放「变轨技能」后，进入「荒时迷宫」状态并清除当前「荒时」。当装备者处于「荒时迷宫」时，队友每次释放「变轨技能」或「援护技」都将获得1层「荒时」，至多3层。当装备者处于「荒时迷宫」内释放「极轨终结」时，退出「荒时迷宫」并消耗所有「荒时」,使「极轨终结」造成的暴击伤害提升24.00%,每消耗1层「荒时」使装备者「极轨终结」造成的暴击伤害额外提升8.00%；若一次性消耗了3层「荒时」，则额外获得12.00%无视防御效果，持续3秒。 前进，是为了不落得锈蚀殆尽。",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/b/b9/47xo2qx1t42bth92c63tt74c018bttp.png/100px-%E8%A1%8C%E8%BF%9B%E4%BA%8E%E6%97%B6%E9%97%B4%E4%B9%8B%E5%A4%96.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E8%A1%8C%E8%BF%9B%E4%BA%8E%E6%97%B6%E9%97%B4%E4%B9%8B%E5%A4%96"
+      "description": "攻击力提高16.00%。 装备者释放「变轨技能」后，进入「荒时迷宫」状态并清除当前「荒时」。当装备者处于「荒时迷宫」时，队友每次释放「变轨技能」或「援护技」都将获得1层「荒时」，至多3层。当装备者处于「荒时迷宫」内释放「极轨终结」时，退出「荒时迷宫」并消耗所有「荒时」,使「极轨终结」造成的暴击伤害提升24.00%,每消耗1层「荒时」使装备者「极轨终结」造成的暴击伤害额外提升8.00%；若一次性消耗了3层「荒时」，则额外获得12.00%无视防御效果，持续3秒。 前进，是为了不落得锈蚀殆尽。 工坊描述：前进，是为了不落得锈蚀殆尽。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/43654803-c74d-445c-9ed4-9e2e3310a555.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0035"
+    },
+    {
+      "name": "现实避难所",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「斑蝶」",
+      "description": "灵属性异能伤害提升15.00%。 装备者的附着物伤害提升10.00%，释放「极轨终结」时，附着物伤害提升效果变为20.00%，持续6秒，该效果不可叠加。 她告诉我，其实我只是一只蝴蝶。 工坊描述：她告诉我，其实我只是一只蝴蝶。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/be612aed-9c52-49d2-b7e1-98f979528de7.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0034"
+    },
+    {
+      "name": "无畏之绵",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「爆炸糖」",
+      "description": "装备者释放「极轨终结」后，自身攻击力提高25.00%，持续10秒。该效果不可叠加。 猎人工会纪念版弧盘——真绵糖从不回头看爆炸。 工坊描述：猎人公会纪念版弧盘——真绵糖从不回头看爆炸。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/ca1be2b7-b311-4ed1-951b-d0315a213921.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0033"
+    },
+    {
+      "name": "思考喵",
+      "rarity": "S",
+      "category": "气态",
+      "effect": "「玛门」",
+      "description": "装备者每持有100000方斯，光属性异能伤害提高2.50%，最多叠加10层。 灵的意义……存在的理由……光的答案是——4……毛线团！ 工坊描述：生命的意义……存在的理由……宇宙的答案是4……毛线团!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/1356566c-4c0a-443a-a4b9-8e8ace519b1c.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0032"
+    },
+    {
+      "name": "千金难买你开心",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「纳库佩达」",
+      "description": "灵值提高24.00%。 装备者释放「极轨终结」时，获得以下随机一个效果: 1.使队伍中血量百分比最低的角色回复其20.00%最大灵值。 2.获得一个装备者20.00%最大灵值的护盾，持续15秒。 3.使全队角色回复10.00%灵值。 该效果每30秒最多触发一次。 嗯，嗯嗯嗯，嗯嗯嗯嗯嗯嗯嗯嗯！（方斯给我，你开心，我也开心！） 工坊描述：嗯，嗯嗯嗯，嗯嗯嗯嗯嗯嗯嗯嗯!(方斯给我，你开心，我也开心!)",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/2f71067c-015f-4fb9-82ea-65503ee019ae.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0031"
+    },
+    {
+      "name": "漆黑青春妄想",
+      "rarity": "S",
+      "category": "液态",
+      "effect": "「黑之书」",
+      "description": "倾陷强度提升60。 常态下调弧「黑之书」被两根锁链封锁，每当队伍中任意角色释放「援护技」时，可以解除一根锁链，两根锁链全部解除后可使用调弧「黑之书」：召唤黑之书，黑之书存在于场上20秒，每5秒指定一个敌人，装备者对被指定的敌人造成的暗属性异能伤害提高20.00%。当被指定的敌人受到倾陷伤害的时候，黑之书对其造成装备者200.00%攻击力的暗属性异能伤害。 「秘密」——当它被记录下来的那一刻，就已经被所有人看见了。 工坊描述：「秘密」一当它被记录下来的那一刻起，就已经被所有人看见了。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/973bd67d-6ad1-4cf2-8145-1f431340f76a.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0030"
+    },
+    {
+      "name": "面具下的泪",
+      "rarity": "S",
+      "category": "气态",
+      "effect": "「囿巢鸟」",
+      "description": "装备者释放「极轨终结」命中的敌人会被赋予标记「警告视线」，被标记的敌人造成的伤害降低18%，持续20秒，该效果不可叠加。 谁偷走了我的孩子？是你，是他，还是…… 工坊描述：谁偷走了我的孩子?是你，是他，还是......",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/1989b736-27b4-4f35-b28d-1316764ce72f.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0029"
+    },
+    {
+      "name": "灵敏之绵",
+      "rarity": "S",
+      "category": "气态",
+      "effect": "「盗贼糖」",
+      "description": "装备者每次极限闪避后自身造成的伤害提高8.00%，持续10秒，最多叠加3层，重复触发刷新持续时间。 猎人工会纪念版弧盘——邂逅并不总是美好的…… 工坊描述：猎人公会纪念版弧盘——邂逅并不总是美好的......",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/286655d5-bf7c-40af-acbf-f01dac23f707.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0028"
+    },
+    {
+      "name": "鲸之歌",
+      "rarity": "S",
+      "category": "等离子",
+      "effect": "「深蓝之恸」",
+      "description": "攻击力提高12.00%。 装备者对处于倾陷状态下的敌人造成的伤害提高12.00%，如果敌人在倾陷状态下被击杀，则回复装备者30.00%灵值，该效果30秒内最多触发1次。 翻涌的浪潮是它的诀别诗。 工坊描述：翻涌的浪潮是它的诀别诗。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/99716e5d-277f-4c31-9a23-56f63ce8f42f.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0027"
+    },
+    {
+      "name": "极速之绵",
+      "rarity": "S",
+      "category": "液态",
+      "effect": "hp0026",
+      "description": "工坊描述：猎人公会纪念版弧盘——焰魂狂「毛!」",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/b90f0c01-28de-46eb-81f3-dd15e6b382ba.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0026"
     },
     {
       "name": "好狗狗走四方",
       "rarity": "S",
       "category": "气态",
       "effect": "「墨菲克斯」",
-      "description": "充能效率提升18.00%。装备者释放「极轨终结」后20秒内，全队攻击力提升10.00%；若敌人受到该「极轨终结」的控制效果，全队额外提升6.00%攻击力。同名效果无法叠加。 你看到的是什么？长着翅膀的白狼？可爱的白色大狗？亦或是……?",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/3/33/nwtp0ltxzeqi9ey0bbcbkywnyi2xb7m.png/100px-%E5%A5%BD%E7%8B%97%E7%8B%97%E8%B5%B0%E5%9B%9B%E6%96%B9.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E5%A5%BD%E7%8B%97%E7%8B%97%E8%B5%B0%E5%9B%9B%E6%96%B9"
+      "description": "充能效率提升18.00%。装备者释放「极轨终结」后20秒内，全队攻击力提升10.00%；若敌人受到该「极轨终结」的控制效果，全队额外提升6.00%攻击力。同名效果无法叠加。 你看到的是什么？长着翅膀的白狼？可爱的白色大狗？亦或是……? 工坊描述：你看到的是什么?长着翅膀的白狼?可爱的白色大狗?亦或是......?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/392380e6-054c-48fe-837a-2230c7084768.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0025"
+    },
+    {
+      "name": "海特洛的安宁",
+      "rarity": "S",
+      "category": "固态",
+      "effect": "「通行正义」",
+      "description": "攻击力提高15.00%。 对boss单位造成的伤害提高15.00%。 可使用调弧·「巡哨鼠鼠」。 调弧·「巡哨鼠鼠」：召唤「巡哨鼠鼠」协助作战，「巡哨鼠鼠」持续攻击造成伤害，每次攻击造成装备者100.00%的伤害。持续30秒，冷却时间60秒。 再一次的，一天平安度过了。感谢巡哨鼠鼠的努力！ 工坊描述：再一次的，一天平安度过了。感谢巡哨鼠鼠的努力!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/07e2d266-4c30-4a2a-acc9-3aed20675c91.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0024"
+    },
+    {
+      "name": "茶花会",
+      "rarity": "S",
+      "category": "聚合",
+      "effect": "「静默庭园」",
+      "description": "装备者在未受到伤害的情况下降低血量后5秒内获得16%暴击伤害提高，至多叠加4次；可使用调弧·「静默庭园」。 调弧·「静默庭园」：扣除自身5.00%当前灵值，随机释放一些一种攻击（冷却时间25秒）： 厉声呵斥：不留情面的呵斥如暴雨中的落叶接二连三，对目标造成5次40.00%攻击力的咒系伤害。 喋喋不休：尖锐刻薄的话语如荆棘般不断刺穿目标，对目标连续造成6次基础伤害为30.00%攻击力的咒系伤害，最后一次攻击造成双倍伤害。 虽然不被允许把失态暴露在花瓣上……那句花可真是深深刺伤我了。 工坊描述：虽然不被允许把失态暴露在花瓣上......那句花可真是深深刺伤我了。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/71db5376-4995-40c8-87ef-be7122da3fe4.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0023"
     },
     {
       "name": "不屈之绵",
       "rarity": "S",
       "category": "等离子",
       "effect": "「拳击糖」",
-      "description": "装备者造成的伤害增加22.00%，对于生命值低于50%的敌人，该效果提升至28.00%。 猎人工会纪念版弧盘——毛啦毛啦！",
-      "image": "https://patchwiki.biligame.com/images/yh/thumb/3/3d/dnnd28y5qaan3npfw4t05edlgm3wl42.png/100px-%E4%B8%8D%E5%B1%88%E4%B9%8B%E7%BB%B5.png.jpeg",
-      "source": "https://wiki.biligame.com/yh/%E4%B8%8D%E5%B1%88%E4%B9%8B%E7%BB%B5"
+      "description": "装备者造成的伤害增加22.00%，对于灵值低于50%的敌人，该效果提升至28.00%。 猎人工会纪念版弧盘——毛啦毛啦！ 工坊描述：猎人公会纪念版弧盘——毛啦毛啦!",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/c299e5eb-71b7-47fa-bf7d-8526e7e0e321.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0022"
+    },
+    {
+      "name": "终有时",
+      "rarity": "A",
+      "category": "聚合",
+      "effect": "「起潮洄天」",
+      "description": "当编队存在不少于3个不同异能属性的时候，装备者获得10.00%攻击力，10.00%防御力,10.00%灵值。 自天而下，重归于天。相信着那命中注定的一日，我们跃入这看不见终点的洄游。 工坊描述：自天而下，重归于天。相信着那命中注定的一日，我们跃入这看不见终点的洄游。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/29010ca6-1c96-4d3c-9230-8f4b17290736.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0021"
+    },
+    {
+      "name": "愚者种春",
+      "rarity": "A",
+      "category": "聚合",
+      "effect": "「夏刑草」",
+      "description": "当装备者具有护盾的时候，攻击力提升18.00%。 假如我是一只蝉，我也会用嘶哑的喉咙歌唱。 工坊描述：假如我是一只蝉，我也会用嘶哑的喉咙歌唱。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/2e6a329d-da7c-42f5-8288-d65f676c277d.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0020"
+    },
+    {
+      "name": "勿忘伞",
+      "rarity": "A",
+      "category": "聚合",
+      "effect": "「雨人」",
+      "description": "灵值提升10.00%。 当装备者灵值高于50%的时候，自身获得10.00%护盾强化。 记得睡觉，记得看天气预报；记得吃饭，记得出门带伞。 工坊描述：记得睡觉，记得看天气预报;记得吃饭，记得出门带伞。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/44de1ae6-d4e1-4501-b54c-7a9439822bd2.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0019"
+    },
+    {
+      "name": "时间大盗",
+      "rarity": "A",
+      "category": "固态",
+      "effect": "「撬撬」",
+      "description": "装备者释放「变轨技能」后，倾陷强度提升90，持续10秒，该效果不可叠加。可使用调弧.「撬撬」。调弧.「撬撬」：召唤「撬撬」，打开周围所有可以撬锁的物体。 时间就像海绵旁的水——一不留神就没了。 工坊描述：时间就像海绵旁的水--一不留神就没了。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/42c826a9-b84e-4162-948e-1899b95088df.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0018"
+    },
+    {
+      "name": "闪耀的每一天",
+      "rarity": "A",
+      "category": "液态",
+      "effect": "「胶卷-MANISHI」",
+      "description": "倾陷强度提升48。 装备者攻击倾陷单位造成的伤害提升10.00%。 捕捉闪耀的朋间，在梦中都要继续。后悔从来都 不会是美好的，你也并非是孤单一人。 工坊描述：捕捉闪耀的瞬间，在梦中都要继续。后悔从来都不会是美好的，你也并非是孤单一人。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/32594a52-2f5f-4491-8d66-4fa926792275.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0017"
+    },
+    {
+      "name": "欧拉欧拉！",
+      "rarity": "A",
+      "category": "等离子",
+      "effect": "「欧拉拳套」",
+      "description": "装备者每次「普通攻击」造成伤害后109秒内，自身「普通攻击」伤害提升（1.60+0.40*混频强度阶数）%，最多叠加10层，每层效果单独结算持续时间。据说在遥远地方，欧拉拳套有一个远方表弟，叫做「木大拳套」 工坊描述：据说在遥远地方，欧拉拳套有一个远方表弟，叫做「木大拳套」。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/c39ec6af-6559-4c46-a964-448ae75bf0cb.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0016"
+    },
+    {
+      "name": "扭曲之城的呼唤",
+      "rarity": "A",
+      "category": "液态",
+      "effect": "「瓦楞城堡」",
+      "description": "装备者释放「变轨技能」后，自身治疗效率提升12.00%，持续10秒，该效果不可叠加。 当世界开始扭曲，发出无人能解的呐喊，又有谁能维持理智? 工坊描述：当世界开始扭曲，发出无人能解的呐喊，又有谁能维持理智?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/0c8b47a7-131b-4375-8de7-bb93c4ea2b08.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0015"
+    },
+    {
+      "name": "灵感大逃杀",
+      "rarity": "A",
+      "category": "液态",
+      "effect": "「灵感终结者」",
+      "description": "装备者释放「变轨技能」后，自身获得10点终结能量，该效果每20秒最多触发一次。 灵感像薯片，咔滋咔滋，留下一地碎屑，没有理由。 工坊描述：灵感像薯片，咔滋咔滋，留下一地碎屑，没有理由。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/023bdb9b-c79d-4cce-a4ed-73f2a5c6f64d.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0014"
+    },
+    {
+      "name": "良药苦口",
+      "rarity": "A",
+      "category": "聚合",
+      "effect": "「苦蛋糕」",
+      "description": "装备者受到攻击时，自身防御力提升26.00，持续10秒，20秒内最多触发一次。 些许的苦涩，但也会给你好心情，不是吗？ 工坊描述：些许的苦涩，但也会给你好心情，不是吗?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/39399e6d-e7e9-4847-999e-5147fad8267a.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0013"
+    },
+    {
+      "name": "开始净空",
+      "rarity": "A",
+      "category": "液态",
+      "effect": "「纸翼战队」",
+      "description": "装备者的「变轨技能」和「极轨终结」造成的灵属性异能伤害提升20.00%。 战斗队形已确认，准备夺取制空权。by 千手扉间 工坊描述：战斗队形已确认，准备夺取制空权。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/fff46c9c-7997-43cc-9e81-fdd5e08cc085.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0012"
+    },
+    {
+      "name": "光波眩晕，迷走狂欢",
+      "rarity": "A",
+      "category": "气态",
+      "effect": "「波普」",
+      "description": "装备者释放「援护技」后10秒内，造成的伤害提高18.00%。每20秒最多触发一次。 Masterpiece made by「Pop Re-Creator」！ 工坊描述：Masterpiece made by「Pop Re-Creator⌋ !",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/c6353909-f22e-40bf-b661-81fc2a4f53dd.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0011"
+    },
+    {
+      "name": "挂你在心口难开",
+      "rarity": "A",
+      "category": "气态",
+      "effect": "「蜘识藏家」",
+      "description": "装备者通过「普通攻击」造成伤害可使自身获得1层「蜘识」，最多叠加8层，每0.5秒最多获得1层「蜘识」。装备者释放「极轨终结」时消耗所有「蜘识」，每消耗1层「蜘识」可以让全队在10秒内攻击力提升1.00%；若消耗的「蜘识」数量为8，则额外使全队攻击力提升2.00%。 当你在老师的眼睛里看到红光，那一般代表你要挂科了。 工坊描述：当你在老师的眼睛里看到红光，那一般代表你要挂科了。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/14d5f722-ae54-4cec-a0ad-4df6901fa6e3.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0010"
+    },
+    {
+      "name": "该死的邂逅",
+      "rarity": "A",
+      "category": "聚合",
+      "effect": "「团三郎」",
+      "description": "当队伍中与装备者异能属性相同的角色数量大于等于3个(包含自身),所有该异能属性的角色倾陷强度提升70，通过该途径获得的倾陷强度提升不可叠加。 见到你的第一眼，无法抗拒被夺走视线。柔软的毛发，脸上的狡黠，入迷许久，等到你离开后才发现——我烤串呢? 工坊描述：见到你的第一眼，无法抗拒被夺走视线。柔软的毛发，脸上的狡黠，入迷许久，等到你离开后才发现——我烤串呢?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/86b5f553-0338-4ef7-9297-eaeb4fff6cc8.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0009"
+    },
+    {
+      "name": "当心头顶",
+      "rarity": "A",
+      "category": "气态",
+      "effect": "「诡面筝」",
+      "description": "装备者释放「变轨技能」后攻击力提高10.00%，且对受到「延滞」和「浸染」影响的单位造成的相属性异能伤害提高10.00%，持续15秒，该效果无法叠加。 嘻嘻嘻……别怕，不过是一只爱笑的风筝而已…… 工坊描述：嘻嘻嘻……别怕，不过是一只爱笑的风筝而已……",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/37b6986e-d095-481f-a4d9-7f588e8a04e1.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0008"
+    },
+    {
+      "name": "被遗忘者",
+      "rarity": "A",
+      "category": "固态",
+      "effect": "「无画框」",
+      "description": "装备者灵值高于50%的时候攻击力提高20.00%;灵值低于50%的时候，防御力提高20.00%。 即使是那些传世作品的陪衬，但......我也是很漂亮的,对吗? 工坊描述：即使是那些传世作品的陪衬，但......我也是很漂亮的，对吗?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/72082fbe-19ae-4d37-9e7e-41129172607f.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0007"
+    },
+    {
+      "name": "拔刀",
+      "rarity": "A",
+      "category": "等离子",
+      "effect": "「血染妖刀」",
+      "description": "装备者触发承轨反击时额外附带一次200.00%攻击力的咒属性异能伤害。 孤月，墨云。刃出，魂归。色褪，刃泣。 工坊描述：孤月，墨云。刃出，魂归。色褪，刃泣。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/ffd8e624-91dd-4227-bc19-78fb42a0f55b.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0006"
+    },
+    {
+      "name": "笑口常开",
+      "rarity": "B",
+      "category": "气态",
+      "effect": "「抱抱藤」",
+      "description": "装备者击杀敌人时，回复自身12.00%灵值，20秒内最多触发一次。 嗯？你怎么不笑呢？ 工坊描述：嗯?你怎么不笑呢?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/03f9b825-1000-411d-b74c-14364819e42d.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0005"
+    },
+    {
+      "name": "我们。",
+      "rarity": "B",
+      "category": "等离子",
+      "effect": "「原核体」",
+      "description": "装备者普通攻击造成的伤害提高12.00%。 我是、你……是……你，是……它、是……我……不，我——是，我们。 工坊描述：我是、你……是……你，是……它、是……我……不，我——是、我们。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/a237946d-6c5e-40c0-b226-4b13b5230270.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0004"
+    },
+    {
+      "name": "危险游戏",
+      "rarity": "B",
+      "category": "聚合",
+      "effect": "「分解者」",
+      "description": "装备者削减倾陷值时，自身提高60倾陷强度，持续10秒，20秒内最多触发一次。 我跟你打个赌，输的人要吃土。 工坊描述：我跟你打个赌，输的人要吃土。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/1275551e-7874-4022-ac38-d6fe01eea8f2.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0003"
+    },
+    {
+      "name": "电音狂欢",
+      "rarity": "B",
+      "category": "液态",
+      "effect": "「附电灵」",
+      "description": "装备者「变轨技能」造成的伤害提高12.00%。 哪有电音？附电灵发出来的声音怎么不算「电音」呢？ 工坊描述：哪有电音?附电灵发出来的声音怎么不算「电音」呢?",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/e8daac6b-5ffa-468f-849c-d0aaceb42af0.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0002"
+    },
+    {
+      "name": "成功的第一步",
+      "rarity": "B",
+      "category": "固态",
+      "effect": "「诺诺斯」",
+      "description": "装备者释放「变轨技能」后，自身攻击力提升12.00%，持续10秒，20秒内最多触发一次。 优良的自我管理是走上成功道路的第一步。 工坊描述：优良的自我管理是走上成功道路的第一步。",
+      "image": "https://zzz.sanyueqi.cn/assets/yh/arc_disc/202603/afc5d313-d19c-45fb-8d14-1a969be7bef2.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/arcDisc/arc_disc_details?itemId=hp0001"
     }
   ],
   "cassettes": [
     {
       "name": "迪亚波罗斯",
       "english": "Diabolos",
-      "element": "混沌",
-      "pieces": "4件套",
-      "set2": "暗属性伤害提高10%",
-      "set4": "无视敌人12%暗属性抗性。佩戴者触发Nova或Scorch反应后，无视效果提高至24%，持续20秒",
+      "element": "暗系",
+      "pieces": "2件套 / 4件套",
+      "set2": "暗属性异能伤害提升10%。",
+      "set4": "无视敌人12%暗属性异能抗性。当装备者参与触发「黯星」或「浊燃」反应之后则提升至无视敌人24%暗属性异能抗性，持续20秒。",
       "recommended": [
         "拉克莉莫萨",
-        "达芙迪尔"
+        "达芙蒂尔"
       ],
-      "image": "https://nteguide.com/images/cassettes/diabolos.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/diabolos/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/78cf48f2-5481-4677-9655-bf143759f3ca.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0012"
     },
     {
-      "name": "失落光芒",
-      "english": "Lost Radiance",
-      "element": "宇宙",
-      "pieces": "4件套",
-      "set2": "光属性伤害提高10%",
-      "set4": "佩戴者施放必杀技后，造成的伤害无视25%防御力，持续20秒（不可叠加）",
+      "name": "恶魔之血：诅咒",
+      "english": "Devil's Blood: Curse",
+      "element": "魂系",
+      "pieces": "2件套 / 4件套",
+      "set2": "魂属性异能伤害提升10%。",
+      "set4": "造成的伤害提升18%。攻击受到「黯星」或「浸染」影响的单位时，伤害提升效果变为36%。",
       "recommended": [
-        "赤子",
-        "翳",
-        "浔"
+        "奥蕾莉亚"
       ],
-      "image": "https://nteguide.com/images/cassettes/lost-radiance.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/lost-radiance/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/92939ddf-b712-4d01-94e1-4e696d68a019.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0011"
     },
     {
-      "name": "真红：双生蝶",
-      "english": "Crimson: Twin Butterflies",
-      "element": "咒术",
-      "pieces": "4件套",
-      "set2": "咒属性伤害提高10%",
-      "set4": "附近敌人受到队伍造成的咒属性伤害时，佩戴者攻击力提高6%，最多叠加6层，每层持续10秒（后台也生效）",
+      "name": "街头拳王",
+      "english": "Street Boxer",
+      "element": "相系",
+      "pieces": "2件套 / 4件套",
+      "set2": "相属性异能伤害提升10%。",
+      "set4": "暴击率提升14%。己方编队触发「延滞」或「浸染」之后，则暴击率额外提升14%，持续20秒。",
       "recommended": [
-        "白藏",
-        "咲里"
+        "哈索尔",
+        "翳"
       ],
-      "image": "https://nteguide.com/images/cassettes/crimson-twin-butterflies.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/crimson-twin-butterflies/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/ecbc8170-f133-4b0d-a2d9-b669dc1341a4.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0010"
+    },
+    {
+      "name": "静谧山庄",
+      "english": "Quiet Manor",
+      "element": "通用",
+      "pieces": "2件套 / 4件套",
+      "set2": "心灵伤害提高10%。",
+      "set4": "装备者普通攻击后，造成的心灵伤害提升12%，最多叠加3层，每层持续6秒。",
+      "recommended": [
+        "阿德勒"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/1572bf2c-d285-4f30-b984-d84be558029a.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0009"
     },
     {
       "name": "森林萤火之心",
       "english": "Fireflies and the Forest",
-      "element": "生命",
-      "pieces": "4件套",
-      "set2": "灵属性伤害提高10%",
-      "set4": "附近敌人受到队伍造成的灵属性伤害时，佩戴者暴击伤害提高8%，最多叠加7层，每层持续10秒（后台也生效）",
+      "element": "灵系",
+      "pieces": "2件套 / 4件套",
+      "set2": "灵属性异能伤害提升10%。",
+      "set4": "附近每有敌人受到由己方编队造成的灵属性异能伤害，则装备者暴击伤害提升8%，最多叠加7层，每层持续10秒，角色位于后台依旧生效。",
       "recommended": [
         "娜娜莉",
         "九原",
         "薄荷"
       ],
-      "image": "https://nteguide.com/images/cassettes/fireflies-forest.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/fireflies-forest/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/a588aad8-a309-4802-858c-d524c59ddaf6.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0008"
     },
     {
-      "name": "恶魔之血：魂伤",
-      "english": "Devil's Blood: Curse",
-      "element": "灵魂",
-      "pieces": "4件套",
-      "set2": "魂属性伤害提高10%",
-      "set4": "佩戴者造成的伤害提高18%。攻击处于Nova或Stain状态的敌人时，伤害提升效果变为36%",
+      "name": "失落光芒",
+      "english": "Lost Radiance",
+      "element": "光系",
+      "pieces": "2件套 / 4件套",
+      "set2": "光属性异能伤害提升10%。",
+      "set4": "装备者释放「极轨终结」后，造成的伤害将无视25%防御力，持续20秒，该效果不可叠加。",
       "recommended": [
-        "奥蕾莉亚"
+        "赤子",
+        "翳",
+        "浔"
       ],
-      "image": "https://nteguide.com/images/cassettes/devils-blood-curse.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/devils-blood-curse/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/f0c9d790-a673-45ff-91b9-8c63d0680a26.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0007"
     },
     {
-      "name": "街头拳王",
-      "english": "Street Boxer",
-      "element": "相",
-      "pieces": "4件套",
-      "set2": "相属性伤害提高10%",
-      "set4": "暴击率提高14%。队伍触发Remora或Stain时，额外获得14%暴击率，持续20秒",
+      "name": "守卫王国",
+      "english": "Kingdom's Guard",
+      "element": "通用",
+      "pieces": "2件套 / 4件套",
+      "set2": "防御力提升15%。",
+      "set4": "装备者的护盾效果提升20%。",
       "recommended": [
-        "哈索尔",
-        "翳"
+        "阿德勒"
       ],
-      "image": "https://nteguide.com/images/cassettes/street-boxer.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/street-boxer/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/76175e50-d444-42d5-b7fc-a4b78a2e3b8b.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0006"
+    },
+    {
+      "name": "缇娜的夜间酒馆",
+      "english": "Thea's Night Tavern",
+      "element": "通用",
+      "pieces": "2件套 / 4件套",
+      "set2": "生命值提升10%。",
+      "set4": "装备者的治疗效率提升20%。",
+      "recommended": [
+        "埃德嘉"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/a3fd6567-0ed7-410b-8059-04a7a76a6f9a.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0005"
+    },
+    {
+      "name": "小小大冒险",
+      "english": "Tiny Big Adventure",
+      "element": "通用",
+      "pieces": "2件套 / 4件套",
+      "set2": "生命值提升10%。",
+      "set4": "装备者每次降低血量时，生命值上限提升4%，最多叠加10层，每层持续10秒。释放「极轨终结」时，直接获得10层该效果。",
+      "recommended": [
+        "法蒂娅"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/535b9fee-72ac-44b6-ae3b-2520048d39ca.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0004"
+    },
+    {
+      "name": "音速蓝刺猬",
+      "english": "Speedy Hedgehog",
+      "element": "通用",
+      "pieces": "2件套 / 4件套",
+      "set2": "充能效率提高12%。",
+      "set4": "装备者释放「极轨终结」以后，全队角色获得15%攻击力提升(该效果不可叠加)，持续20秒。",
+      "recommended": [
+        "早雾",
+        "哈尼娅",
+        "埃德嘉",
+        "薄荷"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/bbda43f6-fbbe-4859-9bdf-5db0faadd637.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0003"
     },
     {
       "name": "影之信条",
       "english": "Shadow Creed",
       "element": "通用",
-      "pieces": "4件套",
-      "set2": "攻击力提高10%",
-      "set4": "施放技能后，佩戴者攻击力提高25%，持续20秒",
+      "pieces": "2件套 / 4件套",
+      "set2": "攻击力提升10%。",
+      "set4": "装备者释放「变轨技能」以后，攻击力增加25%，持续20秒。",
       "recommended": [
         "娜娜莉",
         "翳",
         "赤子",
         "九原"
       ],
-      "image": "https://nteguide.com/images/cassettes/shadow-creed.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/shadow-creed/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/86fec81b-851d-4e89-a252-cc069c6c1011.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0002"
     },
     {
-      "name": "音速蓝刺猬",
-      "english": "Speedy Hedgehog",
-      "element": "通用",
-      "pieces": "4件套",
-      "set2": "充能效率提高12%",
-      "set4": "佩戴者施放必杀技后，全队攻击力提高15%，持续20秒（不可叠加）",
+      "name": "真红：双生蝶",
+      "english": "Crimson: Twin Butterflies",
+      "element": "咒系",
+      "pieces": "2件套 / 4件套",
+      "set2": "咒属性异能伤害提升10%。",
+      "set4": "附近敌人每受到一次己方编队造成的咒属性异能伤害，则装备者攻击力提升6%，最多叠加6层，每层持续10秒，角色位于后台依旧生效。",
       "recommended": [
-        "咲里",
-        "哈尼尔",
-        "埃德加",
-        "薄荷"
+        "白藏",
+        "早雾"
       ],
-      "image": "https://nteguide.com/images/cassettes/speedy-hedgehog.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/speedy-hedgehog/"
-    },
-    {
-      "name": "缇娜的夜间酒馆",
-      "english": "Thea's Night Tavern",
-      "element": "通用",
-      "pieces": "4件套",
-      "set2": "生命值上限提高10%",
-      "set4": "佩戴者的治疗加成提高20%",
-      "recommended": [
-        "埃德加"
-      ],
-      "image": "https://nteguide.com/images/cassettes/theas-night-tavern.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/theas-night-tavern/"
-    },
-    {
-      "name": "小小大冒险",
-      "english": "Tiny Big Adventure",
-      "element": "通用",
-      "pieces": "4件套",
-      "set2": "生命值上限提高10%",
-      "set4": "佩戴者HP降低时，最大HP提高4%，最多叠加10层，每层持续10秒。施放必杀技立即获得10层",
-      "recommended": [
-        "法蒂亚"
-      ],
-      "image": "https://nteguide.com/images/cassettes/tiny-big-adventure.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/tiny-big-adventure/"
-    },
-    {
-      "name": "静谧山庄",
-      "english": "Quiet Manor",
-      "element": "通用",
-      "pieces": "4件套",
-      "set2": "心灵伤害提高10%",
-      "set4": "佩戴者使用普通攻击时，心灵伤害提高12%，最多叠加3层，每层持续6秒",
-      "recommended": [
-        "阿德勒"
-      ],
-      "image": "https://nteguide.com/images/cassettes/quiet-manor.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/quiet-manor/"
-    },
-    {
-      "name": "守卫王国",
-      "english": "Kingdom's Guard",
-      "element": "通用",
-      "pieces": "4件套",
-      "set2": "防御力提高15%",
-      "set4": "佩戴者的护盾效果提高20%",
-      "recommended": [
-        "阿德勒"
-      ],
-      "image": "https://nteguide.com/images/cassettes/kingdoms-guard.webp?v=7",
-      "source": "https://nteguide.com/tw/disk-sets/kingdoms-guard/"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/cassette/202603/2eff3ce8-4ac5-4755-929c-e5b0ed591591.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/cassette/cassette_details?itemId=kd0001"
     }
   ],
   "driveBlocks": [
     {
-      "name": "空幕驱动块",
-      "category": "拼图格",
-      "description": "驱动块用于填充空幕的 4x5 共 20 个格子，核心目标是摆出卡带要求的形状并触发 2 件套或 4 件套效果。公开资料更偏系统规则，暂未形成逐个驱动块的稳定图鉴。",
+      "name": "Ⅳ型驱动块（qdk0012）",
+      "category": "4型 / S级",
+      "description": "Ⅳ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
       "rules": [
-        "空幕上限 20 格",
-        "优先满足主力卡带形状",
-        "驱动块属性服务角色定位",
-        "先凑 2 件套，再追完整 4 件套"
+        "类型：4型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
       ],
-      "image": "/assets/signal-board.svg",
-      "source": "https://www.taptap.cn/moment/797919727161705545"
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/ea03be6c-0174-452f-b164-ff71d23a7d39.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0012"
+    },
+    {
+      "name": "Ⅳ型驱动块（qdk0011）",
+      "category": "4型 / S级",
+      "description": "Ⅳ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：4型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/bcc49100-9509-458d-a3ec-4949432aebb5.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0011"
+    },
+    {
+      "name": "Ⅳ型驱动块（qdk0010）",
+      "category": "4型 / S级",
+      "description": "Ⅳ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：4型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/106de270-6d0e-4894-85c0-b678032b3c0e.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0010"
+    },
+    {
+      "name": "Ⅳ型驱动块（qdk0009）",
+      "category": "4型 / S级",
+      "description": "Ⅳ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：4型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/41b9cb61-1e52-45d3-90f6-8a01a307a5e5.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0009"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0008）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/be9b9f6c-c996-4247-ade7-daf739793d8a.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0008"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0007）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/1a4fed0a-a93a-4490-bef8-aba9fab5253f.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0007"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0006）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/f2709434-abb8-4470-ad5e-eb712f63f098.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0006"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0005）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/ed69e9d9-d5b6-495a-8701-ebfff44d54be.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0005"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0004）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/b80322b8-c65a-4ddc-9d1b-3f9fdcc126cc.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0004"
+    },
+    {
+      "name": "Ⅲ型驱动块（qdk0003）",
+      "category": "3型 / S级",
+      "description": "Ⅲ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：3型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/1ebaca14-7f07-4f8d-ad0e-56c6cd7094c0.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0003"
+    },
+    {
+      "name": "Ⅱ型驱动块（qdk0002）",
+      "category": "2型 / S级",
+      "description": "Ⅱ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：2型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/df2f9f62-277a-45f1-a00b-66a11d824205.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0002"
+    },
+    {
+      "name": "Ⅱ型驱动块（qdk0001）",
+      "category": "2型 / S级",
+      "description": "Ⅱ型驱动块来自异环工坊驱动块图鉴，用于填充空幕并触发卡带套装形状。",
+      "rules": [
+        "类型：2型",
+        "稀有度：S级",
+        "空幕 4x5 拼图格",
+        "用于触发卡带 2/4 件套"
+      ],
+      "image": "https://zzz.sanyueqi.cn/assets/yh/drive/202603/135d2ce1-48e0-433f-9d19-0d8c33dcbf8c.png",
+      "source": "https://yh-h5.gamefun66.com/#/h5/drive/drive_details?itemId=qdk0001"
     }
   ]
 }

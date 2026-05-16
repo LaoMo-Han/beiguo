@@ -138,7 +138,7 @@ export type EquipmentCatalog = {
 export const allPosts = posts as Post[];
 export const allCharacters = characters as Character[];
 export const allCharacterProfiles = characterProfiles as CharacterProfile[];
-export const allEvents = events as Event[];
+export const allEvents = [...(events as Event[])].sort(compareEventsByDate);
 export const allModules = modules as ModuleEntry[];
 export const allModuleDetails = moduleDetails as ModuleDetail[];
 export const equipmentCatalog = equipment as EquipmentCatalog;
@@ -161,4 +161,20 @@ export function getCharacterProfileByName(name: string) {
 
 export function getCharacterProfileBySlug(slug: string) {
   return allCharacterProfiles.find((character) => character.slug === slug);
+}
+
+function compareEventsByDate(a: Event, b: Event) {
+  return getEventDateValue(a.date, 0) - getEventDateValue(b.date, 0) || getEventDateValue(a.date, 1) - getEventDateValue(b.date, 1);
+}
+
+function getEventDateValue(date: string, index: number) {
+  const parts = date.split("-").map((part) => part.trim());
+  const value = parts[index] ?? parts[0] ?? "";
+  const [month, day] = value.split(".").map(Number);
+
+  if (!Number.isFinite(month) || !Number.isFinite(day)) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  return Date.UTC(2026, month - 1, day);
 }
