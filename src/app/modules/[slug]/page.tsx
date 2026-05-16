@@ -45,18 +45,6 @@ export default async function ModulePage({ params }: ModulePageProps) {
         <ModuleSidebar activeSlug={slug} />
 
         <article className="module-detail-main">
-          <header className={`module-detail-hero tone-${module.tone}`}>
-            <p className="eyebrow">BEIGUO DATA MODULE</p>
-            <h1>{module.name}</h1>
-            <p className="module-subtitle">{module.subtitle}</p>
-            <p>{detail.summary}</p>
-            <div className="detail-meta">
-              <span>{module.status}</span>
-              <span>数量：{module.count}</span>
-              <span>更新：{detail.updated}</span>
-            </div>
-          </header>
-
           {detail.sections.map((section) => (
             <section className="detail-section" id={section.slug} key={section.title}>
               <h2>{section.title}</h2>

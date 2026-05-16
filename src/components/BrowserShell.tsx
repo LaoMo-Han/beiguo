@@ -22,7 +22,7 @@ export function BrowserShell({ children }: BrowserShellProps) {
 
         <form id="site-search" className="address-bar" action="/" role="search" aria-label="站内搜索">
           <span className="address-dot" />
-          <input name="q" type="search" aria-label="输入搜索内容" />
+          <input name="q" type="search" aria-label="输入搜索内容" placeholder="exoring.fun" />
         </form>
 
         <nav className="chrome-nav" aria-label="主导航">

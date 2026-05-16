@@ -14,14 +14,9 @@ export default function DataPage() {
       <section className="module-detail-page">
         <ModuleSidebar />
         <section className="data-page">
-          <div className="data-heading">
-            <Link href="/" className="back-link">
-              ← 返回发现
-            </Link>
-            <p className="eyebrow">STATIC DATABASE</p>
-            <h1>异环数据速查</h1>
-            <p>这里的数据全部来自仓库内 JSON 文件，模块覆盖强度榜、角色、装备、兑换码、bug 和生活系统。</p>
-          </div>
+          <Link href="/" className="back-link" style={{ marginBottom: '1rem', display: 'inline-block' }}>
+            ← 返回发现
+          </Link>
 
           <section className="data-panel module-overview">
             <h2>模块总览</h2>
