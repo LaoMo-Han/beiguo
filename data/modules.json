@@ -30,34 +30,19 @@
     "highlights": ["零：光系 输出", "娜娜莉：灵系 主 C", "安魂曲：混沌系 主 C / 持续伤害（1.1）"]
   },
   {
-    "slug": "arcs",
-    "name": "弧盘",
-    "subtitle": "全部弧盘图鉴和攻略",
-    "description": "弧盘类型与角色适配：固态、液态、气态、等离子、合成，并记录限定弧盘情报。",
-    "status": "已收录",
-    "count": "5+1",
+    "slug": "equipment",
+    "name": "装备",
+    "subtitle": "弧盘、卡带和驱动块",
+    "description": "把弧盘、卡带、驱动块合并为装备入口，统一查看角色养成、空幕套装和拼图格规则。",
+    "status": "已合并",
+    "count": "5+1 / 待补 / 20格",
     "tone": "navy",
-    "highlights": ["固态：浔 / 零 / 九原", "液态：达芙蒂尔 / 薄荷 / 埃德嘉", "合成：白藏 / 法帝娅", "待补：安魂曲 / 卡厄斯 / 前瞻角色（名称待确认）"]
-  },
-  {
-    "slug": "cartridges",
-    "name": "卡带",
-    "subtitle": "全部卡带图鉴和攻略",
-    "description": "空幕系统核心装备。每名角色装备 1 个卡带，通过驱动块形状触发 2/4 件套效果。",
-    "status": "机制收录",
-    "count": "待补",
-    "tone": "orange",
-    "highlights": ["主 C 优先输出套", "辅助优先充能/减抗", "主要来源：兔子洞"]
-  },
-  {
-    "slug": "drive-blocks",
-    "name": "驱动块",
-    "subtitle": "全部驱动块图鉴和攻略",
-    "description": "驱动块为通用拼图格，属性固定、无需赌词条；按卡带需求补齐形状即可。",
-    "status": "机制收录",
-    "count": "20格",
-    "tone": "cream",
-    "highlights": ["空幕 4x5 共 20 格", "2 个形状触发第一档", "4 个形状触发第二档"]
+    "highlights": ["弧盘：固态 / 液态 / 气态 / 等离子 / 合成", "卡带：1 个核心装备触发套装", "驱动块：空幕 4x5 共 20 格"],
+    "children": [
+      { "slug": "arcs", "name": "弧盘", "count": "5+1" },
+      { "slug": "cartridges", "name": "卡带", "count": "待补" },
+      { "slug": "drive-blocks", "name": "驱动块", "count": "20格" }
+    ]
   },
   {
     "slug": "codes",

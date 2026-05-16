@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BrowserShell } from "@/components/BrowserShell";
-import { allModuleDetails, allModules, getModule, getModuleDetail } from "@/lib/content";
+import { ModuleSidebar } from "@/components/ModuleSidebar";
+import { allModuleDetails, getModule, getModuleDetail } from "@/lib/content";
 
 type ModulePageProps = {
   params: Promise<{ slug: string }>;
@@ -42,16 +42,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
   return (
     <BrowserShell>
       <section className="module-detail-page">
-        <aside className="module-nav" aria-label="模块导航">
-          <Link href="/" className="back-link">
-            ← 返回发现
-          </Link>
-          {allModules.map((item) => (
-            <Link className={item.slug === slug ? "is-current" : ""} href={`/modules/${item.slug}`} key={item.slug}>
-              {item.name}
-            </Link>
-          ))}
-        </aside>
+        <ModuleSidebar activeSlug={slug} />
 
         <article className="module-detail-main">
           <header className={`module-detail-hero tone-${module.tone}`}>
@@ -67,7 +58,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </header>
 
           {detail.sections.map((section) => (
-            <section className="detail-section" key={section.title}>
+            <section className="detail-section" id={section.slug} key={section.title}>
               <h2>{section.title}</h2>
               {section.kind === "table" && section.columns && section.rows ? (
                 <div className="data-table-wrap">

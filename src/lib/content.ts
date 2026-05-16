@@ -27,9 +27,15 @@ export type ModuleEntry = {
   count: string;
   tone: "cyan" | "blue" | "pink" | "navy" | "cream" | "orange";
   highlights: string[];
+  children?: {
+    slug: string;
+    name: string;
+    count: string;
+  }[];
 };
 
 export type ModuleSection = {
+  slug?: string;
   title: string;
   kind: "table" | "cards" | "checklist";
   columns?: string[];

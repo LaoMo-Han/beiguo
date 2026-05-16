@@ -1,25 +1,14 @@
 import { BrowserShell } from "@/components/BrowserShell";
+import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allEvents, allModules } from "@/lib/content";
 
 export default function Home() {
   const leadModule = allModules[0];
-  const sideModules = allModules.slice(1);
 
   return (
     <BrowserShell>
       <section className="home-grid">
-        <aside className="discover-rail" aria-label="内容分类">
-          <div className="active-pill">
-            <span />
-            发现
-          </div>
-          {sideModules.map((module) => (
-            <a href={`/modules/${module.slug}`} key={module.slug}>
-              <span>{module.name}</span>
-              <strong>{module.count}</strong>
-            </a>
-          ))}
-        </aside>
+        <ModuleSidebar activeSlug="discover" />
 
         <section className="feed-zone">
           <div className="hero-strip">
@@ -27,7 +16,7 @@ export default function Home() {
               <p className="eyebrow">BEIGUO CHANNEL</p>
               <h1>呗果异环站</h1>
               <p>
-                不接数据库的轻量资料库，把强度榜、角色、弧盘、卡带、驱动块、兑换码和生活系统做成一张好逛的游戏内网页。
+                不接数据库的轻量资料库，把强度榜、角色、装备、兑换码和生活系统做成一张好逛的游戏内网页。
               </p>
             </div>
             <a href={`/modules/${leadModule.slug}`} className="hero-cta">
