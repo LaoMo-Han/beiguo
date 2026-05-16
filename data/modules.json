@@ -5,9 +5,9 @@
     "subtitle": "新加入的数据",
     "description": "最新收录的角色、弧盘、卡带、驱动块、活动、兑换码和修复记录。",
     "status": "今日更新",
-    "count": "14",
+    "count": "17",
     "tone": "pink",
-    "highlights": ["Hotori 限定池", "兑换码更新", "粉爪大劫案路线"]
+    "highlights": ["安魂曲 / 卡厄斯 前瞻收录", "浔 限定池", "兑换码更新", "粉爪大劫案路线"]
   },
   {
     "slug": "tier",
@@ -15,29 +15,29 @@
     "subtitle": "角色强度及配队和装配",
     "description": "按公开榜单整理角色梯度、队伍定位、弧盘类型和卡带/驱动块装配方向。",
     "status": "已收录",
-    "count": "16",
+    "count": "19",
     "tone": "cyan",
-    "highlights": ["S：Daffodil / Fadia / Haniel / Hotori / Nanally / Sakiri / Zero", "A：Baicang / Chiz", "配队按 Esper Cycle 相邻元素触发反应"]
+    "highlights": ["S：达芙蒂尔 / 法帝娅 / 哈尼娅 / 浔 / 娜娜莉 / 早雾 / 零", "A：白藏 / 小吱", "1.1 前瞻：安魂曲 / 卡厄斯", "前瞻：前瞻角色（名称待确认）"]
   },
   {
     "slug": "characters",
     "name": "角色",
     "subtitle": "全部角色图鉴和攻略",
-    "description": "首发角色图鉴、定位、属性、弧盘类型、培养优先级和简易上手说明。",
+    "description": "首发角色图鉴、定位、属性、弧盘类型、培养优先级和简易上手说明。已收录 1.0 及 1.1 前瞻角色共 19 名。",
     "status": "已收录",
-    "count": "16",
+    "count": "19",
     "tone": "blue",
-    "highlights": ["Zero：Cosmos 输出", "Nanally：Anima 主 C", "Fadia：Psyche 生存"]
+    "highlights": ["零：光系 输出", "娜娜莉：灵系 主 C", "安魂曲：混沌系 主 C / 持续伤害（1.1）"]
   },
   {
     "slug": "arcs",
     "name": "弧盘",
     "subtitle": "全部弧盘图鉴和攻略",
-    "description": "弧盘类型与角色适配：Solid、Liquid、Gas、Plasma、Synthesis，并记录限定弧盘情报。",
+    "description": "弧盘类型与角色适配：固态、液态、气态、等离子、合成，并记录限定弧盘情报。",
     "status": "已收录",
-    "count": "5",
+    "count": "5+1",
     "tone": "navy",
-    "highlights": ["Solid：Hotori / Zero / Jiuyuan", "Liquid：Daffodil / Mint / Edgar", "Synthesis：Baicang / Fadia"]
+    "highlights": ["固态：浔 / 零 / 九原", "液态：达芙蒂尔 / 薄荷 / 埃德嘉", "合成：白藏 / 法帝娅", "待补：安魂曲 / 卡厄斯 / 前瞻角色（名称待确认）"]
   },
   {
     "slug": "cartridges",
@@ -117,7 +117,7 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "cream",
-    "highlights": ["Hotori 好感互动", "赠礼收集", "约会事件"]
+    "highlights": ["浔 好感互动", "赠礼收集", "约会事件"]
   },
   {
     "slug": "housing",
@@ -137,6 +137,6 @@
     "status": "框架已建",
     "count": "待补",
     "tone": "orange",
-    "highlights": ["Blizzard-V4 涂装", "车钥匙冷却", "Swift Cab"]
+    "highlights": ["暴雪-V4 涂装", "车钥匙冷却", "雨燕出行"]
   }
 ]

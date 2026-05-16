@@ -1,114 +1,135 @@
 [
   {
-    "name": "Daffodil",
-    "role": "副输出 / 破韧",
-    "element": "Chaos",
-    "rarity": "SSR",
-    "summary": "S 档。爆发副 C，适合快速切人，能参与 Nova、Scorch、Discord 反应。弧盘类型：Liquid。"
+    "name": "零",
+    "role": "输出 / 环合轴",
+    "element": "光系",
+    "rarity": "S级",
+    "summary": "主角。中文攻略常把主角作为创生反应发动机和队伍润滑位，前期好感度都市特技也建议优先升级。"
   },
   {
-    "name": "Fadia",
-    "role": "生存 / 承伤",
-    "element": "Psyche",
-    "rarity": "SSR",
-    "summary": "S 档。通过转移队友伤害与自疗提高容错，休闲玩家和开荒队伍友好。弧盘类型：Synthesis。"
-  },
-  {
-    "name": "Haniel",
-    "role": "增伤辅助",
-    "element": "Psyche",
-    "rarity": "SR",
-    "summary": "S 档。A 级免费强力辅助，技能和终结技提供全队攻击增益。弧盘类型：Solid。"
-  },
-  {
-    "name": "Hotori",
-    "role": "增益 / 爆发",
-    "element": "Cosmos",
-    "rarity": "SSR",
-    "summary": "S 档。1.0 二阶段限定角色，拥有时间停止风格机制，适合爆发窗口。弧盘类型：Solid。"
-  },
-  {
-    "name": "Nanally",
+    "name": "娜娜莉",
     "role": "主输出",
-    "element": "Anima",
-    "rarity": "SSR",
-    "summary": "S 档。首发强力主 C，单体爆发突出。弧盘类型：Plasma。"
+    "element": "灵系",
+    "rarity": "S级",
+    "summary": "开服限定主 C。中文强度榜常列为 T0，围绕创生反应和高爆发输出构筑。"
   },
   {
-    "name": "Sakiri",
-    "role": "增益辅助",
-    "element": "Incantation",
-    "rarity": "SSR",
-    "summary": "S 档。以攻击增益与队伍辅助见长，常用于主 C 队伍。弧盘类型：Gas。"
+    "name": "达芙蒂尔",
+    "role": "副输出 / 环合工具人",
+    "element": "待确认",
+    "rarity": "S级",
+    "summary": "中文强度榜列入 T0.5 或 T1 区间，适合作为副 C 和反应触发位。"
   },
   {
-    "name": "Zero",
-    "role": "输出 / 反应轴",
-    "element": "Cosmos",
-    "rarity": "SSR",
-    "summary": "S 档。主角可用度高，技能循环能稳定触发 Esper Cycle。弧盘类型：Solid。"
+    "name": "早雾",
+    "role": "增益辅助 / 聚怪",
+    "element": "咒系",
+    "rarity": "S级",
+    "summary": "中文强度榜列为 T0，适合聚怪、增伤，并可与娜娜莉触发覆纹反应。"
   },
   {
-    "name": "Baicang",
-    "role": "主输出 / DOT",
-    "element": "Incantation",
-    "rarity": "SSR",
-    "summary": "A 档。以 Scorch 持续伤害为核心，上限高但操作要求更高。弧盘类型：Synthesis。"
+    "name": "埃德嘉",
+    "role": "治疗 / 过渡生存",
+    "element": "待确认",
+    "rarity": "A级",
+    "summary": "中文强度榜多列为后段梯队，适合作为前期开荒治疗或过渡位。"
   },
   {
-    "name": "Chiz",
+    "name": "阿德勒",
+    "role": "护盾 / 副输出",
+    "element": "咒系",
+    "rarity": "A级",
+    "summary": "提供护盾与增伤，中文攻略常作为娜娜莉等主 C 队伍的生存辅助选择。"
+  },
+  {
+    "name": "浔",
+    "role": "增益 / 爆发",
+    "element": "光系",
+    "rarity": "S级",
+    "summary": "中文角色图鉴列为 S 级角色，适合爆发窗口和辅助输出。"
+  },
+  {
+    "name": "哈尼娅",
+    "role": "增伤辅助",
+    "element": "魂系",
+    "rarity": "A级",
+    "summary": "中文强度榜列入 T0.5，技能和终结技偏团队攻击增益。"
+  },
+  {
+    "name": "哈索尔",
+    "role": "爆发输出 / 都市派送特化",
+    "element": "待确认",
+    "rarity": "S级",
+    "summary": "中文强度榜战斗列 T0.5，都市强度里同城派送优先级很高。"
+  },
+  {
+    "name": "九原",
+    "role": "爆发输出 / 聚怪",
+    "element": "灵系",
+    "rarity": "S级",
+    "summary": "中文攻略常用于娜娜莉队提供后台伤害与聚怪；都市玩法里玩车方向优先级较高。"
+  },
+  {
+    "name": "薄荷",
+    "role": "输出 / 过渡",
+    "element": "灵系",
+    "rarity": "A级",
+    "summary": "异象管理局收容二组角色。中文图鉴有完整技能说明，适合开荒过渡。"
+  },
+  {
+    "name": "白藏",
+    "role": "主输出 / 浊燃核心",
+    "element": "咒系",
+    "rarity": "S级",
+    "summary": "中文强度榜战斗 T0.5、都市 T0。常作为咒系与浊燃方向核心。"
+  },
+  {
+    "name": "法帝娅",
+    "role": "生存 / 承伤",
+    "element": "待确认",
+    "rarity": "S级",
+    "summary": "中文强度榜战斗 T1，都市玩法中雨燕出行方向优先级很高。"
+  },
+  {
+    "name": "安魂曲",
+    "role": "前瞻主输出 / 持续伤害",
+    "element": "待确认",
+    "rarity": "S级",
+    "summary": "中文角色图鉴列为 S 级。当前作为前瞻角色记录，实战评级待更多中文资料补全。"
+  },
+  {
+    "name": "卡厄斯",
+    "role": "前瞻角色",
+    "element": "待确认",
+    "rarity": "S级",
+    "summary": "前瞻角色。中文资料不足，暂不写死定位和弧盘搭配。"
+  },
+  {
+    "name": "前瞻角色（名称待确认）",
+    "role": "前瞻角色",
+    "element": "待确认",
+    "rarity": "待确认",
+    "summary": "仅保留占位，等中文站或官方资料确认后再补全名称、属性和定位。"
+  },
+  {
+    "name": "小吱",
+    "role": "输出 / 都市经营",
+    "element": "风系",
+    "rarity": "S级",
+    "summary": "中文强度榜战斗 T0，都市强度 T1；可通过经营模式获取相关养成资源。"
+  },
+  {
+    "name": "翳",
     "role": "输出",
-    "element": "Cosmos",
-    "rarity": "SSR",
-    "summary": "A 档。可通过经营模式获取觉醒资源，技能需要管理层数和爆发窗口。弧盘类型：Gas。"
+    "element": "光系",
+    "rarity": "A级",
+    "summary": "中文弧盘攻略把翳归入光属性弧盘推荐角色，适合作为光系输出资料入口。"
   },
   {
-    "name": "Jiuyuan",
-    "role": "爆发输出",
-    "element": "Anima",
-    "rarity": "SSR",
-    "summary": "B 档。操作简单，适合 Blossom 队，也能兼顾聚怪和单体。弧盘类型：Solid。"
-  },
-  {
-    "name": "Hathor",
-    "role": "爆发输出",
-    "element": "Lakshana",
-    "rarity": "SSR",
-    "summary": "B 档。围绕摩托爆发和 Remora 队伍构筑。弧盘类型：Plasma。"
-  },
-  {
-    "name": "Adler",
-    "role": "生存 / 副输出",
-    "element": "Incantation",
-    "rarity": "SR",
-    "summary": "B 档。免费 A 级，能增强 Scorch 并提供护盾。弧盘类型：Synthesis。"
-  },
-  {
-    "name": "Mint",
+    "name": "海月",
     "role": "输出",
-    "element": "Anima",
-    "rarity": "SR",
-    "summary": "C 档。免费主 C，手感简单，适合作为过渡角色。弧盘类型：Liquid。"
-  },
-  {
-    "name": "Skia",
-    "role": "输出",
-    "element": "Lakshana",
-    "rarity": "SR",
-    "summary": "C 档。适配 Remora 队，觉醒后表现更完整。弧盘类型：Gas。"
-  },
-  {
-    "name": "Aurelia",
-    "role": "输出",
-    "element": "Psyche",
-    "rarity": "SR",
-    "summary": "C 档。需要较多站场时间，适合 Nova 队。弧盘类型：Plasma。"
-  },
-  {
-    "name": "Edgar",
-    "role": "治疗 / 生存",
-    "element": "Cosmos",
-    "rarity": "SR",
-    "summary": "D 档。治疗定位但功能偏窄，可作为 Charge 队过渡。弧盘类型：Liquid。"
+    "element": "待确认",
+    "rarity": "A级",
+    "summary": "中文强度榜战斗 T1、都市 T0.5，当前先收录为输出角色，具体装备后续按中文攻略补全。"
   }
 ]
