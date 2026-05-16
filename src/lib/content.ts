@@ -1,4 +1,6 @@
 import characters from "../../data/characters.json";
+import characterProfiles from "../../data/character-profiles.json";
+import equipment from "../../data/equipment.json";
 import events from "../../data/events.json";
 import moduleDetails from "../../data/module-details.json";
 import modules from "../../data/modules.json";
@@ -58,6 +60,32 @@ export type Character = {
   summary: string;
 };
 
+export type CharacterTeam = {
+  name: string;
+  members: string[];
+  description: string;
+};
+
+export type CharacterProfile = {
+  slug: string;
+  name: string;
+  english: string;
+  rarity: string;
+  combatTier: string;
+  cityTier: string;
+  element: string;
+  weaponType: string;
+  role: string;
+  faction: string;
+  summary: string;
+  recommendedWeapon: string;
+  diskSet: string;
+  mainStats: string;
+  subStats: string;
+  teams: CharacterTeam[];
+  source: string;
+};
+
 export type Event = {
   title: string;
   status: string;
@@ -65,11 +93,55 @@ export type Event = {
   reward: string;
 };
 
+export type ArcDisc = {
+  name: string;
+  rarity: string;
+  category: string;
+  effect: string;
+  description: string;
+  image: string;
+  source: string;
+};
+
+export type Cassette = {
+  name: string;
+  english: string;
+  element: string;
+  pieces: string;
+  set2: string;
+  set4: string;
+  recommended: string[];
+  image: string;
+  source: string;
+};
+
+export type DriveBlockInfo = {
+  name: string;
+  category: string;
+  description: string;
+  rules: string[];
+  image: string;
+  source: string;
+};
+
+export type EquipmentCatalog = {
+  updated: string;
+  sources: {
+    name: string;
+    url: string;
+  }[];
+  arcDiscs: ArcDisc[];
+  cassettes: Cassette[];
+  driveBlocks: DriveBlockInfo[];
+};
+
 export const allPosts = posts as Post[];
 export const allCharacters = characters as Character[];
+export const allCharacterProfiles = characterProfiles as CharacterProfile[];
 export const allEvents = events as Event[];
 export const allModules = modules as ModuleEntry[];
 export const allModuleDetails = moduleDetails as ModuleDetail[];
+export const equipmentCatalog = equipment as EquipmentCatalog;
 
 export function getPost(slug: string) {
   return allPosts.find((post) => post.slug === slug);
@@ -81,4 +153,12 @@ export function getModule(slug: string) {
 
 export function getModuleDetail(slug: string) {
   return allModuleDetails.find((module) => module.slug === slug);
+}
+
+export function getCharacterProfileByName(name: string) {
+  return allCharacterProfiles.find((character) => character.name === name);
+}
+
+export function getCharacterProfileBySlug(slug: string) {
+  return allCharacterProfiles.find((character) => character.slug === slug);
 }

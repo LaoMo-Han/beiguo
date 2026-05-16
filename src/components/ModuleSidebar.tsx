@@ -32,7 +32,7 @@ export function ModuleSidebar({ activeSlug = "discover" }: ModuleSidebarProps) {
         const href = module.slug === "discover" ? "/" : `/modules/${module.slug}`;
         const isCurrent = module.slug === activeSlug;
         const hasChildren = !!module.children;
-        const isExpanded = expandedSlugs.has(module.slug);
+        const isExpanded = isCurrent || expandedSlugs.has(module.slug);
         const itemClassName = `module-sidebar-item ${isCurrent ? "is-current" : ""} ${
           hasChildren ? "has-children" : ""
         }`;
