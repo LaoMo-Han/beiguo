@@ -1,0 +1,30 @@
+[
+  {
+    "name": "奈芙",
+    "role": "支援",
+    "element": "虹频",
+    "rarity": "SSR",
+    "summary": "适合开荒期提供回复与增益，队伍容错率高。"
+  },
+  {
+    "name": "凛川",
+    "role": "输出",
+    "element": "霜脉",
+    "rarity": "SSR",
+    "summary": "爆发窗口明确，适合搭配控场角色打短循环。"
+  },
+  {
+    "name": "米娅",
+    "role": "控场",
+    "element": "电弧",
+    "rarity": "SR",
+    "summary": "聚怪和打断能力稳定，适合日常清图。"
+  },
+  {
+    "name": "白夜",
+    "role": "生存",
+    "element": "空相",
+    "rarity": "SR",
+    "summary": "护盾覆盖优秀，适合新手过渡。"
+  }
+]

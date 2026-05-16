@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-label="倒计时情报板">
+  <rect width="760" height="520" rx="34" fill="#0d1324"/>
+  <rect x="38" y="38" width="684" height="444" rx="28" fill="#19253a" stroke="#6ff3ff" stroke-width="10"/>
+  <g opacity=".2" stroke="#6ff3ff">
+    <path d="M70 140h620M70 220h620M70 300h620M70 380h620"/>
+    <path d="M160 70v380M300 70v380M440 70v380M580 70v380"/>
+  </g>
+  <text x="380" y="195" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="94" fill="#6ff3ff">DAY179</text>
+  <text x="380" y="308" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="90" fill="#ffffff">真了!</text>
+  <rect x="145" y="350" width="470" height="54" rx="12" fill="#ffd45a"/>
+  <text x="380" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#141414">异环新企划信号记录</text>
+</svg>

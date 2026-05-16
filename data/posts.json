@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "day-179-signal",
+    "title": "异环情报日历 DAY179：城市频道出现新信号",
+    "excerpt": "倒计时板又亮了一格，疑似和近期公开测试节点有关。先把官方公开信息和社区线索整理在这里。",
+    "category": "公告",
+    "author": "呗果情报组",
+    "likes": "6.6K",
+    "date": "2026-05-16",
+    "image": "/assets/signal-board.svg",
+    "tone": "cyan",
+    "size": "medium",
+    "body": [
+      "呗果会优先收录官方已经公开的信息，再补充社区可验证线索，避免把未经确认的爆料当作确定内容。",
+      "本页是轻量静态内容示例，后续只需要维护 data/posts.json 或新增 MDX 长文即可更新站点。"
+    ]
+  },
+  {
+    "slug": "starter-route",
+    "title": "新手路线：从第一个街区到稳定配队",
+    "excerpt": "把探索、养成、战斗节奏拆成三段，适合刚入坑时快速建立资源优先级。",
+    "category": "攻略",
+    "author": "长发双马尾厨",
+    "likes": "2.2K",
+    "date": "2026-05-15",
+    "image": "/assets/neon-city.svg",
+    "tone": "blue",
+    "size": "tall",
+    "body": [
+      "前期先保证主线推进和基础素材获取，不建议把资源平均投入给所有角色。",
+      "当你卡关时，优先检查装备等级、队伍定位和技能循环，而不是只看单个角色稀有度。"
+    ]
+  },
+  {
+    "slug": "puka-sticker-board",
+    "title": "放个答疑帖，欢迎萌新入坑",
+    "excerpt": "抽卡、地图、日常、活动常见问题集中回复，持续更新。",
+    "category": "社区",
+    "author": "圆舞曲进度99%",
+    "likes": "896",
+    "date": "2026-05-14",
+    "image": "/assets/puka-card.svg",
+    "tone": "pink",
+    "size": "large",
+    "body": [
+      "这个帖子用于承接站内轻量 FAQ。没有账号和评论系统时，可以先用固定问答卡片维护高频问题。",
+      "后续如果需要投稿，再考虑接入无数据库表单或 GitHub issue 工作流。"
+    ]
+  },
+  {
+    "slug": "team-roles",
+    "title": "队伍定位速查：输出、支援与控场怎么搭",
+    "excerpt": "用一张静态表把角色职能和推荐组合列清楚，方便开荒时快速抄作业。",
+    "category": "数据",
+    "author": "咕咕咕咕站",
+    "likes": "921",
+    "date": "2026-05-13",
+    "image": "/assets/team-stickers.svg",
+    "tone": "navy",
+    "size": "medium",
+    "body": [
+      "静态数据站最适合维护速查表、角色条目和版本节点。",
+      "这类内容结构稳定，不需要数据库也能保持很好的加载速度和搜索收录。"
+    ]
+  },
+  {
+    "slug": "event-cards",
+    "title": "美到圈外人也想入坑的活动谷子整理",
+    "excerpt": "周边、联动、限时活动信息汇总，方便收藏党一页查完。",
+    "category": "活动",
+    "author": "仙品企划小组",
+    "likes": "4.5K",
+    "date": "2026-05-12",
+    "image": "/assets/event-stamps.svg",
+    "tone": "cream",
+    "size": "medium",
+    "body": [
+      "活动页会从 data/events.json 读取。v1 先展示时间、状态、奖励和入口说明。",
+      "不做登录提醒功能，避免引入账号系统和数据库。"
+    ]
+  },
+  {
+    "slug": "version-watch",
+    "title": "还以为是多大的瓜呢，就这？",
+    "excerpt": "社区传闻降噪栏目：只列公开来源、更新时间和可信度。",
+    "category": "资讯",
+    "author": "橘子汽水要加冰",
+    "likes": "3.1K",
+    "date": "2026-05-11",
+    "image": "/assets/rumor-note.svg",
+    "tone": "orange",
+    "size": "short",
+    "body": [
+      "资讯站需要把未确认信息标清楚。这里的策略是：标题可以活泼，正文必须克制。",
+      "每条内容都保留日期，避免用户误读旧内容。"
+    ]
+  }
+]

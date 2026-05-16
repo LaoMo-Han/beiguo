@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-label="传闻降噪便签">
+  <rect width="760" height="520" rx="32" fill="#fff8e8"/>
+  <path d="M85 100h590v270H85z" fill="#ff715f"/>
+  <path d="M85 100h590v115H85z" fill="#fff"/>
+  <text x="125" y="178" font-family="Arial Black, sans-serif" font-size="58" fill="#171717">还以为是</text>
+  <text x="125" y="300" font-family="Arial Black, sans-serif" font-size="72" fill="#ffffff">多大的瓜呢</text>
+  <path d="M470 392c46-52 104-64 174-38" fill="none" stroke="#e2b63c" stroke-width="34" stroke-linecap="round"/>
+  <text x="125" y="430" font-family="Arial Black, sans-serif" font-size="64" fill="#171717">就这?</text>
+</svg>

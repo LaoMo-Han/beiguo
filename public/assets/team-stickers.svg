@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-label="角色贴纸组合">
+  <rect width="760" height="620" rx="32" fill="#10194a"/>
+  <g opacity=".2" stroke="#60dfff">
+    <path d="M0 105h760M0 205h760M0 305h760M0 405h760M0 505h760"/>
+    <path d="M95 0v620M190 0v620M285 0v620M380 0v620M475 0v620M570 0v620M665 0v620"/>
+  </g>
+  <g transform="translate(100 110)">
+    <g fill="#fff" stroke="#263142" stroke-width="8">
+      <circle cx="80" cy="70" r="58"/><circle cx="280" cy="70" r="58"/><circle cx="480" cy="70" r="58"/>
+      <circle cx="180" cy="260" r="58"/><circle cx="380" cy="260" r="58"/>
+    </g>
+    <g fill="#88f8d8">
+      <circle cx="62" cy="64" r="10"/><circle cx="98" cy="64" r="10"/>
+      <circle cx="262" cy="64" r="10"/><circle cx="298" cy="64" r="10"/>
+      <circle cx="462" cy="64" r="10"/><circle cx="498" cy="64" r="10"/>
+      <circle cx="162" cy="254" r="10"/><circle cx="198" cy="254" r="10"/>
+      <circle cx="362" cy="254" r="10"/><circle cx="398" cy="254" r="10"/>
+    </g>
+  </g>
+  <text x="380" y="540" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="58" fill="#fff">TEAM NOTES</text>
+</svg>

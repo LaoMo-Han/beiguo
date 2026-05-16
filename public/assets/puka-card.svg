@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" role="img" aria-label="呗果贴纸卡">
+  <rect width="760" height="860" rx="42" fill="#ffd8e5"/>
+  <path d="M45 45h670v770H45z" fill="#fff5d8" opacity=".92"/>
+  <g stroke="#ff8dad" stroke-width="18" opacity=".5">
+    <path d="M80 60v740M140 60v740M200 60v740M260 60v740M320 60v740M380 60v740M440 60v740M500 60v740M560 60v740M620 60v740M680 60v740"/>
+  </g>
+  <circle cx="380" cy="315" r="170" fill="#fff9d8"/>
+  <circle cx="310" cy="275" r="28" fill="#263142"/>
+  <circle cx="450" cy="275" r="28" fill="#263142"/>
+  <path d="M322 380c38 26 82 26 118 0" fill="none" stroke="#263142" stroke-width="18" stroke-linecap="round"/>
+  <path d="M230 230c70-104 220-104 300 0" fill="none" stroke="#ff4f8f" stroke-width="42" stroke-linecap="round"/>
+  <path d="M270 182c-60 20-98 68-112 142" fill="none" stroke="#263142" stroke-width="40" stroke-linecap="round"/>
+  <path d="M530 182c60 20 98 68 112 142" fill="none" stroke="#263142" stroke-width="40" stroke-linecap="round"/>
+  <rect x="190" y="575" width="380" height="112" rx="56" fill="#ff4f8f"/>
+  <text x="380" y="650" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="66" fill="#fff">Puka</text>
+</svg>

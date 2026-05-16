@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-label="活动邮票">
+  <rect width="760" height="620" rx="32" fill="#eee2cf"/>
+  <g transform="translate(80 75)">
+    <g fill="#ffffff" stroke="#d8c6a8" stroke-width="10">
+      <rect x="0" y="0" width="250" height="200" rx="18"/>
+      <rect x="350" y="0" width="250" height="200" rx="18"/>
+      <rect x="0" y="270" width="250" height="200" rx="18"/>
+      <rect x="350" y="270" width="250" height="200" rx="18"/>
+    </g>
+    <g>
+      <circle cx="125" cy="88" r="48" fill="#ff8dad"/>
+      <circle cx="475" cy="88" r="48" fill="#87e3ff"/>
+      <circle cx="125" cy="358" r="48" fill="#b8a6ff"/>
+      <circle cx="475" cy="358" r="48" fill="#ffd45a"/>
+      <path d="M80 145h90M430 145h90M80 415h90M430 415h90" stroke="#263142" stroke-width="14" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="380" y="575" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="42" fill="#ff4f8f">EVENT GOODS</text>
+</svg>
