@@ -1,20 +1,26 @@
 [
   {
-    "title": "都市回声预热",
+    "title": "Hotori「Misty Tipsy Style」限定池",
     "status": "进行中",
-    "date": "05.16 - 05.30",
-    "reward": "预约情报、头像框、抽取资源"
+    "date": "05.13 - 06.03",
+    "reward": "S 级 Hotori，A 级 Haniel / Aurelia / Skia 同池"
   },
   {
-    "title": "夜城巡游资料更新",
+    "title": "Zero's Companion",
     "status": "待开启",
-    "date": "06.01",
-    "reward": "地图点位、素材路线"
+    "date": "05.13 - 05.27",
+    "reward": "每日/一次性同伴任务，奖励 Annulith、Fons、票券与培养材料"
   },
   {
-    "title": "角色档案补全计划",
-    "status": "长期",
-    "date": "每周更新",
-    "reward": "角色定位、技能速查"
+    "title": "Whisker Patrol",
+    "status": "待开启",
+    "date": "05.27 - 06.03",
+    "reward": "击败异常和 Garuda 成员累计点数，领取分档资源"
+  },
+  {
+    "title": "Bright Moon 弧盘研究",
+    "status": "进行中",
+    "date": "05.13 - 06.03",
+    "reward": "S 级弧盘 Marching Beyond Time"
   }
 ]

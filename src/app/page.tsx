@@ -1,9 +1,9 @@
 import { BrowserShell } from "@/components/BrowserShell";
-import { PostCard } from "@/components/PostCard";
-import { allEvents, allPosts, categories, getCategoryCount } from "@/lib/content";
+import { allEvents, allModules } from "@/lib/content";
 
 export default function Home() {
-  const leadPost = allPosts[0];
+  const leadModule = allModules[0];
+  const sideModules = allModules.slice(1);
 
   return (
     <BrowserShell>
@@ -13,10 +13,10 @@ export default function Home() {
             <span />
             发现
           </div>
-          {categories.slice(1).map((category) => (
-            <a href={`#${category}`} key={category}>
-              <span>{category}</span>
-              <strong>{getCategoryCount(category)}</strong>
+          {sideModules.map((module) => (
+            <a href={`#${module.slug}`} key={module.slug}>
+              <span>{module.name}</span>
+              <strong>{module.count}</strong>
             </a>
           ))}
         </aside>
@@ -27,26 +27,39 @@ export default function Home() {
               <p className="eyebrow">BEIGUO CHANNEL</p>
               <h1>呗果异环站</h1>
               <p>
-                不接数据库的轻量资料库，把异环公告、攻略、活动和角色数据做成一张好逛的游戏内网页。
+                不接数据库的轻量资料库，把强度榜、角色、弧盘、卡带、驱动块、兑换码和生活系统做成一张好逛的游戏内网页。
               </p>
             </div>
-            <a href={`/posts/${leadPost.slug}`} className="hero-cta">
-              <span>今日置顶</span>
-              <strong>{leadPost.title}</strong>
+            <a href={`#${leadModule.slug}`} className="hero-cta">
+              <span>{leadModule.status}</span>
+              <strong>{leadModule.description}</strong>
             </a>
           </div>
 
-          <div className="masonry-feed">
-            {allPosts.map((post) => (
-              <PostCard post={post} key={post.slug} />
+          <div className="module-feed">
+            {allModules.map((module) => (
+              <article className={`module-card tone-${module.tone}`} id={module.slug} key={module.slug}>
+                <div className="module-card-head">
+                  <span>{module.status}</span>
+                  <strong>{module.count}</strong>
+                </div>
+                <h2>{module.name}</h2>
+                <p className="module-subtitle">{module.subtitle}</p>
+                <p>{module.description}</p>
+                <div className="module-highlights">
+                  {module.highlights.map((highlight) => (
+                    <small key={highlight}>{highlight}</small>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </section>
 
-        <aside className="signal-board" aria-label="活动节点">
+        <aside className="signal-board" aria-label="资料状态">
           <div className="board-card">
-            <p className="eyebrow">EVENT RADAR</p>
-            <h2>活动雷达</h2>
+            <p className="eyebrow">DATA RADAR</p>
+            <h2>资料状态</h2>
             <div className="event-list">
               {allEvents.map((event) => (
                 <div className="event-item" key={event.title}>

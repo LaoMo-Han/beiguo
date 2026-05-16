@@ -1,30 +1,114 @@
 [
   {
-    "name": "奈芙",
-    "role": "支援",
-    "element": "虹频",
+    "name": "Daffodil",
+    "role": "副输出 / 破韧",
+    "element": "Chaos",
     "rarity": "SSR",
-    "summary": "适合开荒期提供回复与增益，队伍容错率高。"
+    "summary": "S 档。爆发副 C，适合快速切人，能参与 Nova、Scorch、Discord 反应。弧盘类型：Liquid。"
   },
   {
-    "name": "凛川",
+    "name": "Fadia",
+    "role": "生存 / 承伤",
+    "element": "Psyche",
+    "rarity": "SSR",
+    "summary": "S 档。通过转移队友伤害与自疗提高容错，休闲玩家和开荒队伍友好。弧盘类型：Synthesis。"
+  },
+  {
+    "name": "Haniel",
+    "role": "增伤辅助",
+    "element": "Psyche",
+    "rarity": "SR",
+    "summary": "S 档。A 级免费强力辅助，技能和终结技提供全队攻击增益。弧盘类型：Solid。"
+  },
+  {
+    "name": "Hotori",
+    "role": "增益 / 爆发",
+    "element": "Cosmos",
+    "rarity": "SSR",
+    "summary": "S 档。1.0 二阶段限定角色，拥有时间停止风格机制，适合爆发窗口。弧盘类型：Solid。"
+  },
+  {
+    "name": "Nanally",
+    "role": "主输出",
+    "element": "Anima",
+    "rarity": "SSR",
+    "summary": "S 档。首发强力主 C，单体爆发突出。弧盘类型：Plasma。"
+  },
+  {
+    "name": "Sakiri",
+    "role": "增益辅助",
+    "element": "Incantation",
+    "rarity": "SSR",
+    "summary": "S 档。以攻击增益与队伍辅助见长，常用于主 C 队伍。弧盘类型：Gas。"
+  },
+  {
+    "name": "Zero",
+    "role": "输出 / 反应轴",
+    "element": "Cosmos",
+    "rarity": "SSR",
+    "summary": "S 档。主角可用度高，技能循环能稳定触发 Esper Cycle。弧盘类型：Solid。"
+  },
+  {
+    "name": "Baicang",
+    "role": "主输出 / DOT",
+    "element": "Incantation",
+    "rarity": "SSR",
+    "summary": "A 档。以 Scorch 持续伤害为核心，上限高但操作要求更高。弧盘类型：Synthesis。"
+  },
+  {
+    "name": "Chiz",
     "role": "输出",
-    "element": "霜脉",
+    "element": "Cosmos",
     "rarity": "SSR",
-    "summary": "爆发窗口明确，适合搭配控场角色打短循环。"
+    "summary": "A 档。可通过经营模式获取觉醒资源，技能需要管理层数和爆发窗口。弧盘类型：Gas。"
   },
   {
-    "name": "米娅",
-    "role": "控场",
-    "element": "电弧",
-    "rarity": "SR",
-    "summary": "聚怪和打断能力稳定，适合日常清图。"
+    "name": "Jiuyuan",
+    "role": "爆发输出",
+    "element": "Anima",
+    "rarity": "SSR",
+    "summary": "B 档。操作简单，适合 Blossom 队，也能兼顾聚怪和单体。弧盘类型：Solid。"
   },
   {
-    "name": "白夜",
-    "role": "生存",
-    "element": "空相",
+    "name": "Hathor",
+    "role": "爆发输出",
+    "element": "Lakshana",
+    "rarity": "SSR",
+    "summary": "B 档。围绕摩托爆发和 Remora 队伍构筑。弧盘类型：Plasma。"
+  },
+  {
+    "name": "Adler",
+    "role": "生存 / 副输出",
+    "element": "Incantation",
     "rarity": "SR",
-    "summary": "护盾覆盖优秀，适合新手过渡。"
+    "summary": "B 档。免费 A 级，能增强 Scorch 并提供护盾。弧盘类型：Synthesis。"
+  },
+  {
+    "name": "Mint",
+    "role": "输出",
+    "element": "Anima",
+    "rarity": "SR",
+    "summary": "C 档。免费主 C，手感简单，适合作为过渡角色。弧盘类型：Liquid。"
+  },
+  {
+    "name": "Skia",
+    "role": "输出",
+    "element": "Lakshana",
+    "rarity": "SR",
+    "summary": "C 档。适配 Remora 队，觉醒后表现更完整。弧盘类型：Gas。"
+  },
+  {
+    "name": "Aurelia",
+    "role": "输出",
+    "element": "Psyche",
+    "rarity": "SR",
+    "summary": "C 档。需要较多站场时间，适合 Nova 队。弧盘类型：Plasma。"
+  },
+  {
+    "name": "Edgar",
+    "role": "治疗 / 生存",
+    "element": "Cosmos",
+    "rarity": "SR",
+    "summary": "D 档。治疗定位但功能偏窄，可作为 Charge 队过渡。弧盘类型：Liquid。"
   }
 ]

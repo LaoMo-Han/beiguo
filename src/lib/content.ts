@@ -1,5 +1,6 @@
 import characters from "../../data/characters.json";
 import events from "../../data/events.json";
+import modules from "../../data/modules.json";
 import posts from "../../data/posts.json";
 
 export type Post = {
@@ -14,6 +15,17 @@ export type Post = {
   tone: "cyan" | "blue" | "pink" | "navy" | "cream" | "orange";
   size: "short" | "medium" | "large" | "tall";
   body: string[];
+};
+
+export type ModuleEntry = {
+  slug: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  status: string;
+  count: string;
+  tone: "cyan" | "blue" | "pink" | "navy" | "cream" | "orange";
+  highlights: string[];
 };
 
 export type Character = {
@@ -34,17 +46,8 @@ export type Event = {
 export const allPosts = posts as Post[];
 export const allCharacters = characters as Character[];
 export const allEvents = events as Event[];
-
-export const categories = ["发现", "资讯", "数据", "攻略", "活动", "社区"] as const;
+export const allModules = modules as ModuleEntry[];
 
 export function getPost(slug: string) {
   return allPosts.find((post) => post.slug === slug);
-}
-
-export function getCategoryCount(category: string) {
-  if (category === "发现") {
-    return allPosts.length;
-  }
-
-  return allPosts.filter((post) => post.category === category).length;
 }
