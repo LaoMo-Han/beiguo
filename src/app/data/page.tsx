@@ -17,7 +17,7 @@ export default function DataPage() {
           </Link>
           <p className="eyebrow">STATIC DATABASE</p>
           <h1>异环数据速查</h1>
-          <p>这里的数据全部来自仓库内 JSON 文件，模块覆盖强度榜、角色、弧盘、卡带、驱动块、兑换码、bug 和生活系统。</p>
+          <p>这里的数据全部来自仓库内 JSON 文件，模块覆盖强度榜、角色、装备、兑换码、bug 和生活系统。</p>
         </div>
 
         <section className="data-panel module-overview">

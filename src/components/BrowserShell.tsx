@@ -20,14 +20,15 @@ export function BrowserShell({ children }: BrowserShellProps) {
           </span>
         </Link>
 
-        <div className="address-bar" aria-label="站点地址">
+        <form id="site-search" className="address-bar" action="/" role="search" aria-label="站内搜索">
           <span className="address-dot" />
-          <span>https://exoring.fun/</span>
-        </div>
+          <input name="q" type="search" aria-label="输入搜索内容" />
+        </form>
 
         <nav className="chrome-nav" aria-label="主导航">
-          <Link href="/">发现</Link>
-          <Link href="/data">数据</Link>
+          <button type="submit" form="site-search">
+            搜索
+          </button>
         </nav>
       </div>
 

@@ -27,7 +27,7 @@ export default function Home() {
               <p className="eyebrow">BEIGUO CHANNEL</p>
               <h1>呗果异环站</h1>
               <p>
-                不接数据库的轻量资料库，把强度榜、角色、弧盘、卡带、驱动块、兑换码和生活系统做成一张好逛的游戏内网页。
+                不接数据库的轻量资料库，把强度榜、角色、装备、兑换码和生活系统做成一张好逛的游戏内网页。
               </p>
             </div>
             <a href={`#${leadModule.slug}`} className="hero-cta">

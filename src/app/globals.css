@@ -137,18 +137,43 @@ img {
   border-radius: 50%;
 }
 
+.address-bar input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: 850;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.address-bar input::placeholder {
+  color: #20272e;
+  opacity: 1;
+}
+
+.address-bar input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
 .chrome-nav {
   display: flex;
   gap: 0.5rem;
   justify-content: flex-end;
 }
 
-.chrome-nav a {
+.chrome-nav a,
+.chrome-nav button {
   padding: 0.7rem 1rem;
   color: rgba(255, 255, 255, 0.82);
+  font: inherit;
   font-weight: 850;
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
+  cursor: pointer;
 }
 
 .screen-panel {
