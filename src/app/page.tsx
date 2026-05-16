@@ -14,7 +14,7 @@ export default function Home() {
             发现
           </div>
           {sideModules.map((module) => (
-            <a href={`#${module.slug}`} key={module.slug}>
+            <a href={`/modules/${module.slug}`} key={module.slug}>
               <span>{module.name}</span>
               <strong>{module.count}</strong>
             </a>
@@ -27,10 +27,10 @@ export default function Home() {
               <p className="eyebrow">BEIGUO CHANNEL</p>
               <h1>呗果异环站</h1>
               <p>
-                不接数据库的轻量资料库，把强度榜、角色、装备、兑换码和生活系统做成一张好逛的游戏内网页。
+                不接数据库的轻量资料库，把强度榜、角色、弧盘、卡带、驱动块、兑换码和生活系统做成一张好逛的游戏内网页。
               </p>
             </div>
-            <a href={`#${leadModule.slug}`} className="hero-cta">
+            <a href={`/modules/${leadModule.slug}`} className="hero-cta">
               <span>{leadModule.status}</span>
               <strong>{leadModule.description}</strong>
             </a>
@@ -38,20 +38,7 @@ export default function Home() {
 
           <div className="module-feed">
             {allModules.map((module) => (
-              <article className={`module-card tone-${module.tone}`} id={module.slug} key={module.slug}>
-                <div className="module-card-head">
-                  <span>{module.status}</span>
-                  <strong>{module.count}</strong>
-                </div>
-                <h2>{module.name}</h2>
-                <p className="module-subtitle">{module.subtitle}</p>
-                <p>{module.description}</p>
-                <div className="module-highlights">
-                  {module.highlights.map((highlight) => (
-                    <small key={highlight}>{highlight}</small>
-                  ))}
-                </div>
-              </article>
+              <LinkCard module={module} key={module.slug} />
             ))}
           </div>
         </section>
@@ -73,5 +60,28 @@ export default function Home() {
         </aside>
       </section>
     </BrowserShell>
+  );
+}
+
+function LinkCard({
+  module
+}: {
+  module: (typeof allModules)[number];
+}) {
+  return (
+    <a className={`module-card tone-${module.tone}`} id={module.slug} href={`/modules/${module.slug}`}>
+                <div className="module-card-head">
+                  <span>{module.status}</span>
+                  <strong>{module.count}</strong>
+                </div>
+                <h2>{module.name}</h2>
+                <p className="module-subtitle">{module.subtitle}</p>
+                <p>{module.description}</p>
+                <div className="module-highlights">
+                  {module.highlights.map((highlight) => (
+                    <small key={highlight}>{highlight}</small>
+                  ))}
+                </div>
+    </a>
   );
 }

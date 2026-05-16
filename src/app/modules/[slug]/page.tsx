@@ -1,0 +1,118 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { BrowserShell } from "@/components/BrowserShell";
+import { allModuleDetails, allModules, getModule, getModuleDetail } from "@/lib/content";
+
+type ModulePageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return allModuleDetails.map((module) => ({ slug: module.slug }));
+}
+
+export async function generateMetadata({ params }: ModulePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const module = getModule(slug);
+  const detail = getModuleDetail(slug);
+
+  if (!module || !detail) {
+    return {};
+  }
+
+  return {
+    title: `${module.name} - ${module.subtitle}`,
+    description: detail.summary,
+    alternates: {
+      canonical: `/modules/${slug}`
+    }
+  };
+}
+
+export default async function ModulePage({ params }: ModulePageProps) {
+  const { slug } = await params;
+  const module = getModule(slug);
+  const detail = getModuleDetail(slug);
+
+  if (!module || !detail) {
+    notFound();
+  }
+
+  return (
+    <BrowserShell>
+      <section className="module-detail-page">
+        <aside className="module-nav" aria-label="模块导航">
+          <Link href="/" className="back-link">
+            ← 返回发现
+          </Link>
+          {allModules.map((item) => (
+            <Link className={item.slug === slug ? "is-current" : ""} href={`/modules/${item.slug}`} key={item.slug}>
+              {item.name}
+            </Link>
+          ))}
+        </aside>
+
+        <article className="module-detail-main">
+          <header className={`module-detail-hero tone-${module.tone}`}>
+            <p className="eyebrow">BEIGUO DATA MODULE</p>
+            <h1>{module.name}</h1>
+            <p className="module-subtitle">{module.subtitle}</p>
+            <p>{detail.summary}</p>
+            <div className="detail-meta">
+              <span>{module.status}</span>
+              <span>数量：{module.count}</span>
+              <span>更新：{detail.updated}</span>
+            </div>
+          </header>
+
+          {detail.sections.map((section) => (
+            <section className="detail-section" key={section.title}>
+              <h2>{section.title}</h2>
+              {section.kind === "table" && section.columns && section.rows ? (
+                <div className="data-table-wrap">
+                  <table className="data-table">
+                    <thead>
+                      <tr>
+                        {section.columns.map((column) => (
+                          <th key={column}>{column}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.rows.map((row, index) => (
+                        <tr key={`${section.title}-${index}`}>
+                          {section.columns?.map((column) => (
+                            <td key={column}>{row[column]}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+
+              {section.kind === "checklist" && section.items ? (
+                <ul className="check-list">
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {section.kind === "cards" && section.items ? (
+                <div className="info-card-grid">
+                  {section.items.map((item) => (
+                    <div className="info-card" key={item}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </section>
+          ))}
+        </article>
+      </section>
+    </BrowserShell>
+  );
+}

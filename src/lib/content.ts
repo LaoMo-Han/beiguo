@@ -1,5 +1,6 @@
 import characters from "../../data/characters.json";
 import events from "../../data/events.json";
+import moduleDetails from "../../data/module-details.json";
 import modules from "../../data/modules.json";
 import posts from "../../data/posts.json";
 
@@ -28,6 +29,21 @@ export type ModuleEntry = {
   highlights: string[];
 };
 
+export type ModuleSection = {
+  title: string;
+  kind: "table" | "cards" | "checklist";
+  columns?: string[];
+  rows?: Record<string, string>[];
+  items?: string[];
+};
+
+export type ModuleDetail = {
+  slug: string;
+  updated: string;
+  summary: string;
+  sections: ModuleSection[];
+};
+
 export type Character = {
   name: string;
   role: string;
@@ -47,7 +63,16 @@ export const allPosts = posts as Post[];
 export const allCharacters = characters as Character[];
 export const allEvents = events as Event[];
 export const allModules = modules as ModuleEntry[];
+export const allModuleDetails = moduleDetails as ModuleDetail[];
 
 export function getPost(slug: string) {
   return allPosts.find((post) => post.slug === slug);
+}
+
+export function getModule(slug: string) {
+  return allModules.find((module) => module.slug === slug);
+}
+
+export function getModuleDetail(slug: string) {
+  return allModuleDetails.find((module) => module.slug === slug);
 }
