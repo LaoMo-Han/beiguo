@@ -125,7 +125,7 @@ function renderTableSection(moduleSlug: string, section: ModuleSection) {
         </thead>
         <tbody>
           {rows.map((row, index) => (
-            <tr key={`${section.title}-${index}`}>
+            <tr className={getTableRowClassName(moduleSlug, section, row)} key={`${section.title}-${index}`}>
               {columns.map((column) => (
                 <td key={column}>{renderTableCell(moduleSlug, column, row[column] ?? "")}</td>
               ))}
@@ -161,6 +161,27 @@ function getTableRows(moduleSlug: string, section: ModuleSection) {
   }
 
   return section.rows ?? [];
+}
+
+function getTableRowClassName(moduleSlug: string, section: ModuleSection, row: Record<string, string>) {
+  if (moduleSlug !== "tier" || !section.columns?.includes("梯度")) {
+    return undefined;
+  }
+
+  const tier = row["梯度"];
+  const tierClassMap: Record<string, string> = {
+    T0: "tier-row tier-row-t0",
+    "T0.5": "tier-row tier-row-t05",
+    T1: "tier-row tier-row-t1",
+    T2: "tier-row tier-row-t2",
+    A: "tier-row tier-row-a",
+    B: "tier-row tier-row-b",
+    "C-D": "tier-row tier-row-cd",
+    "待评测": "tier-row tier-row-pending",
+    "平民": "tier-row tier-row-common"
+  };
+
+  return tierClassMap[tier] ?? "tier-row";
 }
 
 function EquipmentCatalogSections() {
@@ -228,7 +249,7 @@ function EquipmentCatalogSections() {
 
       <section className="detail-section" id="drive-block-catalog">
         <div className="section-title-row">
-          <h2>驱动块规则</h2>
+          <h2>驱动块全图鉴</h2>
           <span>{equipmentCatalog.driveBlocks.length} 类</span>
         </div>
         <div className="equipment-grid drive-grid">

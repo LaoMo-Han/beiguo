@@ -1,9 +1,10 @@
 import { BrowserShell } from "@/components/BrowserShell";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
-import { allEvents, allModules } from "@/lib/content";
+import { PostCard } from "@/components/PostCard";
+import { allEvents, allPosts } from "@/lib/content";
 
 export default function Home() {
-  const leadModule = allModules[0];
+  const leadPost = allPosts[0];
 
   return (
     <BrowserShell>
@@ -14,22 +15,28 @@ export default function Home() {
           <div className="hero-strip">
             <div>
               <p className="eyebrow">BEIGUO CHANNEL</p>
-              <h1>呗果异环站</h1>
+              <h1>发现</h1>
               <p>
-                不接数据库的轻量资料库，把强度榜、角色、弧盘、卡带、驱动块和生活系统做成一张好逛的游戏内网页。
+                最新整理的异环资料、攻略笔记和玩法说明会先放在这里，再把稳定数据沉到对应模块里。
               </p>
             </div>
-            <a href={`/modules/${leadModule.slug}`} className="hero-cta">
-              <span>{leadModule.status}</span>
-              <strong>{leadModule.description}</strong>
+            <a href={`/posts/${leadPost.slug}`} className="hero-cta">
+              <span>今日更新</span>
+              <strong>{leadPost.title}</strong>
             </a>
           </div>
 
-          <div className="module-feed">
-            {allModules.map((module) => (
-              <LinkCard module={module} key={module.slug} />
-            ))}
-          </div>
+          <section className="discover-posts is-primary" aria-label="发现文章">
+            <div className="section-title-row">
+              <h2>发现文章</h2>
+              <span>{allPosts.length} 篇</span>
+            </div>
+            <div className="masonry-feed">
+              {allPosts.map((post) => (
+                <PostCard post={post} key={post.slug} />
+              ))}
+            </div>
+          </section>
         </section>
 
         <aside className="signal-board" aria-label="资料状态">
@@ -49,28 +56,5 @@ export default function Home() {
         </aside>
       </section>
     </BrowserShell>
-  );
-}
-
-function LinkCard({
-  module
-}: {
-  module: (typeof allModules)[number];
-}) {
-  return (
-    <a className={`module-card tone-${module.tone}`} id={module.slug} href={`/modules/${module.slug}`}>
-                <div className="module-card-head">
-                  <span>{module.status}</span>
-                  <strong>{module.count}</strong>
-                </div>
-                <h2>{module.name}</h2>
-                <p className="module-subtitle">{module.subtitle}</p>
-                <p>{module.description}</p>
-                <div className="module-highlights">
-                  {module.highlights.map((highlight) => (
-                    <small key={highlight}>{highlight}</small>
-                  ))}
-                </div>
-    </a>
   );
 }

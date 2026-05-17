@@ -412,6 +412,14 @@ img {
   gap: 1rem;
 }
 
+.discover-posts {
+  margin-top: 1.1rem;
+}
+
+.discover-posts.is-primary {
+  margin-top: 0;
+}
+
 .module-card {
   display: grid;
   gap: 0.72rem;
@@ -814,6 +822,39 @@ img {
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--line);
+}
+
+.data-table tbody tr.tier-row-t0 td {
+  background: rgba(255, 79, 143, 0.14);
+}
+
+.data-table tbody tr.tier-row-t05 td {
+  background: rgba(255, 190, 82, 0.16);
+}
+
+.data-table tbody tr.tier-row-t1 td {
+  background: rgba(42, 216, 244, 0.13);
+}
+
+.data-table tbody tr.tier-row-t2 td {
+  background: rgba(79, 118, 255, 0.11);
+}
+
+.data-table tbody tr.tier-row-a td {
+  background: rgba(117, 217, 142, 0.14);
+}
+
+.data-table tbody tr.tier-row-b td {
+  background: rgba(224, 190, 114, 0.15);
+}
+
+.data-table tbody tr.tier-row-cd td {
+  background: rgba(108, 123, 138, 0.1);
+}
+
+.data-table tbody tr.tier-row-pending td,
+.data-table tbody tr.tier-row-common td {
+  background: rgba(244, 247, 248, 0.82);
 }
 
 .data-table th {
