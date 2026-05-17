@@ -55,7 +55,7 @@ img {
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: minmax(9rem, 14rem) minmax(12rem, 1fr) auto;
+  grid-template-columns: minmax(9rem, 14rem) minmax(12rem, min(54rem, 60vw)) auto 1fr;
   gap: 1rem;
   align-items: center;
   width: 100%;
@@ -176,6 +176,13 @@ img {
   cursor: pointer;
 }
 
+.chrome-nav .post-action {
+  color: #fff;
+  background: #ff5a96;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 18px rgba(255, 90, 150, 0.22);
+}
+
 .screen-panel {
   width: 100%;
   min-height: calc(100vh - 5.4rem);
@@ -194,11 +201,24 @@ img {
 
 .home-grid {
   display: grid;
-  grid-template-columns: 14rem minmax(0, 1fr) 18rem;
+  grid-template-columns: 14rem minmax(0, 1fr);
   gap: clamp(1rem, 1.8vw, 1.5rem);
   align-items: start;
-  width: min(82rem, 100%);
+  width: min(92rem, 100%);
   margin: 0 auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
 }
 
 .module-sidebar {
@@ -454,8 +474,9 @@ img {
 }
 
 .masonry-feed {
-  column-count: 3;
-  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .module-feed {
@@ -548,16 +569,15 @@ img {
 
 .post-card {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin: 0 0 1rem;
+  margin: 0;
   overflow: hidden;
   vertical-align: top;
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
   box-shadow: 0 13px 36px rgba(35, 51, 68, 0.13);
-  break-inside: avoid;
 }
 
 .card-image-link {
@@ -1421,7 +1441,7 @@ a.character-inline:hover {
   }
 
   .masonry-feed {
-    column-count: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .module-feed {
@@ -1500,7 +1520,7 @@ a.character-inline:hover {
   }
 
   .masonry-feed {
-    column-count: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .module-feed,
@@ -1531,5 +1551,9 @@ a.character-inline:hover {
 
   .card-copy {
     padding: 0.85rem;
+  }
+
+  .masonry-feed {
+    grid-template-columns: 1fr;
   }
 }

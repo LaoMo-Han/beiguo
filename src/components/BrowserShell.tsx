@@ -29,6 +29,9 @@ export function BrowserShell({ children }: BrowserShellProps) {
           <button type="submit" form="site-search">
             搜索
           </button>
+          <button type="button" className="post-action">
+            发帖
+          </button>
         </nav>
       </div>
 
