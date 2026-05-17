@@ -183,6 +183,29 @@ img {
   box-shadow: 0 8px 18px rgba(255, 90, 150, 0.22);
 }
 
+.primary-action,
+.danger-action {
+  width: fit-content;
+  padding: 0.72rem 1rem;
+  color: #fff;
+  font: inherit;
+  font-weight: 950;
+  background: #ff5a96;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.primary-action:disabled,
+.danger-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.danger-action {
+  background: #17202a;
+}
+
 .screen-panel {
   width: 100%;
   min-height: calc(100vh - 5.4rem);
@@ -491,6 +514,127 @@ img {
 
 .discover-posts.is-primary {
   margin-top: 0;
+}
+
+.feed-status,
+.empty-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.community-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 22, 28, 0.42);
+  border: 0;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.community-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.82rem;
+  width: min(35rem, 100%);
+  max-height: calc(100vh - 2rem);
+  padding: 1.1rem;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 22px 70px rgba(18, 25, 34, 0.28);
+}
+
+.community-form-page {
+  width: 100%;
+  max-height: none;
+  margin-top: 1rem;
+}
+
+.community-form header {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.community-form h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.icon-close {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 950;
+  background: rgba(23, 32, 42, 0.06);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.community-form label,
+.comment-form,
+.admin-toolbar label {
+  display: grid;
+  gap: 0.42rem;
+  color: var(--ink);
+  font-weight: 950;
+}
+
+.community-form input,
+.community-form textarea,
+.comment-form input,
+.comment-form textarea,
+.admin-toolbar input {
+  width: 100%;
+  padding: 0.72rem 0.82rem;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  background: rgba(244, 247, 248, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  outline: 0;
+}
+
+.community-form textarea,
+.comment-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.community-form small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.form-status {
+  margin: 0;
+  font-weight: 900;
+}
+
+.status-success {
+  color: #227a47;
+}
+
+.status-error {
+  color: #b4214c;
 }
 
 .module-card {
@@ -1325,6 +1469,104 @@ a.character-inline:hover {
 
 .detail-body p:last-child {
   margin-bottom: 0;
+}
+
+.community-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.community-actions span {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.community-comments {
+  margin-top: 1rem;
+}
+
+.comment-form {
+  margin-bottom: 1rem;
+}
+
+.comment-form textarea {
+  min-height: 6rem;
+}
+
+.comment-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.comment-item {
+  display: grid;
+  gap: 0.32rem;
+  padding: 0.85rem;
+  background: rgba(244, 247, 248, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+}
+
+.comment-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.comment-item small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.admin-panel,
+.admin-post-list {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.admin-toolbar label {
+  min-width: min(18rem, 100%);
+}
+
+.admin-toolbar span {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.admin-post-item {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.admin-post-item img {
+  width: 5rem;
+  height: 4.2rem;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}
+
+.admin-post-item h2,
+.admin-post-item p {
+  margin: 0.2rem 0;
+}
+
+.admin-post-item span,
+.admin-post-item small {
+  color: var(--muted);
+  font-weight: 900;
 }
 
 .data-heading {

@@ -10,7 +10,7 @@ export type Post = {
   slug: string;
   title: string;
   excerpt: string;
-  category: "公告" | "攻略" | "社区" | "数据" | "活动" | "资讯";
+  category: "公告" | "攻略" | "社区" | "数据" | "活动" | "资讯" | "分享";
   author: string;
   likes: string;
   date: string;
