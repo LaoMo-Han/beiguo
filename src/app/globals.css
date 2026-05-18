@@ -19,6 +19,7 @@
 html {
   min-width: 320px;
   background: #cdd8df;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1761,101 +1762,226 @@ a.character-inline:hover {
   }
 
   .browser-chrome {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 0;
+  }
+
+  .brand-lockup {
+    order: 1;
+    flex: 0 1 auto;
+  }
+
+  .chrome-nav {
+    order: 2;
+    flex: 0 0 auto;
+    gap: 0.35rem;
   }
 
   .address-bar {
     order: 3;
-    width: 100%;
-    font-size: 0.9rem;
+    flex: 1 0 100%;
+    margin-top: 0.1rem;
+    font-size: 0.88rem;
   }
 
-  .chrome-nav {
-    justify-content: flex-start;
+  .chrome-nav a,
+  .chrome-nav button {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.88rem;
   }
 
-  .home-grid {
-    grid-template-columns: 1fr;
+  .screen-panel {
+    min-height: calc(100vh - 8rem);
+    padding: 1rem;
+    border-radius: 0;
   }
 
-  .module-detail-page {
+  .home-grid,
+  .module-detail-page,
+  .data-layout,
+  .character-detail-hero,
+  .profile-stat-grid,
+  .team-card-grid,
+  .module-feed,
+  .module-mini-grid,
+  .info-card-grid,
+  .character-grid {
     grid-template-columns: 1fr;
   }
 
   .module-sidebar {
-    position: static;
+    position: sticky;
+    top: 7.2rem; /* Adjusted for two-row chrome */
+    z-index: 10;
     display: flex;
     max-height: none;
+    margin: -1rem -1rem 1rem;
+    padding: 0.75rem 1rem;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 0.2rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    scrollbar-width: none;
+  }
+
+  .module-sidebar::-webkit-scrollbar {
+    display: none;
   }
 
   .module-sidebar-group {
     display: flex;
-    gap: 0.55rem;
+    flex: 0 0 auto;
+    gap: 0.4rem;
+    align-items: center;
   }
 
   .module-sidebar-item {
+    width: auto;
+    height: 2.6rem;
     min-width: max-content;
+  }
+
+  .item-link-area {
+    padding: 0.4rem 0.85rem !important;
+  }
+
+  .module-sidebar-item.is-current::before {
+    left: 0;
+    width: 100%;
+    background: #ff5a96;
+    border-radius: 1.3rem;
+  }
+
+  .module-sidebar-item.is-current::after {
+    display: none;
   }
 
   .module-sidebar-children {
     display: flex;
-    gap: 0.55rem;
-    padding-left: 0;
-    border-left: 0;
+    gap: 0.4rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid var(--line);
   }
 
-  .hero-strip,
-  .data-layout,
-  .character-detail-hero,
-  .profile-stat-grid,
-  .team-card-grid {
+  .module-sidebar-children a {
+    min-height: 2.1rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-strip {
     grid-template-columns: 1fr;
+    padding: 1.1rem;
   }
 
   .hero-cta {
-    min-height: 8rem;
+    min-height: auto;
+    padding: 1rem;
   }
 
   .masonry-feed {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .module-feed,
-  .module-mini-grid,
-  .info-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .character-grid {
-    grid-template-columns: 1fr;
-  }
-
   .profile-stat.is-wide {
     grid-column: auto;
+  }
+
+  .character-portrait {
+    min-height: 12rem;
+  }
+
+  .character-portrait img {
+    max-height: 15rem;
+  }
+
+  .data-table-wrap {
+    margin: 0 -0.5rem;
+    padding: 0 0.5rem;
+    border-radius: 0;
+  }
+
+  .data-table {
+    min-width: 30rem;
   }
 }
 
 @media (max-width: 520px) {
   .screen-panel {
-    padding: 0.8rem;
+    padding: 0.75rem;
   }
 
   .hero-strip h1,
   .data-heading h1,
-  .empty-state h1 {
-    font-size: 2.25rem;
+  .empty-state h1,
+  .module-detail-hero h1,
+  .character-detail-copy h1,
+  .detail-title h1 {
+    font-size: 1.9rem;
+  }
+
+  .masonry-feed {
+    grid-template-columns: 1fr;
   }
 
   .card-copy {
     padding: 0.85rem;
   }
 
-  .masonry-feed {
+  .detail-section {
+    padding: 0.9rem;
+  }
+
+  .equipment-grid {
     grid-template-columns: 1fr;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .module-sidebar {
+    margin: -0.75rem -0.75rem 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-lockup strong {
+    font-size: 1.25rem;
+  }
+
+  .brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .chrome-nav a,
+  .chrome-nav button {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .module-sidebar-item {
+    height: 2.5rem;
+  }
+
+  .item-link-area {
+    padding: 0.3rem 0.8rem !important;
+  }
+
+  .equipment-card {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-image {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
