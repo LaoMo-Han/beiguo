@@ -1569,6 +1569,66 @@ a.character-inline:hover {
   font-weight: 900;
 }
 
+.search-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+.search-empty p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.search-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.search-result-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.search-result-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  color: var(--ink);
+  background: rgba(244, 247, 248, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.search-result-card:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 79, 143, 0.34);
+  transform: translateY(-1px);
+}
+
+.search-result-card span {
+  width: fit-content;
+  padding: 0.28rem 0.52rem;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 950;
+  background: #17202a;
+  border-radius: 999px;
+}
+
+.search-result-card strong {
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.search-result-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 780;
+  line-height: 1.65;
+}
+
 .data-heading {
   margin-bottom: 1.2rem;
 }

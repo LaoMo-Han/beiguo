@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { SearchField } from "@/components/SearchField";
 
 type BrowserShellProps = {
   children: ReactNode;
+  searchQuery?: string;
 };
 
-export function BrowserShell({ children }: BrowserShellProps) {
+export function BrowserShell({ children, searchQuery = "" }: BrowserShellProps) {
   return (
     <main className="site-shell">
       <div className="browser-chrome" aria-label="呗果站点框架">
@@ -20,10 +22,7 @@ export function BrowserShell({ children }: BrowserShellProps) {
           </span>
         </Link>
 
-        <form id="site-search" className="address-bar" action="/" role="search" aria-label="站内搜索">
-          <span className="address-dot" />
-          <input name="q" type="search" aria-label="输入搜索内容" placeholder="exoring.fun" />
-        </form>
+        <SearchField defaultQuery={searchQuery} />
 
         <nav className="chrome-nav" aria-label="主导航">
           <button type="submit" form="site-search">
