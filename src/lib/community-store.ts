@@ -1,4 +1,4 @@
-import { del, list, put } from "@vercel/blob";
+import { del, get, list, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import {
   COMMUNITY_CUTE_NAMES,
@@ -46,7 +46,7 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
 
   const safeLimit = Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT));
   const blobs = await listAll(POST_PREFIX);
-  const posts = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityPost>(blob.url)));
+  const posts = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityPost>(blob.pathname)));
   const visiblePosts = posts
     .filter((post): post is CommunityPost => Boolean(post))
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
@@ -72,7 +72,7 @@ export async function getCommunityPost(id: string) {
     return null;
   }
 
-  const post = await readJsonBlob<CommunityPost>(blob.url);
+  const post = await readJsonBlob<CommunityPost>(blob.pathname);
 
   if (!post) {
     return null;
@@ -149,7 +149,7 @@ export async function listCommunityComments(postId: string) {
   }
 
   const blobs = await listAll(`${COMMENT_PREFIX}${postId}/`);
-  const comments = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityComment>(blob.url)));
+  const comments = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityComment>(blob.pathname)));
 
   return comments
     .filter((comment): comment is CommunityComment => Boolean(comment))
@@ -231,13 +231,13 @@ async function uploadCommunityImage(postId: string, image: NonNullable<Community
   const ext = image.type === "image/png" ? "png" : image.type === "image/webp" ? "webp" : "jpg";
   const pathname = `${IMAGE_PREFIX}${postId}.${ext}`;
   const blob = await put(pathname, buffer, {
-    access: "public",
+    access: "private",
     contentType: image.type
   });
 
   return {
     pathname,
-    url: blob.url
+    url: `/api/community/images/${pathname.replace(IMAGE_PREFIX, "")}`
   };
 }
 
@@ -295,15 +295,31 @@ async function countPrefix(prefix: string) {
   return (await listAll(prefix)).length;
 }
 
-async function readJsonBlob<T>(url: string) {
-  try {
-    const response = await fetch(url, { cache: "no-store" });
+export async function getCommunityImage(name: string) {
+  ensureBlobEnabled();
 
-    if (!response.ok) {
+  if (!/^[a-zA-Z0-9-]+\.(jpg|png|webp)$/.test(name)) {
+    throw new CommunityError("图片不存在", 404);
+  }
+
+  const result = await get(`${IMAGE_PREFIX}${name}`, { access: "private", useCache: false });
+
+  if (!result || result.statusCode !== 200) {
+    throw new CommunityError("图片不存在", 404);
+  }
+
+  return result;
+}
+
+async function readJsonBlob<T>(pathname: string) {
+  try {
+    const result = await get(pathname, { access: "private", useCache: false });
+
+    if (!result || result.statusCode !== 200) {
       return null;
     }
 
-    return (await response.json()) as T;
+    return JSON.parse(await streamToText(result.stream)) as T;
   } catch {
     return null;
   }
@@ -311,9 +327,29 @@ async function readJsonBlob<T>(url: string) {
 
 async function putJson(pathname: string, value: unknown) {
   return put(pathname, JSON.stringify(value, null, 2), {
-    access: "public",
+    access: "private",
     contentType: "application/json"
   });
+}
+
+async function streamToText(stream: ReadableStream<Uint8Array>) {
+  const reader = stream.getReader();
+  const decoder = new TextDecoder();
+  let text = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+
+    if (done) {
+      break;
+    }
+
+    text += decoder.decode(value, { stream: true });
+  }
+
+  text += decoder.decode();
+
+  return text;
 }
 
 function cleanText(value: string | undefined, maxLength: number) {

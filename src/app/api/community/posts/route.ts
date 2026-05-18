@@ -28,5 +28,14 @@ function communityErrorResponse(error: unknown) {
     return NextResponse.json({ error: error.message }, { status: error.status });
   }
 
+  console.error("community post error", error);
+
+  if (process.env.NODE_ENV === "development") {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "发帖失败，请稍后再试" },
+      { status: 500 }
+    );
+  }
+
   return NextResponse.json({ error: "发帖失败，请稍后再试" }, { status: 500 });
 }
