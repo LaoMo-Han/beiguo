@@ -42,7 +42,7 @@ export function AdminCommunityPanel() {
       <div className="module-detail-hero">
         <p className="eyebrow">ADMIN</p>
         <h1>社区帖子管理</h1>
-        <p>输入管理密码后可以删除用户帖子，删除会同时移除对应评论、点赞和上传图片。</p>
+        <p>输入管理密码后可以删除用户帖子，删除会同时移除对应评论和点赞。</p>
       </div>
 
       <div className="detail-section admin-toolbar">
@@ -76,7 +76,7 @@ export function AdminCommunityPanel() {
           ))
         ) : (
           <div className="detail-section">
-            <p className="empty-note">暂无用户帖子，或尚未配置 Vercel Blob。</p>
+            <p className="empty-note">暂无用户帖子，或尚未配置 Supabase。</p>
           </div>
         )}
       </div>

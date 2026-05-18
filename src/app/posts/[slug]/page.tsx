@@ -51,7 +51,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   const comments = communityPost ? await listCommunityComments(communityPost.id) : [];
-  const remoteImage = post.image.startsWith("http");
+  const browserImage = post.image.startsWith("http") || post.image.startsWith("data:");
 
   return (
     <BrowserShell>
@@ -62,7 +62,7 @@ export default async function PostPage({ params }: PostPageProps) {
             ← 返回发现
           </Link>
           <div className="detail-hero">
-            {remoteImage ? (
+            {browserImage ? (
               <img src={post.image} alt="" className="detail-image" />
             ) : (
               <Image

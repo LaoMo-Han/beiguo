@@ -1,4 +1,3 @@
-import { del, get, list, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import {
   COMMUNITY_CUTE_NAMES,
@@ -11,19 +10,31 @@ import {
   type CommunityPost,
   type CommunityPostInput
 } from "@/lib/community-types";
-
-const POST_PREFIX = "community/posts/";
-const COMMENT_PREFIX = "community/comments/";
-const LIKE_PREFIX = "community/likes/";
-const IMAGE_PREFIX = "community/images/";
-const RATE_PREFIX = "community/rate/";
+import { getCommunityDb } from "@/lib/community-db";
 
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
-type BlobListItem = {
-  pathname: string;
-  url: string;
-  uploadedAt?: Date | string;
+type CommunityPostRow = {
+  id: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  image: string;
+  image_path: string | null;
+  body: string[];
+  tone: CommunityPost["tone"];
+  size: CommunityPost["size"];
+  created_at: Date | string;
+  likes: number | string | null;
+};
+
+type CommunityCommentRow = {
+  id: string;
+  post_id: string;
+  author: string;
+  body: string;
+  created_at: Date | string;
 };
 
 export class CommunityError extends Error {
@@ -36,56 +47,70 @@ export class CommunityError extends Error {
 }
 
 export function isCommunityEnabled() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  return Boolean(getCommunityDb());
 }
 
 export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
-  if (!isCommunityEnabled()) {
+  const sql = getCommunityDb();
+
+  if (!sql) {
     return [];
   }
 
   const safeLimit = Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT));
-  const blobs = await listAll(POST_PREFIX);
-  const posts = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityPost>(blob.pathname)));
-  const visiblePosts = posts
-    .filter((post): post is CommunityPost => Boolean(post))
-    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
-    .slice(0, safeLimit);
 
-  return Promise.all(
-    visiblePosts.map(async (post) => ({
-      ...post,
-      likes: await countPrefix(`${LIKE_PREFIX}${post.id}/`)
-    }))
-  );
+  try {
+    const rows = await sql<CommunityPostRow[]>`
+      select
+        p.*,
+        count(l.id) as likes
+      from community_posts p
+      left join community_likes l on l.post_id = p.id
+      group by p.id
+      order by p.created_at desc
+      limit ${safeLimit}
+    `;
+
+    return rows.map(mapPostRow);
+  } catch (error) {
+    console.error("community posts query error", error);
+    throw new CommunityError("社区帖子暂时加载失败", 503);
+  }
 }
 
 export async function getCommunityPost(id: string) {
-  if (!isCommunityEnabled() || !isSafeId(id)) {
+  const sql = getCommunityDb();
+
+  if (!sql || !isSafeId(id)) {
     return null;
   }
 
-  const blobs = await listAll(`${POST_PREFIX}${id}.json`);
-  const blob = blobs.find((item) => item.pathname === `${POST_PREFIX}${id}.json`);
+  try {
+    const rows = await sql<CommunityPostRow[]>`
+      select
+        p.*,
+        count(l.id) as likes
+      from community_posts p
+      left join community_likes l on l.post_id = p.id
+      where p.id = ${id}
+      group by p.id
+      limit 1
+    `;
 
-  if (!blob) {
-    return null;
+    return rows[0] ? mapPostRow(rows[0]) : null;
+  } catch (error) {
+    console.error("community post query error", error);
+    throw new CommunityError("帖子读取失败", 503);
   }
-
-  const post = await readJsonBlob<CommunityPost>(blob.pathname);
-
-  if (!post) {
-    return null;
-  }
-
-  return {
-    ...post,
-    likes: await countPrefix(`${LIKE_PREFIX}${post.id}/`)
-  };
 }
 
 export async function createCommunityPost(input: CommunityPostInput, request: Request) {
-  ensureBlobEnabled();
+  const sql = getCommunityDb();
+
+  if (!sql) {
+    throw new CommunityError("尚未配置 Supabase 数据库", 503);
+  }
+
   await assertRateLimit(request, "post", 60 * 60 * 1000);
 
   const title = cleanText(input.title, 80);
@@ -102,31 +127,54 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
   }
 
   const id = crypto.randomUUID();
-  const createdAt = new Date().toISOString();
-  const imageResult = input.image ? await uploadCommunityImage(id, input.image) : null;
-  const post: CommunityPost = {
-    id,
-    title,
-    excerpt: makeExcerpt(body),
-    category,
-    author,
-    image: imageResult?.url || randomFallbackImage(id),
-    imagePath: imageResult?.pathname,
-    body: body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean),
-    createdAt,
-    likes: 0,
-    tone: pickTone(id),
-    size: "medium"
-  };
+  const image = input.image ? normalizeCommunityImage(input.image) : randomFallbackImage(id);
+  const paragraphs = body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
+  const tone = pickTone(id);
 
-  await putJson(`${POST_PREFIX}${id}.json`, post);
-  await recordRateLimit(request, "post", 60 * 60 * 1000);
+  try {
+    const rows = await sql<CommunityPostRow[]>`
+      insert into community_posts (
+        id,
+        title,
+        excerpt,
+        category,
+        author,
+        image,
+        image_path,
+        body,
+        tone,
+        size
+      )
+      values (
+        ${id},
+        ${title},
+        ${makeExcerpt(body)},
+        ${category},
+        ${author},
+        ${image},
+        ${null},
+        ${paragraphs},
+        ${tone},
+        ${"medium"}
+      )
+      returning *, 0 as likes
+    `;
 
-  return post;
+    await recordRateLimit(request, "post", 60 * 60 * 1000);
+
+    return mapPostRow(rows[0]);
+  } catch (error) {
+    console.error("community post insert error", error);
+    throw new CommunityError("发帖失败，请稍后再试", 500);
+  }
 }
 
 export async function likeCommunityPost(id: string) {
-  ensureBlobEnabled();
+  const sql = getCommunityDb();
+
+  if (!sql || !isSafeId(id)) {
+    throw new CommunityError("帖子不存在", 404);
+  }
 
   const post = await getCommunityPost(id);
 
@@ -134,30 +182,47 @@ export async function likeCommunityPost(id: string) {
     throw new CommunityError("帖子不存在", 404);
   }
 
-  await putJson(`${LIKE_PREFIX}${id}/${crypto.randomUUID()}.json`, {
-    id: crypto.randomUUID(),
-    postId: id,
-    createdAt: new Date().toISOString()
-  });
+  try {
+    await sql`
+      insert into community_likes (post_id)
+      values (${id})
+    `;
 
-  return { likes: await countPrefix(`${LIKE_PREFIX}${id}/`) };
+    return { likes: await countLikes(id) };
+  } catch (error) {
+    console.error("community like insert error", error);
+    throw new CommunityError("点赞失败", 500);
+  }
 }
 
 export async function listCommunityComments(postId: string) {
-  if (!isCommunityEnabled() || !isSafeId(postId)) {
+  const sql = getCommunityDb();
+
+  if (!sql || !isSafeId(postId)) {
     return [];
   }
 
-  const blobs = await listAll(`${COMMENT_PREFIX}${postId}/`);
-  const comments = await Promise.all(blobs.map((blob) => readJsonBlob<CommunityComment>(blob.pathname)));
+  try {
+    const rows = await sql<CommunityCommentRow[]>`
+      select *
+      from community_comments
+      where post_id = ${postId}
+      order by created_at asc
+    `;
 
-  return comments
-    .filter((comment): comment is CommunityComment => Boolean(comment))
-    .sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+    return rows.map(mapCommentRow);
+  } catch (error) {
+    console.error("community comments query error", error);
+    throw new CommunityError("评论暂时加载失败", 503);
+  }
 }
 
 export async function createCommunityComment(postId: string, input: CommunityCommentInput, request: Request) {
-  ensureBlobEnabled();
+  const sql = getCommunityDb();
+
+  if (!sql || !isSafeId(postId)) {
+    throw new CommunityError("帖子不存在", 404);
+  }
 
   const post = await getCommunityPost(postId);
 
@@ -174,52 +239,170 @@ export async function createCommunityComment(postId: string, input: CommunityCom
     throw new CommunityError("请填写评论内容");
   }
 
-  const comment: CommunityComment = {
-    id: crypto.randomUUID(),
-    postId,
-    author,
-    body,
-    createdAt: new Date().toISOString()
-  };
+  try {
+    const rows = await sql<CommunityCommentRow[]>`
+      insert into community_comments (post_id, author, body)
+      values (${postId}, ${author}, ${body})
+      returning *
+    `;
 
-  await putJson(`${COMMENT_PREFIX}${postId}/${comment.id}.json`, comment);
-  await recordRateLimit(request, "comment", 60 * 1000);
+    await recordRateLimit(request, "comment", 60 * 1000);
 
-  return comment;
+    return mapCommentRow(rows[0]);
+  } catch (error) {
+    console.error("community comment insert error", error);
+    throw new CommunityError("评论失败", 500);
+  }
 }
 
 export async function deleteCommunityPost(id: string, password: string | null) {
-  ensureBlobEnabled();
+  const sql = getCommunityDb();
+
+  if (!sql || !isSafeId(id)) {
+    throw new CommunityError("帖子不存在", 404);
+  }
 
   if (!process.env.ADMIN_DELETE_PASSWORD || password !== process.env.ADMIN_DELETE_PASSWORD) {
     throw new CommunityError("管理密码错误", 401);
   }
 
-  const post = await getCommunityPost(id);
+  try {
+    await sql`
+      delete from community_posts
+      where id = ${id}
+    `;
 
-  if (!post) {
-    throw new CommunityError("帖子不存在", 404);
+    return { ok: true };
+  } catch (error) {
+    console.error("community post delete error", error);
+    throw new CommunityError("删除失败", 500);
   }
-
-  const blobs = await Promise.all([
-    listAll(`${COMMENT_PREFIX}${id}/`),
-    listAll(`${LIKE_PREFIX}${id}/`)
-  ]);
-  const pathnames = blobs.flat().map((blob) => blob.pathname);
-  pathnames.push(`${POST_PREFIX}${id}.json`);
-
-  if (post.imagePath) {
-    pathnames.push(post.imagePath);
-  }
-
-  await del(pathnames);
-
-  return { ok: true };
 }
 
-async function uploadCommunityImage(postId: string, image: NonNullable<CommunityPostInput["image"]>) {
+export async function getCommunityImage(_name: string) {
+  throw new CommunityError("图片不存在", 404);
+}
+
+async function assertRateLimit(request: Request, action: "post" | "comment", windowMs: number) {
+  const sql = getCommunityDb();
+
+  if (!sql) {
+    throw new CommunityError("尚未配置 Supabase 数据库", 503);
+  }
+
+  const key = rateKey(request, action, windowMs);
+  const now = new Date();
+
+  try {
+    await sql`
+      delete from community_rate_limits
+      where expires_at < ${now}
+    `;
+
+    const rows = await sql<{ key: string }[]>`
+      select key
+      from community_rate_limits
+      where key = ${key}
+      limit 1
+    `;
+
+    if (rows.length > 0) {
+      throw new CommunityError(action === "post" ? "1 小时内只能发一次帖子" : "1 分钟内只能评论一次", 429);
+    }
+  } catch (error) {
+    if (error instanceof CommunityError) {
+      throw error;
+    }
+
+    console.error("community rate limit query error", error);
+    throw new CommunityError("频率限制检查失败", 503);
+  }
+}
+
+async function recordRateLimit(request: Request, action: "post" | "comment", windowMs: number) {
+  const sql = getCommunityDb();
+
+  if (!sql) {
+    throw new CommunityError("尚未配置 Supabase 数据库", 503);
+  }
+
+  const key = rateKey(request, action, windowMs);
+  const expiresAt = new Date(Math.ceil(Date.now() / windowMs) * windowMs + windowMs);
+
+  try {
+    await sql`
+      insert into community_rate_limits (
+        key,
+        action,
+        identity_hash,
+        bucket,
+        expires_at
+      )
+      values (
+        ${key},
+        ${action},
+        ${getIdentityHash(request)},
+        ${Math.floor(Date.now() / windowMs)},
+        ${expiresAt}
+      )
+      on conflict (key) do update set expires_at = excluded.expires_at
+    `;
+  } catch (error) {
+    console.error("community rate limit insert error", error);
+    throw new CommunityError("频率限制记录失败", 503);
+  }
+}
+
+async function countLikes(postId: string) {
+  const sql = getCommunityDb();
+
+  if (!sql) {
+    return 0;
+  }
+
+  const rows = await sql<{ count: number | string }[]>`
+    select count(*) as count
+    from community_likes
+    where post_id = ${postId}
+  `;
+
+  return Number(rows[0]?.count || 0);
+}
+
+function mapPostRow(row: CommunityPostRow): CommunityPost {
+  return {
+    id: row.id,
+    title: row.title,
+    excerpt: row.excerpt,
+    category: row.category,
+    author: row.author,
+    image: row.image,
+    imagePath: row.image_path || undefined,
+    body: row.body,
+    createdAt: toIsoString(row.created_at),
+    likes: Number(row.likes || 0),
+    tone: row.tone,
+    size: row.size
+  };
+}
+
+function mapCommentRow(row: CommunityCommentRow): CommunityComment {
+  return {
+    id: row.id,
+    postId: row.post_id,
+    author: row.author,
+    body: row.body,
+    createdAt: toIsoString(row.created_at)
+  };
+}
+
+function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>) {
   if (!ALLOWED_IMAGE_TYPES.has(image.type)) {
     throw new CommunityError("只支持 jpg、png、webp 图片");
+  }
+
+  if (!image.dataUrl.startsWith(`data:${image.type};base64,`)) {
+    throw new CommunityError("图片数据无效");
   }
 
   const buffer = dataUrlToBuffer(image.dataUrl);
@@ -228,39 +411,13 @@ async function uploadCommunityImage(postId: string, image: NonNullable<Community
     throw new CommunityError("图片不能超过 1MB");
   }
 
-  const ext = image.type === "image/png" ? "png" : image.type === "image/webp" ? "webp" : "jpg";
-  const pathname = `${IMAGE_PREFIX}${postId}.${ext}`;
-  const blob = await put(pathname, buffer, {
-    access: "private",
-    contentType: image.type
-  });
-
-  return {
-    pathname,
-    url: `/api/community/images/${pathname.replace(IMAGE_PREFIX, "")}`
-  };
-}
-
-async function assertRateLimit(request: Request, action: "post" | "comment", windowMs: number) {
-  const key = rateKey(request, action, windowMs);
-  const existing = await listAll(key);
-
-  if (existing.length > 0) {
-    throw new CommunityError(action === "post" ? "1 小时内只能发一次帖子" : "1 分钟内只能评论一次", 429);
-  }
-}
-
-async function recordRateLimit(request: Request, action: "post" | "comment", windowMs: number) {
-  await putJson(`${rateKey(request, action, windowMs)}${crypto.randomUUID()}.json`, {
-    action,
-    createdAt: new Date().toISOString()
-  });
+  return image.dataUrl;
 }
 
 function rateKey(request: Request, action: "post" | "comment", windowMs: number) {
   const identity = getIdentityHash(request);
   const bucket = Math.floor(Date.now() / windowMs);
-  return `${RATE_PREFIX}${action}/${identity}/${bucket}/`;
+  return `${action}:${identity}:${bucket}`;
 }
 
 function getIdentityHash(request: Request) {
@@ -270,86 +427,6 @@ function getIdentityHash(request: Request) {
   const ua = request.headers.get("user-agent") || "";
 
   return createHash("sha256").update(`${clientId}:${ip}:${ua}`).digest("hex").slice(0, 32);
-}
-
-function ensureBlobEnabled() {
-  if (!isCommunityEnabled()) {
-    throw new CommunityError("尚未配置 Vercel Blob", 503);
-  }
-}
-
-async function listAll(prefix: string) {
-  const blobs: BlobListItem[] = [];
-  let cursor: string | undefined;
-
-  do {
-    const page = await list({ prefix, cursor, limit: 1000 });
-    blobs.push(...page.blobs);
-    cursor = page.cursor;
-  } while (cursor);
-
-  return blobs;
-}
-
-async function countPrefix(prefix: string) {
-  return (await listAll(prefix)).length;
-}
-
-export async function getCommunityImage(name: string) {
-  ensureBlobEnabled();
-
-  if (!/^[a-zA-Z0-9-]+\.(jpg|png|webp)$/.test(name)) {
-    throw new CommunityError("图片不存在", 404);
-  }
-
-  const result = await get(`${IMAGE_PREFIX}${name}`, { access: "private", useCache: false });
-
-  if (!result || result.statusCode !== 200) {
-    throw new CommunityError("图片不存在", 404);
-  }
-
-  return result;
-}
-
-async function readJsonBlob<T>(pathname: string) {
-  try {
-    const result = await get(pathname, { access: "private", useCache: false });
-
-    if (!result || result.statusCode !== 200) {
-      return null;
-    }
-
-    return JSON.parse(await streamToText(result.stream)) as T;
-  } catch {
-    return null;
-  }
-}
-
-async function putJson(pathname: string, value: unknown) {
-  return put(pathname, JSON.stringify(value, null, 2), {
-    access: "private",
-    contentType: "application/json"
-  });
-}
-
-async function streamToText(stream: ReadableStream<Uint8Array>) {
-  const reader = stream.getReader();
-  const decoder = new TextDecoder();
-  let text = "";
-
-  while (true) {
-    const { done, value } = await reader.read();
-
-    if (done) {
-      break;
-    }
-
-    text += decoder.decode(value, { stream: true });
-  }
-
-  text += decoder.decode();
-
-  return text;
 }
 
 function cleanText(value: string | undefined, maxLength: number) {
@@ -386,4 +463,8 @@ function dataUrlToBuffer(dataUrl: string) {
 
 function isSafeId(id: string) {
   return /^[a-zA-Z0-9-]+$/.test(id);
+}
+
+function toIsoString(value: Date | string) {
+  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
 }

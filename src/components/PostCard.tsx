@@ -10,12 +10,12 @@ type PostCardProps = {
 export function PostCard({ post }: PostCardProps) {
   const href = "id" in post ? `/posts/community-${post.id}` : `/posts/${post.slug}`;
   const likes = typeof post.likes === "number" ? post.likes.toLocaleString("zh-CN") : post.likes;
-  const remoteImage = post.image.startsWith("http");
+  const browserImage = post.image.startsWith("http") || post.image.startsWith("data:");
 
   return (
     <article className={`post-card tone-${post.tone} card-${post.size}`}>
       <Link href={href} className="card-image-link" aria-label={post.title}>
-        {remoteImage ? (
+        {browserImage ? (
           <img src={post.image} alt="" className="card-image" />
         ) : (
           <Image

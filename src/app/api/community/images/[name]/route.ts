@@ -11,14 +11,8 @@ type RouteProps = {
 export async function GET(_request: Request, { params }: RouteProps) {
   try {
     const { name } = await params;
-    const result = await getCommunityImage(name);
-
-    return new Response(result.stream, {
-      headers: {
-        "content-type": result.blob.contentType,
-        "cache-control": "public, max-age=300"
-      }
-    });
+    await getCommunityImage(name);
+    return NextResponse.json({ error: "图片不存在" }, { status: 404 });
   } catch (error) {
     if (error instanceof CommunityError) {
       return NextResponse.json({ error: error.message }, { status: error.status });
