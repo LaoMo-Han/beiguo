@@ -897,7 +897,7 @@ img {
   display: grid;
   grid-template-columns: 14rem minmax(0, 1fr);
   gap: 1rem;
-  width: min(82rem, 100%);
+  width: min(92rem, 100%);
 }
 
 .module-detail-main {
