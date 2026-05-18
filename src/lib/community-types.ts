@@ -1,10 +1,16 @@
 export const COMMUNITY_DEFAULT_CATEGORY = "分享";
 
 export const COMMUNITY_FALLBACK_IMAGES = [
-  "/assets/team-stickers.svg",
-  "/assets/puka-card.svg",
-  "/assets/neon-city.svg",
-  "/assets/signal-board.svg"
+  "/assets/community-fallbacks/hot-note.webp",
+  "/assets/community-fallbacks/day179.webp",
+  "/assets/community-fallbacks/resale-dolls.webp",
+  "/assets/community-fallbacks/stamp-set.webp",
+  "/assets/community-fallbacks/chibi-lineup.webp",
+  "/assets/community-fallbacks/puka-lollipop.webp",
+  "/assets/community-fallbacks/city-battle.webp",
+  "/assets/community-fallbacks/melon-note.webp",
+  "/assets/community-fallbacks/perfume-card.webp",
+  "/assets/community-fallbacks/moon-stage.webp"
 ] as const;
 
 export const COMMUNITY_CUTE_NAMES = [
