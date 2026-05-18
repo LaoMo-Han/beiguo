@@ -10,7 +10,7 @@ export function SearchField({ defaultQuery = "" }: SearchFieldProps) {
         name="q"
         type="search"
         aria-label="输入搜索内容"
-        placeholder="搜索角色、装备、帖子"
+        placeholder="exoring.fun"
         defaultValue={defaultQuery}
       />
     </form>
