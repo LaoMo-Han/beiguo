@@ -16,11 +16,13 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
 
   useEffect(() => {
     let active = true;
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 8000);
 
     setIsLoading(true);
     setStatus("");
 
-    fetch(`/api/community/posts?limit=${COMMUNITY_HOME_LIMIT}`, { cache: "no-store" })
+    fetch(`/api/community/posts?limit=${COMMUNITY_HOME_LIMIT}`, { cache: "no-store", signal: controller.signal })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load community posts");
@@ -53,6 +55,8 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
 
     return () => {
       active = false;
+      window.clearTimeout(timer);
+      controller.abort();
       window.removeEventListener("community-post-created", handleCreated);
     };
   }, []);

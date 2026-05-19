@@ -74,9 +74,6 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
   const safeLimit = Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT));
 
   try {
-    await ensureCommunitySchema();
-    await ensureTodayWorldPosts();
-
     const rows = await sql<CommunityPostRow[]>`
       select
         p.*,
@@ -88,7 +85,7 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
       limit ${safeLimit}
     `;
 
-    return rows.map(mapPostRow);
+    return mergeCommunityPosts(rows.map(mapPostRow), safeLimit);
   } catch (error) {
     console.error("community posts query error", error);
     throw new CommunityError("社区帖子暂时加载失败", 503);
@@ -103,9 +100,6 @@ export async function getCommunityPost(id: string) {
   }
 
   try {
-    await ensureCommunitySchema();
-    await ensureTodayWorldPosts();
-
     const rows = await sql<CommunityPostRow[]>`
       select
         p.*,
@@ -461,6 +455,18 @@ function mapCommentRow(row: CommunityCommentRow): CommunityComment {
     body: row.body,
     createdAt: toIsoString(row.created_at)
   };
+}
+
+function mergeCommunityPosts(posts: CommunityPost[], limit: number) {
+  const byId = new Map<string, CommunityPost>();
+
+  for (const post of [...posts, ...getVisibleWorldPosts()]) {
+    byId.set(post.id, post);
+  }
+
+  return [...byId.values()]
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .slice(0, limit);
 }
 
 let schemaReady = false;
