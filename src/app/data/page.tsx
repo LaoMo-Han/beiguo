@@ -2,11 +2,13 @@ import Link from "next/link";
 import { BrowserShell } from "@/components/BrowserShell";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allCharacters, allEvents, allModules } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "异环数据速查",
-  description: "呗果异环角色资料、活动节点和轻量静态数据速查。"
-};
+  description: "呗果异环角色资料、活动节点、模块总览和轻量静态数据速查。",
+  path: "/data"
+});
 
 export default function DataPage() {
   return (

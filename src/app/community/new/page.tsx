@@ -2,6 +2,14 @@ import Link from "next/link";
 import { BrowserShell } from "@/components/BrowserShell";
 import { CommunityNewPostForm } from "@/components/CommunityNewPostForm";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "发布新帖子",
+  description: "在呗果发布异环攻略、问题、资料发现和社区分享。",
+  path: "/community/new",
+  noIndex: true
+});
 
 export default function NewCommunityPostPage() {
   return (

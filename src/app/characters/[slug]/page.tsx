@@ -6,6 +6,7 @@ import { BrowserShell } from "@/components/BrowserShell";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allCharacterProfiles, getCharacterProfileByName, getCharacterProfileBySlug } from "@/lib/content";
 import { getCharacterMedia } from "@/lib/media";
+import { pageMetadata } from "@/lib/seo";
 
 type CharacterPageProps = {
   params: Promise<{ slug: string }>;
@@ -23,13 +24,14 @@ export async function generateMetadata({ params }: CharacterPageProps): Promise<
     return {};
   }
 
-  return {
+  const media = getCharacterMedia(character.name);
+
+  return pageMetadata({
     title: `${character.name} - 角色详情`,
     description: character.summary,
-    alternates: {
-      canonical: `/characters/${slug}`
-    }
-  };
+    path: `/characters/${slug}`,
+    image: media?.image
+  });
 }
 
 export default async function CharacterPage({ params }: CharacterPageProps) {

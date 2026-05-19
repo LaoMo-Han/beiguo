@@ -7,6 +7,7 @@ import { CommunityPostDetail } from "@/components/CommunityPostDetail";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allPosts, getPost } from "@/lib/content";
 import { getCommunityPost, listCommunityComments } from "@/lib/community-store";
+import { absoluteUrl, siteName } from "@/lib/seo";
 
 type PostPageProps = {
   params: Promise<{ slug: string }>;
@@ -33,8 +34,17 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     openGraph: {
       title: `${post.title} | 呗果`,
       description: post.excerpt,
-      url: `https://exoring.fun/${"id" in post ? `posts/community-${post.id}` : `posts/${post.slug}`}`,
-      images: [{ url: post.image }]
+      url: absoluteUrl("id" in post ? `/posts/community-${post.id}` : `/posts/${post.slug}`),
+      siteName,
+      images: [{ url: post.image }],
+      locale: "zh_CN",
+      type: "article"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | 呗果`,
+      description: post.excerpt,
+      images: [post.image]
     }
   };
 }

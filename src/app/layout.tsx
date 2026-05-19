@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { defaultDescription, defaultOgImage, defaultTitle, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://exoring.fun"),
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
   title: {
-    default: "呗果 - 异环游戏数据与资讯",
-    template: "%s | 呗果"
+    default: defaultTitle,
+    template: `%s | ${siteName}`
   },
-  description: "呗果是一个轻量化异环游戏数据与资讯站，收录公告、攻略、活动、角色资料与社区精选。",
+  description: defaultDescription,
+  keywords: ["异环", "异环攻略", "异环角色", "异环强度榜", "弧盘", "卡带", "呗果"],
   alternates: {
     canonical: "/"
   },
@@ -17,12 +20,19 @@ export const metadata: Metadata = {
     apple: "/assets/beiguo-icon.svg"
   },
   openGraph: {
-    title: "呗果 - 异环游戏数据与资讯",
-    description: "轻量化异环游戏数据、攻略、资讯与活动情报站。",
-    url: "https://exoring.fun/",
-    siteName: "呗果",
+    title: defaultTitle,
+    description: defaultDescription,
+    url: siteUrl,
+    siteName,
+    images: [{ url: defaultOgImage }],
     locale: "zh_CN",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [defaultOgImage]
   }
 };
 

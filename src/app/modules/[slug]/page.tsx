@@ -13,6 +13,7 @@ import {
   type ModuleSection
 } from "@/lib/content";
 import { getCharacterMedia, getModuleMedia } from "@/lib/media";
+import { pageMetadata } from "@/lib/seo";
 
 type ModulePageProps = {
   params: Promise<{ slug: string }>;
@@ -31,13 +32,11 @@ export async function generateMetadata({ params }: ModulePageProps): Promise<Met
     return {};
   }
 
-  return {
+  return pageMetadata({
     title: `${module.name} - ${module.subtitle}`,
     description: detail.summary,
-    alternates: {
-      canonical: `/modules/${slug}`
-    }
-  };
+    path: `/modules/${slug}`
+  });
 }
 
 export default async function ModulePage({ params }: ModulePageProps) {

@@ -3,8 +3,15 @@ import { BrowserShell } from "@/components/BrowserShell";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { listCommunityPosts } from "@/lib/community-store";
 import { searchAllContent, type SearchResult, type SearchResultType } from "@/lib/search";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+export const metadata = pageMetadata({
+  title: "站内搜索",
+  description: "搜索呗果站内的异环文章、社区帖子、角色、装备和模块资料。",
+  path: "/search",
+  noIndex: true
+});
 
 type SearchPageProps = {
   searchParams: Promise<{ q?: string }>;
