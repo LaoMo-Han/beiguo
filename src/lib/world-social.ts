@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import type { CommunityComment, CommunityPost } from "@/lib/community-types";
+import { getCharacterMedia } from "@/lib/media";
 
 export type WorldAuthorKind = NonNullable<CommunityPost["authorKind"]>;
 
@@ -177,6 +178,10 @@ export function getWorldAccountByName(name: string) {
   return WORLD_ACCOUNTS.find((account) => account.name === name) || null;
 }
 
+export function getWorldAccountImage(account: WorldAccount) {
+  return account.kind === "character" ? getCharacterMedia(account.name)?.image || account.image : account.image;
+}
+
 export function getVisibleWorldPosts(now = new Date()): CommunityPost[] {
   const currentHour = getChinaHour(now);
 
@@ -196,7 +201,7 @@ export function getWorldPostComments(postId: string, now = new Date()): Communit
       postId,
       author: template.comment.author.name,
       authorKind: template.comment.author.kind,
-      authorAvatar: template.comment.author.image,
+      authorAvatar: getWorldAccountImage(template.comment.author),
       verified: true,
       body: template.comment.body,
       createdAt: getSlotDate(now, template.slotHour, 18).toISOString()
@@ -230,9 +235,9 @@ function templateToPost(template: WorldPostTemplate, now: Date): CommunityPost {
     category: template.category,
     author: template.account.name,
     authorKind: template.account.kind,
-    authorAvatar: template.account.image,
+    authorAvatar: getWorldAccountImage(template.account),
     verified: true,
-    image: template.account.image,
+    image: getWorldAccountImage(template.account),
     body: template.body,
     createdAt,
     likes: getSeededLikeCount(`${getChinaDateKey(now)}:${template.account.name}:${template.title}`),

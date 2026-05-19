@@ -10,6 +10,10 @@
   --blue: #4f76ff;
   --green: #38c986;
   --shadow: 0 22px 70px rgba(34, 49, 68, 0.18);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-soft: 0.3s var(--ease-in-out-soft);
+  --transition-bouncy: 0.45s var(--ease-out-back);
 }
 
 * {
@@ -40,6 +44,16 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition: var(--transition-soft);
+}
+
+button {
+  transition: var(--transition-soft);
+}
+
+a:active,
+button:active {
+  transform: scale(0.96);
 }
 
 img {
@@ -187,6 +201,14 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   cursor: pointer;
+  transition: var(--transition-bouncy);
+}
+
+.chrome-nav a:hover,
+.chrome-nav button:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
 }
 
 .chrome-nav .post-action {
@@ -219,6 +241,17 @@ img {
   background: #17202a;
 }
 
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .screen-panel {
   width: 100%;
   min-height: calc(100vh - 5.4rem);
@@ -233,6 +266,7 @@ img {
   border-radius: 0 0 1.8rem 1.8rem;
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  animation: fade-in-up 0.6s var(--ease-out-back) both;
 }
 
 .home-grid {
@@ -293,7 +327,7 @@ img {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  transition: color 0.2s ease;
+  transition: var(--transition-soft);
   cursor: pointer;
 }
 
@@ -777,6 +811,12 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
   box-shadow: 0 13px 36px rgba(35, 51, 68, 0.13);
+  transition: var(--transition-bouncy);
+}
+
+.post-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 22px 54px rgba(35, 51, 68, 0.18);
 }
 
 .post-card.world-post {
@@ -821,11 +861,11 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 220ms ease;
+  transition: var(--transition-soft);
 }
 
 .post-card:hover .card-image {
-  transform: scale(1.035);
+  transform: scale(1.05);
 }
 
 .card-category {
@@ -1713,13 +1753,14 @@ a.character-inline:hover {
   background: rgba(244, 247, 248, 0.82);
   border: 1px solid var(--line);
   border-radius: 0.85rem;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  transition: var(--transition-bouncy);
 }
 
 .search-result-card:hover {
   background: rgba(255, 255, 255, 0.92);
   border-color: rgba(255, 79, 143, 0.34);
-  transform: translateY(-1px);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 28px rgba(35, 51, 68, 0.1);
 }
 
 .search-result-card span {

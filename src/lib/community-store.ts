@@ -14,6 +14,7 @@ import { getCommunityDb } from "@/lib/community-db";
 import {
   getReservedWorldAuthorNames,
   getWorldAccountByName,
+  getWorldAccountImage,
   getWorldPostById,
   getWorldPostComments
 } from "@/lib/world-social";
@@ -164,7 +165,7 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
   const worldAccount = getWorldAccountByName(author);
   const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
   const uploadedImage = input.image ? await normalizeAndUploadCommunityImage(input.image, id) : null;
-  const image = uploadedImage ? communityImageUrl(uploadedImage.key) : worldAccount?.image || randomFallbackImage(id);
+  const image = uploadedImage ? communityImageUrl(uploadedImage.key) : worldAccount ? getWorldAccountImage(worldAccount) : randomFallbackImage(id);
   const imagePath = uploadedImage?.key || null;
   const tone = worldAccount?.tone || pickTone(id);
 
@@ -440,7 +441,7 @@ function mapPostRow(row: CommunityPostRow): CommunityPost {
     category: row.category,
     author: row.author,
     authorKind: row.author_kind || "player",
-    authorAvatar: row.verified ? getWorldAccountByName(row.author)?.image || undefined : undefined,
+    authorAvatar: row.verified ? getWorldAccountAvatar(row.author) : undefined,
     verified: Boolean(row.verified),
     image: row.image_path ? communityImageUrl(row.image_path) : row.image,
     imagePath: row.image_path || undefined,
@@ -458,11 +459,17 @@ function mapCommentRow(row: CommunityCommentRow): CommunityComment {
     postId: row.post_id,
     author: row.author,
     authorKind: row.author_kind || "player",
-    authorAvatar: row.verified ? getWorldAccountByName(row.author)?.image || undefined : undefined,
+    authorAvatar: row.verified ? getWorldAccountAvatar(row.author) : undefined,
     verified: Boolean(row.verified),
     body: row.body,
     createdAt: toIsoString(row.created_at)
   };
+}
+
+function getWorldAccountAvatar(author: string) {
+  const account = getWorldAccountByName(author);
+
+  return account ? getWorldAccountImage(account) : undefined;
 }
 
 function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>) {

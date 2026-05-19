@@ -3,13 +3,28 @@ import { BrowserShell } from "@/components/BrowserShell";
 import { CommunityFeed } from "@/components/CommunityFeed";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
 import { allPosts, moduleEntryPosts } from "@/lib/content";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, siteName } from "@/lib/seo";
 
-export const metadata = pageMetadata({
-  title: "发现",
+const homeMetadata = pageMetadata({
+  title: siteName,
   description: "呗果发现页汇总异环攻略笔记、角色资料、装备说明、活动情报与社区精选内容。",
   path: "/"
 });
+
+export const metadata = {
+  ...homeMetadata,
+  title: {
+    absolute: siteName
+  },
+  openGraph: {
+    ...homeMetadata.openGraph,
+    title: siteName
+  },
+  twitter: {
+    ...homeMetadata.twitter,
+    title: siteName
+  }
+};
 
 type HomeProps = {
   searchParams: Promise<{ q?: string }>;
