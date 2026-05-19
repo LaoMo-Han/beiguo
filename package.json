@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "migrate:community-images": "node scripts/migrate-community-images-to-r2.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

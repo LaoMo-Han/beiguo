@@ -19,6 +19,7 @@ import {
   getWorldPostComments,
   isWorldPostId
 } from "@/lib/world-social";
+import { isR2Configured, uploadCommunityImageToR2 } from "@/lib/r2-storage";
 
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
@@ -155,7 +156,9 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
   const paragraphs = body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
   const worldAccount = getWorldAccountByName(author);
   const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
-  const image = input.image ? normalizeCommunityImage(input.image) : worldAccount?.image || randomFallbackImage(id);
+  const uploadedImage = input.image ? await normalizeAndUploadCommunityImage(input.image, id) : null;
+  const image = uploadedImage?.url || worldAccount?.image || randomFallbackImage(id);
+  const imagePath = uploadedImage?.key || null;
   const tone = worldAccount?.tone || pickTone(id);
 
   try {
@@ -186,7 +189,7 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
         ${isVerifiedAuthor ? worldAccount?.kind || "system" : "player"},
         ${isVerifiedAuthor},
         ${image},
-        ${null},
+        ${imagePath},
         ${paragraphs},
         ${tone},
         ${"medium"},
@@ -571,6 +574,26 @@ function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>
   }
 
   return image.dataUrl;
+}
+
+async function normalizeAndUploadCommunityImage(image: NonNullable<CommunityPostInput["image"]>, postId: string) {
+  normalizeCommunityImage(image);
+
+  if (!isR2Configured()) {
+    throw new CommunityError("R2 存储未配置，暂时不能上传图片", 503);
+  }
+
+  try {
+    return await uploadCommunityImageToR2({
+      dataUrl: image.dataUrl,
+      type: image.type,
+      name: image.name,
+      postId
+    });
+  } catch (error) {
+    console.error("community image r2 upload error", error);
+    throw new CommunityError("图片上传失败，请稍后再试", 500);
+  }
 }
 
 function rateKey(request: Request, action: "post" | "comment", windowMs: number) {

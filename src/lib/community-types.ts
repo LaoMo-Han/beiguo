@@ -25,7 +25,7 @@ export const COMMUNITY_CUTE_NAMES = [
 ] as const;
 
 export const COMMUNITY_IMAGE_MAX_BYTES = 1024 * 1024;
-export const COMMUNITY_HOME_LIMIT = 20;
+export const COMMUNITY_HOME_LIMIT = 10;
 
 export type CommunityPost = {
   id: string;
