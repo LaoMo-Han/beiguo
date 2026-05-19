@@ -92,6 +92,63 @@ export async function putR2Object(input: R2ObjectInput) {
   };
 }
 
+export async function getR2Object(key: string) {
+  const config = getR2Config();
+
+  if (!config) {
+    throw new Error("R2 存储未配置");
+  }
+
+  const host = `${config.accountId}.r2.cloudflarestorage.com`;
+  const pathname = `/${config.bucketName}/${encodeKey(key)}`;
+  const url = `https://${host}${pathname}`;
+  const now = new Date();
+  const amzDate = toAmzDate(now);
+  const dateStamp = amzDate.slice(0, 8);
+  const payloadHash = "UNSIGNED-PAYLOAD";
+  const canonicalHeaders = [
+    `host:${host}`,
+    `x-amz-content-sha256:${payloadHash}`,
+    `x-amz-date:${amzDate}`
+  ].join("\n");
+  const signedHeaders = "host;x-amz-content-sha256;x-amz-date";
+  const canonicalRequest = [
+    "GET",
+    pathname,
+    "",
+    `${canonicalHeaders}\n`,
+    signedHeaders,
+    payloadHash
+  ].join("\n");
+  const credentialScope = `${dateStamp}/${R2_REGION}/${R2_SERVICE}/aws4_request`;
+  const stringToSign = [
+    "AWS4-HMAC-SHA256",
+    amzDate,
+    credentialScope,
+    sha256Hex(canonicalRequest)
+  ].join("\n");
+  const signingKey = getSignatureKey(config.secretAccessKey, dateStamp, R2_REGION, R2_SERVICE);
+  const signature = createHmac("sha256", signingKey).update(stringToSign).digest("hex");
+
+  const response = await fetch(url, {
+    headers: {
+      authorization: `AWS4-HMAC-SHA256 Credential=${config.accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`,
+      "x-amz-content-sha256": payloadHash,
+      "x-amz-date": amzDate
+    }
+  });
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    throw new Error(`R2 读取失败：${response.status} ${detail.slice(0, 180)}`);
+  }
+
+  return {
+    body: new Uint8Array(await response.arrayBuffer()),
+    contentType: response.headers.get("content-type") || "application/octet-stream"
+  };
+}
+
 export function communityImageDataUrlToObject(input: {
   dataUrl: string;
   type: string;

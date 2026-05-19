@@ -19,7 +19,7 @@ import {
   getWorldPostComments,
   isWorldPostId
 } from "@/lib/world-social";
-import { isR2Configured, uploadCommunityImageToR2 } from "@/lib/r2-storage";
+import { getR2Object, isR2Configured, uploadCommunityImageToR2 } from "@/lib/r2-storage";
 
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
@@ -157,7 +157,7 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
   const worldAccount = getWorldAccountByName(author);
   const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
   const uploadedImage = input.image ? await normalizeAndUploadCommunityImage(input.image, id) : null;
-  const image = uploadedImage?.url || worldAccount?.image || randomFallbackImage(id);
+  const image = uploadedImage ? communityImageUrl(uploadedImage.key) : worldAccount?.image || randomFallbackImage(id);
   const imagePath = uploadedImage?.key || null;
   const tone = worldAccount?.tone || pickTone(id);
 
@@ -331,8 +331,17 @@ export async function deleteCommunityPost(id: string, password: string | null) {
   }
 }
 
-export async function getCommunityImage(_name: string) {
-  throw new CommunityError("图片不存在", 404);
+export async function getCommunityImage(name: string) {
+  if (!/^[a-f0-9-]+\.(?:jpg|jpeg|png|webp)$/i.test(name)) {
+    throw new CommunityError("图片不存在", 404);
+  }
+
+  try {
+    return await getR2Object(`community/posts/${name}`);
+  } catch (error) {
+    console.error("community image read error", error);
+    throw new CommunityError("图片不存在", 404);
+  }
 }
 
 async function assertRateLimit(request: Request, action: "post" | "comment", windowMs: number) {
@@ -432,7 +441,7 @@ function mapPostRow(row: CommunityPostRow): CommunityPost {
     author: row.author,
     authorKind: row.author_kind || "player",
     verified: Boolean(row.verified),
-    image: row.image,
+    image: row.image_path ? communityImageUrl(row.image_path) : row.image,
     imagePath: row.image_path || undefined,
     body: row.body,
     createdAt: toIsoString(row.created_at),
@@ -631,6 +640,10 @@ function randomCuteName() {
 function randomFallbackImage(seed: string) {
   const index = seed.charCodeAt(0) % COMMUNITY_FALLBACK_IMAGES.length;
   return COMMUNITY_FALLBACK_IMAGES[index];
+}
+
+function communityImageUrl(imagePath: string) {
+  return `/api/community/images/${imagePath.split("/").pop()}`;
 }
 
 function pickTone(seed: string): CommunityPost["tone"] {
