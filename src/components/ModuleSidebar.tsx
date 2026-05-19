@@ -9,6 +9,8 @@ type ModuleSidebarProps = {
   activeSlug?: string;
 };
 
+const hiddenMenuSlugs = new Set(["city-life", "affection", "pink-paws", "daily-weekly"]);
+
 export function ModuleSidebar({ activeSlug = "discover" }: ModuleSidebarProps) {
   const [expandedSlugs, setExpandedSlugs] = useState<Set<string>>(() => new Set());
 
@@ -28,7 +30,7 @@ export function ModuleSidebar({ activeSlug = "discover" }: ModuleSidebarProps) {
 
   return (
     <aside className="module-sidebar" aria-label="内容分类">
-      {allModules.map((module) => {
+      {allModules.filter((module) => !hiddenMenuSlugs.has(module.slug)).map((module) => {
         const href = module.slug === "discover" ? "/" : `/modules/${module.slug}`;
         const isCurrent = module.slug === activeSlug;
         const hasChildren = !!module.children;
