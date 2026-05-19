@@ -16,8 +16,7 @@ import {
   getVisibleWorldPosts,
   getWorldAccountByName,
   getWorldPostById,
-  getWorldPostComments,
-  isWorldPostId
+  getWorldPostComments
 } from "@/lib/world-social";
 import { getR2Object, isR2Configured, uploadCommunityImageToR2 } from "@/lib/r2-storage";
 
@@ -112,11 +111,15 @@ export async function getCommunityPost(id: string) {
     const rows = await sql<CommunityPostRow[]>`
       select
         p.*,
-        coalesce(p.base_likes, 0) + count(l.id) as likes
+        coalesce(p.base_likes, 0) + coalesce(l.likes, 0) as likes
       from community_posts p
-      left join community_likes l on l.post_id = p.id
+      left join (
+        select post_id, count(*) as likes
+        from community_likes
+        where post_id = ${id}
+        group by post_id
+      ) l on l.post_id = p.id
       where p.id = ${id}
-      group by p.id
       limit 1
     `;
 
@@ -469,92 +472,6 @@ function mergeCommunityPosts(posts: CommunityPost[], limit: number) {
   return [...byId.values()]
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, limit);
-}
-
-async function ensureTodayWorldPosts() {
-  const sql = getCommunityDb();
-
-  if (!sql) {
-    return;
-  }
-
-  const posts = getVisibleWorldPosts();
-
-  for (const post of posts) {
-    const rows = await sql<{ id: string }[]>`
-      insert into community_posts (
-        id,
-        title,
-        excerpt,
-        category,
-        author,
-        author_kind,
-        verified,
-        image,
-        image_path,
-        body,
-        tone,
-        size,
-        base_likes,
-        created_at
-      )
-      values (
-        ${post.id},
-        ${post.title},
-        ${post.excerpt},
-        ${post.category},
-        ${post.author},
-        ${post.authorKind || "system"},
-        ${Boolean(post.verified)},
-        ${post.image},
-        ${null},
-        ${post.body},
-        ${post.tone},
-        ${post.size},
-        ${post.likes},
-        ${post.createdAt}
-      )
-      on conflict (id) do update set
-        author_kind = excluded.author_kind,
-        verified = excluded.verified,
-        base_likes = greatest(community_posts.base_likes, excluded.base_likes)
-      returning id
-    `;
-
-    await ensureWorldComments(post.id);
-  }
-}
-
-async function ensureWorldComments(postId: string) {
-  const sql = getCommunityDb();
-
-  if (!sql || !isWorldPostId(postId)) {
-    return;
-  }
-
-  for (const comment of getWorldPostComments(postId)) {
-    await sql`
-      insert into community_comments (
-        id,
-        post_id,
-        author,
-        author_kind,
-        verified,
-        body,
-        created_at
-      )
-      values (
-        ${comment.id},
-        ${postId},
-        ${comment.author},
-        ${comment.authorKind || "system"},
-        ${Boolean(comment.verified)},
-        ${comment.body},
-        ${comment.createdAt}
-      )
-      on conflict (id) do nothing
-    `;
-  }
 }
 
 function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>) {
