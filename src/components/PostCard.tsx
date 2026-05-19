@@ -8,8 +8,9 @@ type PostCardProps = {
 };
 
 export function PostCard({ post }: PostCardProps) {
-  const href = "id" in post ? `/posts/community-${post.id}` : `/posts/${post.slug}`;
+  const href = "id" in post ? `/posts/community-${post.id}` : post.href ?? `/posts/${post.slug}`;
   const likes = typeof post.likes === "number" ? post.likes.toLocaleString("zh-CN") : post.likes;
+  const isModuleEntry = !("id" in post) && post.href?.startsWith("/modules/");
   const browserImage = post.image.startsWith("http") || post.image.startsWith("data:");
 
   return (
@@ -36,7 +37,7 @@ export function PostCard({ post }: PostCardProps) {
         <p>{post.excerpt}</p>
         <footer className="card-meta">
           <span className="author-chip">{post.author}</span>
-          <span className="likes">{likes} ♥</span>
+          <span className="likes">{isModuleEntry ? likes : `${likes} ♥`}</span>
         </footer>
       </div>
     </article>

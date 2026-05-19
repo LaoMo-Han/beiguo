@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { BrowserShell } from "@/components/BrowserShell";
 import { CommunityFeed } from "@/components/CommunityFeed";
 import { ModuleSidebar } from "@/components/ModuleSidebar";
-import { allPosts } from "@/lib/content";
+import { allPosts, moduleEntryPosts } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -29,7 +29,7 @@ export default async function Home({ searchParams }: HomeProps) {
         <ModuleSidebar activeSlug="discover" />
 
         <section className="feed-zone">
-          <CommunityFeed staticPosts={allPosts} />
+          <CommunityFeed staticPosts={[...moduleEntryPosts, ...allPosts]} />
         </section>
       </section>
     </BrowserShell>

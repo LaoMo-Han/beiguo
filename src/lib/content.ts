@@ -17,6 +17,7 @@ export type Post = {
   image: string;
   tone: "cyan" | "blue" | "pink" | "navy" | "cream" | "orange";
   size: "short" | "medium" | "large" | "tall";
+  href?: string;
   body: string[];
 };
 
@@ -142,6 +143,7 @@ export const allEvents = [...(events as Event[])].sort(compareEventsByDate);
 export const allModules = modules as ModuleEntry[];
 export const allModuleDetails = moduleDetails as ModuleDetail[];
 export const equipmentCatalog = equipment as EquipmentCatalog;
+export const moduleEntryPosts = allModules.filter((module) => module.slug !== "discover").map(moduleToPost);
 
 export function getPost(slug: string) {
   return allPosts.find((post) => post.slug === slug);
@@ -177,4 +179,68 @@ function getEventDateValue(date: string, index: number) {
   }
 
   return Date.UTC(2026, month - 1, day);
+}
+
+function moduleToPost(module: ModuleEntry): Post {
+  return {
+    slug: `module-${module.slug}`,
+    title: module.name,
+    excerpt: module.description,
+    category: getModulePostCategory(module.slug),
+    author: "呗果资料组",
+    likes: module.count,
+    date: "2026-05-19",
+    image: getModulePostImage(module.slug),
+    tone: module.tone,
+    size: getModulePostSize(module.slug),
+    href: `/modules/${module.slug}`,
+    body: [
+      module.description,
+      module.highlights.join(" / ")
+    ]
+  };
+}
+
+function getModulePostCategory(slug: string): Post["category"] {
+  if (slug === "pink-paws" || slug === "daily-weekly") {
+    return "活动";
+  }
+
+  if (slug === "tier" || slug === "equipment" || slug === "characters") {
+    return "数据";
+  }
+
+  return "攻略";
+}
+
+function getModulePostImage(slug: string) {
+  if (slug === "characters" || slug === "affection") {
+    return "/assets/puka-card.svg";
+  }
+
+  if (slug === "city-life" || slug === "daily-weekly") {
+    return "/assets/neon-city.svg";
+  }
+
+  if (slug === "tier") {
+    return "/assets/team-stickers.svg";
+  }
+
+  if (slug === "pink-paws") {
+    return "/assets/event-stamps.svg";
+  }
+
+  return "/assets/signal-board.svg";
+}
+
+function getModulePostSize(slug: string): Post["size"] {
+  if (slug === "characters" || slug === "city-life") {
+    return "large";
+  }
+
+  if (slug === "equipment" || slug === "pink-paws") {
+    return "medium";
+  }
+
+  return "short";
 }
