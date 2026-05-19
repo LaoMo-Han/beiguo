@@ -75,14 +75,23 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
 
   try {
     const rows = await sql<CommunityPostRow[]>`
+      with recent_posts as (
+        select *
+        from community_posts
+        order by created_at desc
+        limit ${safeLimit}
+      )
       select
         p.*,
-        coalesce(p.base_likes, 0) + count(l.id) as likes
-      from community_posts p
-      left join community_likes l on l.post_id = p.id
-      group by p.id
+        coalesce(p.base_likes, 0) + coalesce(l.likes, 0) as likes
+      from recent_posts p
+      left join (
+        select post_id, count(*) as likes
+        from community_likes
+        where post_id in (select id from recent_posts)
+        group by post_id
+      ) l on l.post_id = p.id
       order by p.created_at desc
-      limit ${safeLimit}
     `;
 
     return mergeCommunityPosts(rows.map(mapPostRow), safeLimit);
@@ -156,8 +165,6 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
   const tone = worldAccount?.tone || pickTone(id);
 
   try {
-    await ensureCommunitySchema();
-
     const rows = await sql<CommunityPostRow[]>`
       insert into community_posts (
         id,
@@ -215,8 +222,6 @@ export async function likeCommunityPost(id: string) {
   }
 
   try {
-    await ensureCommunitySchema();
-
     await sql`
       insert into community_likes (post_id)
       values (${id})
@@ -237,8 +242,6 @@ export async function listCommunityComments(postId: string) {
   }
 
   try {
-    await ensureCommunitySchema();
-
     const rows = await sql<CommunityCommentRow[]>`
       select *
       from community_comments
@@ -282,7 +285,6 @@ export async function createCommunityComment(postId: string, input: CommunityCom
   }
 
   try {
-    await ensureCommunitySchema();
     const worldAccount = getWorldAccountByName(author);
     const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
 
@@ -467,24 +469,6 @@ function mergeCommunityPosts(posts: CommunityPost[], limit: number) {
   return [...byId.values()]
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, limit);
-}
-
-let schemaReady = false;
-
-async function ensureCommunitySchema() {
-  const sql = getCommunityDb();
-
-  if (!sql || schemaReady) {
-    return;
-  }
-
-  await sql`alter table public.community_posts add column if not exists author_kind text not null default 'player'`;
-  await sql`alter table public.community_posts add column if not exists verified boolean not null default false`;
-  await sql`alter table public.community_posts add column if not exists base_likes integer not null default 0`;
-  await sql`alter table public.community_comments add column if not exists author_kind text not null default 'player'`;
-  await sql`alter table public.community_comments add column if not exists verified boolean not null default false`;
-
-  schemaReady = true;
 }
 
 async function ensureTodayWorldPosts() {
