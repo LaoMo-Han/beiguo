@@ -17,15 +17,23 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
   const [status, setStatus] = useState("");
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const isFetchingRef = useRef(false);
+  const requestSerialRef = useRef(0);
 
   const loadPosts = useCallback((offset: number) => {
     if (isFetchingRef.current) {
       return () => {};
     }
 
+    let active = true;
+    let timedOut = false;
+    const requestSerial = requestSerialRef.current + 1;
+    requestSerialRef.current = requestSerial;
     isFetchingRef.current = true;
     const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 8000);
+    const timer = window.setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+    }, 8000);
     const isFirstPage = offset === 0;
 
     if (isFirstPage) {
@@ -44,24 +52,42 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
         return response.json();
       })
       .then((payload: { posts?: CommunityPost[]; degraded?: boolean }) => {
+        if (!active) {
+          return;
+        }
+
         const nextPosts = payload.posts || [];
 
         setCommunityPosts((current) => (isFirstPage ? nextPosts : [...current, ...nextPosts]));
         setHasMore(!payload.degraded && nextPosts.length === COMMUNITY_HOME_LIMIT);
       })
-      .catch(() => {
+      .catch((error) => {
+        if (!active || (error instanceof DOMException && error.name === "AbortError" && !timedOut)) {
+          return;
+        }
+
         setHasMore(false);
         setStatus("社区帖子暂时加载失败");
       })
       .finally(() => {
         window.clearTimeout(timer);
-        isFetchingRef.current = false;
-        setIsLoading(false);
-        setIsLoadingMore(false);
+
+        if (requestSerialRef.current === requestSerial) {
+          isFetchingRef.current = false;
+
+          if (active) {
+            setIsLoading(false);
+            setIsLoadingMore(false);
+          }
+        }
       });
 
     return () => {
+      active = false;
       window.clearTimeout(timer);
+      if (requestSerialRef.current === requestSerial) {
+        isFetchingRef.current = false;
+      }
       controller.abort();
     };
   }, []);

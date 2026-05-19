@@ -1968,8 +1968,8 @@ a.character-inline:hover {
   }
 
   .module-sidebar {
-    position: sticky;
-    top: 7.2rem; /* Adjusted for two-row chrome */
+    position: relative;
+    top: auto;
     z-index: 10;
     display: flex;
     max-height: none;
