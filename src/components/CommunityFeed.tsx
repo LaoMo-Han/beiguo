@@ -11,13 +11,23 @@ type CommunityFeedProps = {
 
 export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
   const [communityPosts, setCommunityPosts] = useState<CommunityPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [status, setStatus] = useState("");
 
   useEffect(() => {
     let active = true;
 
+    setIsLoading(true);
+    setStatus("");
+
     fetch(`/api/community/posts?limit=${COMMUNITY_HOME_LIMIT}`, { cache: "no-store" })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load community posts");
+        }
+
+        return response.json();
+      })
       .then((payload: { posts?: CommunityPost[] }) => {
         if (active) {
           setCommunityPosts(payload.posts || []);
@@ -26,6 +36,11 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
       .catch(() => {
         if (active) {
           setStatus("社区帖子暂时加载失败");
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setIsLoading(false);
         }
       });
 
@@ -50,6 +65,7 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
         <h2 className="visually-hidden">发现文章</h2>
         <span>{posts.length} 篇</span>
       </div>
+      {isLoading ? <FeedRefreshUi /> : null}
       {status ? <p className="feed-status">{status}</p> : null}
       <div className="masonry-feed">
         {posts.map((post) => (
@@ -57,5 +73,13 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
         ))}
       </div>
     </section>
+  );
+}
+
+function FeedRefreshUi() {
+  return (
+    <div className="feed-refresh-ui" role="status" aria-live="polite">
+      <span className="refresh-spinner" aria-hidden="true" />
+    </div>
   );
 }
