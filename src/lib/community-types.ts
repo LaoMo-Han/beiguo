@@ -33,6 +33,8 @@ export type CommunityPost = {
   excerpt: string;
   category: string;
   author: string;
+  authorKind?: "player" | "character" | "npc" | "news" | "ad" | "system";
+  verified?: boolean;
   image: string;
   imagePath?: string;
   body: string[];
@@ -46,6 +48,8 @@ export type CommunityComment = {
   id: string;
   postId: string;
   author: string;
+  authorKind?: "player" | "character" | "npc" | "news" | "ad" | "system";
+  verified?: boolean;
   body: string;
   createdAt: string;
 };

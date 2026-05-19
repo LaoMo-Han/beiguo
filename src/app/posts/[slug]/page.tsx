@@ -92,7 +92,10 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           </div>
           <div className="detail-meta">
-            <span>{post.author}</span>
+            <span>
+              {post.author}
+              {post.verified ? <span className="verified-badge" aria-label="官方认证">呗</span> : null}
+            </span>
             <span>{"createdAt" in post ? new Date(post.createdAt).toLocaleString("zh-CN") : post.date}</span>
             <span>{typeof post.likes === "number" ? post.likes.toLocaleString("zh-CN") : post.likes} ♥</span>
           </div>

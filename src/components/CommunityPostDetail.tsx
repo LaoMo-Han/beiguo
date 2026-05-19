@@ -100,6 +100,7 @@ export function CommunityPostDetail({ post, initialComments }: CommunityPostDeta
             comments.map((comment) => (
               <article className="comment-item" key={comment.id}>
                 <strong>{comment.author}</strong>
+                {comment.verified ? <span className="verified-badge" aria-label="官方认证">呗</span> : null}
                 <p>{comment.body}</p>
                 <small>{new Date(comment.createdAt).toLocaleString("zh-CN")}</small>
               </article>

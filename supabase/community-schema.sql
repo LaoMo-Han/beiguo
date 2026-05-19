@@ -4,11 +4,14 @@ create table if not exists public.community_posts (
   excerpt text not null check (char_length(excerpt) <= 120),
   category text not null default '分享' check (char_length(category) <= 12),
   author text not null check (char_length(author) <= 24),
+  author_kind text not null default 'player' check (author_kind in ('player', 'character', 'npc', 'news', 'ad', 'system')),
+  verified boolean not null default false,
   image text not null,
   image_path text,
   body text[] not null default '{}',
   tone text not null check (tone in ('cyan', 'blue', 'pink', 'navy', 'cream', 'orange')),
   size text not null default 'medium' check (size in ('short', 'medium', 'large', 'tall')),
+  base_likes integer not null default 0,
   created_at timestamptz not null default now()
 );
 
@@ -16,6 +19,8 @@ create table if not exists public.community_comments (
   id uuid primary key default gen_random_uuid(),
   post_id uuid not null references public.community_posts(id) on delete cascade,
   author text not null check (char_length(author) <= 24),
+  author_kind text not null default 'player' check (author_kind in ('player', 'character', 'npc', 'news', 'ad', 'system')),
+  verified boolean not null default false,
   body text not null check (char_length(body) <= 800),
   created_at timestamptz not null default now()
 );
@@ -39,6 +44,12 @@ create index if not exists community_posts_created_at_idx on public.community_po
 create index if not exists community_comments_post_created_idx on public.community_comments(post_id, created_at asc);
 create index if not exists community_likes_post_idx on public.community_likes(post_id);
 create index if not exists community_rate_limits_expires_at_idx on public.community_rate_limits(expires_at);
+
+alter table public.community_posts add column if not exists author_kind text not null default 'player';
+alter table public.community_posts add column if not exists verified boolean not null default false;
+alter table public.community_posts add column if not exists base_likes integer not null default 0;
+alter table public.community_comments add column if not exists author_kind text not null default 'player';
+alter table public.community_comments add column if not exists verified boolean not null default false;
 
 alter table public.community_posts enable row level security;
 alter table public.community_comments enable row level security;

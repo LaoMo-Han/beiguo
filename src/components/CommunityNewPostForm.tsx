@@ -78,6 +78,7 @@ export function CommunityNewPostForm() {
       <label>
         发帖人
         <input value={author} onChange={(event) => setAuthor(event.target.value)} placeholder="粉爪观察员" maxLength={24} />
+        <small>游戏角色、NPC、新闻和广告账号为系统专用，普通用户不能冒用。</small>
       </label>
 
       <label>

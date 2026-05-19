@@ -11,6 +11,14 @@ import {
   type CommunityPostInput
 } from "@/lib/community-types";
 import { getCommunityDb } from "@/lib/community-db";
+import {
+  getReservedWorldAuthorNames,
+  getVisibleWorldPosts,
+  getWorldAccountByName,
+  getWorldPostById,
+  getWorldPostComments,
+  isWorldPostId
+} from "@/lib/world-social";
 
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
@@ -20,11 +28,14 @@ type CommunityPostRow = {
   excerpt: string;
   category: string;
   author: string;
+  author_kind?: CommunityPost["authorKind"];
+  verified?: boolean;
   image: string;
   image_path: string | null;
   body: string[];
   tone: CommunityPost["tone"];
   size: CommunityPost["size"];
+  base_likes?: number | string | null;
   created_at: Date | string;
   likes: number | string | null;
 };
@@ -33,6 +44,8 @@ type CommunityCommentRow = {
   id: string;
   post_id: string;
   author: string;
+  author_kind?: CommunityComment["authorKind"];
+  verified?: boolean;
   body: string;
   created_at: Date | string;
 };
@@ -54,16 +67,19 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
   const sql = getCommunityDb();
 
   if (!sql) {
-    return [];
+    return getVisibleWorldPosts().slice(0, Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT)));
   }
 
   const safeLimit = Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT));
 
   try {
+    await ensureCommunitySchema();
+    await ensureTodayWorldPosts();
+
     const rows = await sql<CommunityPostRow[]>`
       select
         p.*,
-        count(l.id) as likes
+        coalesce(p.base_likes, 0) + count(l.id) as likes
       from community_posts p
       left join community_likes l on l.post_id = p.id
       group by p.id
@@ -82,14 +98,17 @@ export async function getCommunityPost(id: string) {
   const sql = getCommunityDb();
 
   if (!sql || !isSafeId(id)) {
-    return null;
+    return isSafeId(id) ? getWorldPostById(id) : null;
   }
 
   try {
+    await ensureCommunitySchema();
+    await ensureTodayWorldPosts();
+
     const rows = await sql<CommunityPostRow[]>`
       select
         p.*,
-        count(l.id) as likes
+        coalesce(p.base_likes, 0) + count(l.id) as likes
       from community_posts p
       left join community_likes l on l.post_id = p.id
       where p.id = ${id}
@@ -97,7 +116,7 @@ export async function getCommunityPost(id: string) {
       limit 1
     `;
 
-    return rows[0] ? mapPostRow(rows[0]) : null;
+    return rows[0] ? mapPostRow(rows[0]) : getWorldPostById(id);
   } catch (error) {
     console.error("community post query error", error);
     throw new CommunityError("帖子读取失败", 503);
@@ -126,12 +145,22 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
     throw new CommunityError("请填写内容");
   }
 
+  if (getReservedWorldAuthorNames().has(author)) {
+    if (!isAdminAuthorRequest(request)) {
+      throw new CommunityError("这个名字是游戏角色或官方账号专用，请换一个昵称", 403);
+    }
+  }
+
   const id = crypto.randomUUID();
-  const image = input.image ? normalizeCommunityImage(input.image) : randomFallbackImage(id);
   const paragraphs = body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
-  const tone = pickTone(id);
+  const worldAccount = getWorldAccountByName(author);
+  const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
+  const image = input.image ? normalizeCommunityImage(input.image) : worldAccount?.image || randomFallbackImage(id);
+  const tone = worldAccount?.tone || pickTone(id);
 
   try {
+    await ensureCommunitySchema();
+
     const rows = await sql<CommunityPostRow[]>`
       insert into community_posts (
         id,
@@ -139,11 +168,14 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
         excerpt,
         category,
         author,
+        author_kind,
+        verified,
         image,
         image_path,
         body,
         tone,
-        size
+        size,
+        base_likes
       )
       values (
         ${id},
@@ -151,11 +183,14 @@ export async function createCommunityPost(input: CommunityPostInput, request: Re
         ${makeExcerpt(body)},
         ${category},
         ${author},
+        ${isVerifiedAuthor ? worldAccount?.kind || "system" : "player"},
+        ${isVerifiedAuthor},
         ${image},
         ${null},
         ${paragraphs},
         ${tone},
-        ${"medium"}
+        ${"medium"},
+        ${0}
       )
       returning *, 0 as likes
     `;
@@ -183,6 +218,8 @@ export async function likeCommunityPost(id: string) {
   }
 
   try {
+    await ensureCommunitySchema();
+
     await sql`
       insert into community_likes (post_id)
       values (${id})
@@ -199,10 +236,12 @@ export async function listCommunityComments(postId: string) {
   const sql = getCommunityDb();
 
   if (!sql || !isSafeId(postId)) {
-    return [];
+    return isSafeId(postId) ? getWorldPostComments(postId) : [];
   }
 
   try {
+    await ensureCommunitySchema();
+
     const rows = await sql<CommunityCommentRow[]>`
       select *
       from community_comments
@@ -210,7 +249,7 @@ export async function listCommunityComments(postId: string) {
       order by created_at asc
     `;
 
-    return rows.map(mapCommentRow);
+    return rows.length > 0 ? rows.map(mapCommentRow) : getWorldPostComments(postId);
   } catch (error) {
     console.error("community comments query error", error);
     throw new CommunityError("评论暂时加载失败", 503);
@@ -239,10 +278,20 @@ export async function createCommunityComment(postId: string, input: CommunityCom
     throw new CommunityError("请填写评论内容");
   }
 
+  if (getReservedWorldAuthorNames().has(author)) {
+    if (!isAdminAuthorRequest(request)) {
+      throw new CommunityError("这个名字是游戏角色或官方账号专用，请换一个昵称", 403);
+    }
+  }
+
   try {
+    await ensureCommunitySchema();
+    const worldAccount = getWorldAccountByName(author);
+    const isVerifiedAuthor = Boolean(worldAccount && isAdminAuthorRequest(request));
+
     const rows = await sql<CommunityCommentRow[]>`
-      insert into community_comments (post_id, author, body)
-      values (${postId}, ${author}, ${body})
+      insert into community_comments (post_id, author, author_kind, verified, body)
+      values (${postId}, ${author}, ${isVerifiedAuthor ? worldAccount?.kind || "system" : "player"}, ${isVerifiedAuthor}, ${body})
       returning *
     `;
 
@@ -361,9 +410,11 @@ async function countLikes(postId: string) {
   }
 
   const rows = await sql<{ count: number | string }[]>`
-    select count(*) as count
-    from community_likes
-    where post_id = ${postId}
+    select coalesce(p.base_likes, 0) + count(l.id) as count
+    from community_posts p
+    left join community_likes l on l.post_id = p.id
+    where p.id = ${postId}
+    group by p.id
   `;
 
   return Number(rows[0]?.count || 0);
@@ -376,6 +427,8 @@ function mapPostRow(row: CommunityPostRow): CommunityPost {
     excerpt: row.excerpt,
     category: row.category,
     author: row.author,
+    authorKind: row.author_kind || "player",
+    verified: Boolean(row.verified),
     image: row.image,
     imagePath: row.image_path || undefined,
     body: row.body,
@@ -391,9 +444,115 @@ function mapCommentRow(row: CommunityCommentRow): CommunityComment {
     id: row.id,
     postId: row.post_id,
     author: row.author,
+    authorKind: row.author_kind || "player",
+    verified: Boolean(row.verified),
     body: row.body,
     createdAt: toIsoString(row.created_at)
   };
+}
+
+let schemaReady = false;
+
+async function ensureCommunitySchema() {
+  const sql = getCommunityDb();
+
+  if (!sql || schemaReady) {
+    return;
+  }
+
+  await sql`alter table public.community_posts add column if not exists author_kind text not null default 'player'`;
+  await sql`alter table public.community_posts add column if not exists verified boolean not null default false`;
+  await sql`alter table public.community_posts add column if not exists base_likes integer not null default 0`;
+  await sql`alter table public.community_comments add column if not exists author_kind text not null default 'player'`;
+  await sql`alter table public.community_comments add column if not exists verified boolean not null default false`;
+
+  schemaReady = true;
+}
+
+async function ensureTodayWorldPosts() {
+  const sql = getCommunityDb();
+
+  if (!sql) {
+    return;
+  }
+
+  const posts = getVisibleWorldPosts();
+
+  for (const post of posts) {
+    const rows = await sql<{ id: string }[]>`
+      insert into community_posts (
+        id,
+        title,
+        excerpt,
+        category,
+        author,
+        author_kind,
+        verified,
+        image,
+        image_path,
+        body,
+        tone,
+        size,
+        base_likes,
+        created_at
+      )
+      values (
+        ${post.id},
+        ${post.title},
+        ${post.excerpt},
+        ${post.category},
+        ${post.author},
+        ${post.authorKind || "system"},
+        ${Boolean(post.verified)},
+        ${post.image},
+        ${null},
+        ${post.body},
+        ${post.tone},
+        ${post.size},
+        ${post.likes},
+        ${post.createdAt}
+      )
+      on conflict (id) do update set
+        author_kind = excluded.author_kind,
+        verified = excluded.verified,
+        base_likes = greatest(community_posts.base_likes, excluded.base_likes)
+      returning id
+    `;
+
+    await ensureWorldComments(post.id);
+  }
+}
+
+async function ensureWorldComments(postId: string) {
+  const sql = getCommunityDb();
+
+  if (!sql || !isWorldPostId(postId)) {
+    return;
+  }
+
+  for (const comment of getWorldPostComments(postId)) {
+    await sql`
+      insert into community_comments (
+        id,
+        post_id,
+        author,
+        author_kind,
+        verified,
+        body,
+        created_at
+      )
+      values (
+        ${comment.id},
+        ${postId},
+        ${comment.author},
+        ${comment.authorKind || "system"},
+        ${Boolean(comment.verified)},
+        ${comment.body},
+        ${comment.createdAt}
+      )
+      on conflict (id) do nothing
+    `;
+  }
 }
 
 function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>) {
@@ -427,6 +586,11 @@ function getIdentityHash(request: Request) {
   const ua = request.headers.get("user-agent") || "";
 
   return createHash("sha256").update(`${clientId}:${ip}:${ua}`).digest("hex").slice(0, 32);
+}
+
+function isAdminAuthorRequest(request: Request) {
+  const password = request.headers.get("x-admin-password");
+  return Boolean(process.env.ADMIN_DELETE_PASSWORD && password === process.env.ADMIN_DELETE_PASSWORD);
 }
 
 function cleanText(value: string | undefined, maxLength: number) {

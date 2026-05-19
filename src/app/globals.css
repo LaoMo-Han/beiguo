@@ -774,6 +774,24 @@ img {
   box-shadow: 0 13px 36px rgba(35, 51, 68, 0.13);
 }
 
+.post-card.world-post {
+  border-color: rgba(255, 79, 143, 0.34);
+  box-shadow: 0 14px 38px rgba(255, 79, 143, 0.16);
+}
+
+.post-card.author-character {
+  background: linear-gradient(180deg, rgba(255, 246, 251, 0.96), rgba(255, 255, 255, 0.94));
+}
+
+.post-card.author-news,
+.post-card.author-system {
+  background: linear-gradient(180deg, rgba(235, 250, 255, 0.96), rgba(255, 255, 255, 0.94));
+}
+
+.post-card.author-ad {
+  background: linear-gradient(180deg, rgba(255, 250, 239, 0.96), rgba(255, 255, 255, 0.94));
+}
+
 .card-image-link {
   position: relative;
   display: block;
@@ -847,11 +865,31 @@ img {
 }
 
 .author-chip {
+  display: inline-flex;
+  gap: 0.32rem;
+  align-items: center;
   min-width: 0;
   overflow: hidden;
   color: #7b5b2e;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.verified-badge {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-left: 0.28rem;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 950;
+  line-height: 1;
+  background: var(--pink);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 79, 143, 0.18);
 }
 
 .likes {
