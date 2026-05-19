@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { PostCard } from "@/components/PostCard";
 import type { Post } from "@/lib/content";
 import { COMMUNITY_HOME_LIMIT, type CommunityPost } from "@/lib/community-types";
@@ -12,17 +12,30 @@ type CommunityFeedProps = {
 export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
   const [communityPosts, setCommunityPosts] = useState<CommunityPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const [status, setStatus] = useState("");
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const isFetchingRef = useRef(false);
 
-  useEffect(() => {
-    let active = true;
+  const loadPosts = useCallback((offset: number) => {
+    if (isFetchingRef.current) {
+      return () => {};
+    }
+
+    isFetchingRef.current = true;
     const controller = new AbortController();
     const timer = window.setTimeout(() => controller.abort(), 8000);
+    const isFirstPage = offset === 0;
 
-    setIsLoading(true);
+    if (isFirstPage) {
+      setIsLoading(true);
+    } else {
+      setIsLoadingMore(true);
+    }
     setStatus("");
 
-    fetch(`/api/community/posts?limit=${COMMUNITY_HOME_LIMIT}`, { cache: "no-store", signal: controller.signal })
+    fetch(`/api/community/posts?limit=${COMMUNITY_HOME_LIMIT}&offset=${offset}`, { cache: "no-store", signal: controller.signal })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load community posts");
@@ -30,38 +43,67 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
 
         return response.json();
       })
-      .then((payload: { posts?: CommunityPost[] }) => {
-        if (active) {
-          setCommunityPosts(payload.posts || []);
-        }
+      .then((payload: { posts?: CommunityPost[]; degraded?: boolean }) => {
+        const nextPosts = payload.posts || [];
+
+        setCommunityPosts((current) => (isFirstPage ? nextPosts : [...current, ...nextPosts]));
+        setHasMore(!payload.degraded && nextPosts.length === COMMUNITY_HOME_LIMIT);
       })
       .catch(() => {
-        if (active) {
-          setStatus("社区帖子暂时加载失败");
-        }
+        setHasMore(false);
+        setStatus("社区帖子暂时加载失败");
       })
       .finally(() => {
-        if (active) {
-          setIsLoading(false);
-        }
+        window.clearTimeout(timer);
+        isFetchingRef.current = false;
+        setIsLoading(false);
+        setIsLoadingMore(false);
       });
+
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    const cancelLoad = loadPosts(0);
 
     function handleCreated(event: Event) {
       const post = (event as CustomEvent<CommunityPost>).detail;
-      setCommunityPosts((current) => [post, ...current.filter((item) => item.id !== post.id)].slice(0, COMMUNITY_HOME_LIMIT));
+      setCommunityPosts((current) => [post, ...current.filter((item) => item.id !== post.id)]);
     }
 
     window.addEventListener("community-post-created", handleCreated);
 
     return () => {
-      active = false;
-      window.clearTimeout(timer);
-      controller.abort();
+      cancelLoad();
       window.removeEventListener("community-post-created", handleCreated);
     };
-  }, []);
+  }, [loadPosts]);
 
-  const posts = useMemo(() => [...communityPosts, ...staticPosts], [communityPosts, staticPosts]);
+  useEffect(() => {
+    const node = loadMoreRef.current;
+
+    if (!node || !hasMore || isLoading || isLoadingMore || communityPosts.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          loadPosts(communityPosts.length);
+        }
+      },
+      { rootMargin: "360px 0px" }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [communityPosts.length, hasMore, isLoading, isLoadingMore, loadPosts]);
+
+  const posts = useMemo(() => (communityPosts.length > 0 ? communityPosts : isLoading ? [] : staticPosts), [communityPosts, isLoading, staticPosts]);
 
   return (
     <section className="discover-posts is-primary" aria-label="发现文章">
@@ -76,6 +118,8 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
           <PostCard post={post} key={"id" in post ? post.id : post.slug} />
         ))}
       </div>
+      <div ref={loadMoreRef} className="feed-load-anchor" aria-hidden="true" />
+      {isLoadingMore ? <FeedRefreshUi /> : null}
     </section>
   );
 }

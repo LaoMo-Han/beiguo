@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { COMMUNITY_HOME_LIMIT } from "@/lib/community-types";
 import { CommunityError, createCommunityPost, listCommunityPosts } from "@/lib/community-store";
-import { getVisibleWorldPosts } from "@/lib/world-social";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -9,17 +8,19 @@ export const runtime = "nodejs";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const limit = Number(searchParams.get("limit") || COMMUNITY_HOME_LIMIT);
+  const offset = Number(searchParams.get("offset") || 0);
   const safeLimit = Number.isFinite(limit) ? limit : COMMUNITY_HOME_LIMIT;
+  const safeOffset = Number.isFinite(offset) ? offset : 0;
 
   try {
-    const posts = await withTimeout(listCommunityPosts(safeLimit), 6000);
+    const posts = await withTimeout(listCommunityPosts(safeLimit, safeOffset), 6000);
 
     return NextResponse.json({ posts });
   } catch (error) {
     console.error("community posts fallback", error);
 
     return NextResponse.json({
-      posts: getVisibleWorldPosts().slice(0, Math.max(1, Math.min(safeLimit, COMMUNITY_HOME_LIMIT))),
+      posts: [],
       degraded: true
     });
   }

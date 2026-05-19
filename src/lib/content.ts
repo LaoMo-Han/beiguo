@@ -13,6 +13,7 @@ export type Post = {
   category: "公告" | "攻略" | "社区" | "数据" | "活动" | "资讯" | "分享";
   author: string;
   authorKind?: "player" | "character" | "npc" | "news" | "ad" | "system";
+  authorAvatar?: string;
   verified?: boolean;
   likes: string;
   date: string;

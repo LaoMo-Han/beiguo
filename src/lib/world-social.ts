@@ -196,6 +196,7 @@ export function getWorldPostComments(postId: string, now = new Date()): Communit
       postId,
       author: template.comment.author.name,
       authorKind: template.comment.author.kind,
+      authorAvatar: template.comment.author.image,
       verified: true,
       body: template.comment.body,
       createdAt: getSlotDate(now, template.slotHour, 18).toISOString()
@@ -229,6 +230,7 @@ function templateToPost(template: WorldPostTemplate, now: Date): CommunityPost {
     category: template.category,
     author: template.account.name,
     authorKind: template.account.kind,
+    authorAvatar: template.account.image,
     verified: true,
     image: template.account.image,
     body: template.body,

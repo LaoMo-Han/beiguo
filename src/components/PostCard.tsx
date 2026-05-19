@@ -13,6 +13,7 @@ export function PostCard({ post }: PostCardProps) {
   const isModuleEntry = !("id" in post) && post.href?.startsWith("/modules/");
   const isWorldPost = Boolean(post.verified && post.authorKind && post.authorKind !== "player");
   const browserImage = post.image.startsWith("http") || post.image.startsWith("data:");
+  const verifiedAvatar = post.verified ? post.authorAvatar || (isWorldPost ? post.image : "") : "";
 
   return (
     <article className={`post-card tone-${post.tone} card-${post.size} ${isWorldPost ? `world-post author-${post.authorKind}` : ""}`}>
@@ -39,7 +40,7 @@ export function PostCard({ post }: PostCardProps) {
         <footer className="card-meta">
           <span className="author-chip">
             {post.author}
-            {post.verified ? <span className="verified-badge" aria-label="官方认证">呗</span> : null}
+            {verifiedAvatar ? <img src={verifiedAvatar} alt={`${post.author}认证头像`} className="verified-avatar" /> : null}
           </span>
           <span className="likes">{isModuleEntry ? likes : `${likes} ♥`}</span>
         </footer>

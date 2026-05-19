@@ -99,8 +99,12 @@ export function CommunityPostDetail({ post, initialComments }: CommunityPostDeta
           {comments.length > 0 ? (
             comments.map((comment) => (
               <article className="comment-item" key={comment.id}>
-                <strong>{comment.author}</strong>
-                {comment.verified ? <span className="verified-badge" aria-label="官方认证">呗</span> : null}
+                <span className="comment-author">
+                  <strong>{comment.author}</strong>
+                  {comment.verified && comment.authorAvatar ? (
+                    <img src={comment.authorAvatar} alt={`${comment.author}认证头像`} className="verified-avatar" />
+                  ) : null}
+                </span>
                 <p>{comment.body}</p>
                 <small>{new Date(comment.createdAt).toLocaleString("zh-CN")}</small>
               </article>

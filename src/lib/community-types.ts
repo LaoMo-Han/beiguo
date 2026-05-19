@@ -25,7 +25,7 @@ export const COMMUNITY_CUTE_NAMES = [
 ] as const;
 
 export const COMMUNITY_IMAGE_MAX_BYTES = 1024 * 1024;
-export const COMMUNITY_HOME_LIMIT = 10;
+export const COMMUNITY_HOME_LIMIT = 20;
 
 export type CommunityPost = {
   id: string;
@@ -34,6 +34,7 @@ export type CommunityPost = {
   category: string;
   author: string;
   authorKind?: "player" | "character" | "npc" | "news" | "ad" | "system";
+  authorAvatar?: string;
   verified?: boolean;
   image: string;
   imagePath?: string;
@@ -49,6 +50,7 @@ export type CommunityComment = {
   postId: string;
   author: string;
   authorKind?: "player" | "character" | "npc" | "news" | "ad" | "system";
+  authorAvatar?: string;
   verified?: boolean;
   body: string;
   createdAt: string;

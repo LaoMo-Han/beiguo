@@ -13,7 +13,6 @@ import {
 import { getCommunityDb } from "@/lib/community-db";
 import {
   getReservedWorldAuthorNames,
-  getVisibleWorldPosts,
   getWorldAccountByName,
   getWorldPostById,
   getWorldPostComments
@@ -63,14 +62,15 @@ export function isCommunityEnabled() {
   return Boolean(getCommunityDb());
 }
 
-export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
+export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT, offset = 0) {
   const sql = getCommunityDb();
 
   if (!sql) {
-    return getVisibleWorldPosts().slice(0, Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT)));
+    return [];
   }
 
-  const safeLimit = Math.max(1, Math.min(limit, COMMUNITY_HOME_LIMIT));
+  const safeLimit = Math.max(1, Math.min(limit, 50));
+  const safeOffset = Math.max(0, offset);
 
   try {
     const rows = await sql<CommunityPostRow[]>`
@@ -79,6 +79,7 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
         from community_posts
         order by created_at desc
         limit ${safeLimit}
+        offset ${safeOffset}
       )
       select
         p.*,
@@ -93,7 +94,7 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT) {
       order by p.created_at desc
     `;
 
-    return mergeCommunityPosts(rows.map(mapPostRow), safeLimit);
+    return rows.map(mapPostRow);
   } catch (error) {
     console.error("community posts query error", error);
     throw new CommunityError("社区帖子暂时加载失败", 503);
@@ -439,6 +440,7 @@ function mapPostRow(row: CommunityPostRow): CommunityPost {
     category: row.category,
     author: row.author,
     authorKind: row.author_kind || "player",
+    authorAvatar: row.verified ? getWorldAccountByName(row.author)?.image || undefined : undefined,
     verified: Boolean(row.verified),
     image: row.image_path ? communityImageUrl(row.image_path) : row.image,
     imagePath: row.image_path || undefined,
@@ -456,22 +458,11 @@ function mapCommentRow(row: CommunityCommentRow): CommunityComment {
     postId: row.post_id,
     author: row.author,
     authorKind: row.author_kind || "player",
+    authorAvatar: row.verified ? getWorldAccountByName(row.author)?.image || undefined : undefined,
     verified: Boolean(row.verified),
     body: row.body,
     createdAt: toIsoString(row.created_at)
   };
-}
-
-function mergeCommunityPosts(posts: CommunityPost[], limit: number) {
-  const byId = new Map<string, CommunityPost>();
-
-  for (const post of [...posts, ...getVisibleWorldPosts()]) {
-    byId.set(post.id, post);
-  }
-
-  return [...byId.values()]
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-    .slice(0, limit);
 }
 
 function normalizeCommunityImage(image: NonNullable<CommunityPostInput["image"]>) {

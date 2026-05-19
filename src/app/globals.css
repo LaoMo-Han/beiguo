@@ -543,6 +543,11 @@ img {
   margin: 0 0 1rem;
 }
 
+.feed-load-anchor {
+  width: 100%;
+  height: 1px;
+}
+
 .refresh-spinner {
   width: 2.5rem;
   height: 2.5rem;
@@ -888,6 +893,20 @@ img {
   line-height: 1;
   background: var(--pink);
   border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 79, 143, 0.18);
+}
+
+.verified-avatar {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-left: 0.28rem;
+  object-fit: cover;
+  vertical-align: middle;
+  background: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(255, 79, 143, 0.18);
 }
@@ -1534,6 +1553,9 @@ a.character-inline:hover {
 }
 
 .detail-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   padding: 0.55rem 0.8rem;
   color: var(--muted);
   font-weight: 900;
@@ -1596,6 +1618,11 @@ a.character-inline:hover {
   background: rgba(244, 247, 248, 0.86);
   border: 1px solid var(--line);
   border-radius: 0.85rem;
+}
+
+.comment-author {
+  display: inline-flex;
+  align-items: center;
 }
 
 .comment-item p {
