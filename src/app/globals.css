@@ -1886,17 +1886,19 @@ a.character-inline:hover {
     flex: 0 1 auto;
   }
 
-  .chrome-nav {
+  .address-bar {
     order: 2;
-    flex: 0 0 auto;
-    gap: 0.35rem;
+    flex: 1;
+    margin-top: 0;
+    padding: 0.55rem 0.8rem;
+    gap: 0.5rem;
+    font-size: 0.88rem;
   }
 
-  .address-bar {
+  .chrome-nav {
     order: 3;
-    flex: 1 0 100%;
-    margin-top: 0.1rem;
-    font-size: 0.88rem;
+    flex: 0 0 auto;
+    gap: 0.35rem;
   }
 
   .chrome-nav a,

@@ -1,4 +1,5 @@
 .next/
+.claude/
 .vercel/
 node_modules/
 *.tsbuildinfo
