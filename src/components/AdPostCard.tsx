@@ -37,7 +37,7 @@ export function AdPostCard() {
         <span className="card-category">广告</span>
         <iframe
           className="ad-network-frame"
-          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
           srcDoc={AD_FRAME_HTML}
           title="兰德瑞克香氛广告"
         />
