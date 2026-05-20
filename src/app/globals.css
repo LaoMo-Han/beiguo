@@ -853,6 +853,12 @@ img {
     linear-gradient(135deg, rgba(235, 250, 255, 0.96), rgba(255, 255, 255, 0.94));
 }
 
+.ad-network-host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
 .ad-network-slot {
   display: grid;
   place-items: center;

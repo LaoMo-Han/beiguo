@@ -17,7 +17,8 @@ import {
   getWorldAccountByName,
   getWorldAccountImage,
   getWorldPostById,
-  getWorldPostComments
+  getWorldPostComments,
+  isWorldPostId
 } from "@/lib/world-social";
 import { getR2Object, isR2Configured, uploadCommunityImageToR2 } from "@/lib/r2-storage";
 
@@ -228,6 +229,10 @@ export async function likeCommunityPost(id: string) {
 
   if (!post) {
     throw new CommunityError("帖子不存在", 404);
+  }
+
+  if (isWorldPostId(id)) {
+    return { likes: post.likes };
   }
 
   try {
