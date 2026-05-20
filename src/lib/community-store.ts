@@ -13,6 +13,7 @@ import {
 import { getCommunityDb } from "@/lib/community-db";
 import {
   getReservedWorldAuthorNames,
+  getVisibleWorldPosts,
   getWorldAccountByName,
   getWorldAccountImage,
   getWorldPostById,
@@ -66,21 +67,22 @@ export function isCommunityEnabled() {
 export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT, offset = 0) {
   const sql = getCommunityDb();
 
-  if (!sql) {
-    return [];
-  }
-
   const safeLimit = Math.max(1, Math.min(limit, 50));
   const safeOffset = Math.max(0, offset);
+  const worldPosts = getVisibleWorldPosts();
+
+  if (!sql) {
+    return worldPosts.slice(safeOffset, safeOffset + safeLimit);
+  }
 
   try {
+    const dbLimit = safeLimit + safeOffset;
     const rows = await sql<CommunityPostRow[]>`
       with recent_posts as (
         select *
         from community_posts
         order by created_at desc
-        limit ${safeLimit}
-        offset ${safeOffset}
+        limit ${dbLimit}
       )
       select
         p.*,
@@ -95,7 +97,9 @@ export async function listCommunityPosts(limit = COMMUNITY_HOME_LIMIT, offset = 
       order by p.created_at desc
     `;
 
-    return rows.map(mapPostRow);
+    return [...worldPosts, ...rows.map(mapPostRow)]
+      .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+      .slice(safeOffset, safeOffset + safeLimit);
   } catch (error) {
     console.error("community posts query error", error);
     throw new CommunityError("社区帖子暂时加载失败", 503);

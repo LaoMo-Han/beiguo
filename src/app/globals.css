@@ -837,6 +837,44 @@ img {
   background: linear-gradient(180deg, rgba(255, 250, 239, 0.96), rgba(255, 255, 255, 0.94));
 }
 
+.ad-post-card:hover {
+  transform: translateY(-5px);
+}
+
+.ad-card-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 15.5rem;
+  padding: 0.9rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(42, 216, 244, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(235, 250, 255, 0.96), rgba(255, 255, 255, 0.94));
+}
+
+.ad-network-slot {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 13rem;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.ad-network-slot * {
+  pointer-events: auto;
+}
+
+.ad-network-slot iframe,
+.ad-network-slot div {
+  max-width: 100%;
+}
+
+.ad-card-copy .card-title {
+  color: var(--ink);
+}
+
 .card-image-link {
   position: relative;
   display: block;

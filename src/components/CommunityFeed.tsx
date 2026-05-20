@@ -1,9 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AdPostCard } from "@/components/AdPostCard";
 import { PostCard } from "@/components/PostCard";
 import type { Post } from "@/lib/content";
 import { COMMUNITY_HOME_LIMIT, type CommunityPost } from "@/lib/community-types";
+
+const AD_INSERT_AFTER_INDEX = 8;
 
 type CommunityFeedProps = {
   staticPosts: Post[];
@@ -140,9 +143,16 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
       {isLoading ? <FeedRefreshUi /> : null}
       {status ? <p className="feed-status">{status}</p> : null}
       <div className="masonry-feed">
-        {posts.map((post) => (
-          <PostCard post={post} key={"id" in post ? post.id : post.slug} />
-        ))}
+        {posts.map((post, index) => {
+          const postKey = "id" in post ? post.id : post.slug;
+
+          return (
+            <Fragment key={postKey}>
+              <PostCard post={post} />
+              {index === AD_INSERT_AFTER_INDEX ? <AdPostCard /> : null}
+            </Fragment>
+          );
+        })}
       </div>
       <div ref={loadMoreRef} className="feed-load-anchor" aria-hidden="true" />
       {isLoadingMore ? <FeedRefreshUi /> : null}
