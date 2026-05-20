@@ -853,28 +853,13 @@ img {
     linear-gradient(135deg, rgba(235, 250, 255, 0.96), rgba(255, 255, 255, 0.94));
 }
 
-.ad-network-host {
-  display: grid;
-  place-items: center;
-  width: 100%;
-}
-
-.ad-network-slot {
-  display: grid;
-  place-items: center;
+.ad-network-frame {
   width: 100%;
   min-height: 13rem;
   overflow: hidden;
+  background: transparent;
+  border: 0;
   pointer-events: auto;
-}
-
-.ad-network-slot * {
-  pointer-events: auto;
-}
-
-.ad-network-slot iframe,
-.ad-network-slot div {
-  max-width: 100%;
 }
 
 .ad-card-copy .card-title {
@@ -2024,6 +2009,10 @@ a.character-inline:hover {
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     scrollbar-width: none;
+  }
+
+  .home-grid > .module-sidebar {
+    display: none;
   }
 
   .module-sidebar::-webkit-scrollbar {

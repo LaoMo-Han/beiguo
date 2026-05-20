@@ -136,10 +136,7 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
 
   return (
     <section className="discover-posts is-primary" aria-label="发现文章">
-      <div className="section-title-row">
-        <h2 className="visually-hidden">发现文章</h2>
-        <span>{posts.length} 篇</span>
-      </div>
+      <h2 className="visually-hidden">发现文章</h2>
       {isLoading ? <FeedRefreshUi /> : null}
       {status ? <p className="feed-status">{status}</p> : null}
       <div className="masonry-feed">
