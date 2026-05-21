@@ -59,10 +59,11 @@ export function BrowserShell({ children, searchQuery = "", locale = "zh" }: Brow
           <Link href="/community/new" className="post-action">
             {copy.post}
           </Link>
-          <Link href={copy.langHref} className="language-switch" aria-label={copy.langAria} title={copy.langAria}>
-            {copy.langLabel}
-          </Link>
         </nav>
+
+        <Link href={copy.langHref} className="language-switch" aria-label={copy.langAria} title={copy.langAria}>
+          {copy.langLabel}
+        </Link>
       </div>
 
       <div className="screen-panel">{children}</div>

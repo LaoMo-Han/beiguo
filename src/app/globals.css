@@ -218,15 +218,28 @@ img {
   box-shadow: 0 8px 18px rgba(255, 90, 150, 0.22);
 }
 
-.chrome-nav .language-switch {
+.language-switch {
   display: grid;
   place-items: center;
-  width: 2.45rem;
-  min-width: 2.45rem;
-  padding-inline: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  justify-self: end;
   color: #fff;
+  font-size: 0.95rem;
   font-weight: 950;
+  text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-bouncy);
+}
+
+.language-switch:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
 }
 
 .primary-action,
@@ -1980,6 +1993,13 @@ a.character-inline:hover {
     order: 3;
     flex: 0 0 auto;
     gap: 0.35rem;
+  }
+
+  .language-switch {
+    order: 4;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.85rem;
   }
 
   .chrome-nav a,
