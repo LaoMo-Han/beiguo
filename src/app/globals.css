@@ -2143,7 +2143,8 @@ a.character-inline:hover {
   }
 
   .masonry-feed {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
   }
 
   .feed-refresh-ui {
@@ -2155,7 +2156,60 @@ a.character-inline:hover {
   }
 
   .card-copy {
-    padding: 0.85rem;
+    padding: 0.62rem 0.68rem 0.68rem;
+  }
+
+  .masonry-feed .card-image-link,
+  .masonry-feed .card-large .card-image-link,
+  .masonry-feed .card-tall .card-image-link,
+  .masonry-feed .card-short .card-image-link {
+    aspect-ratio: 1 / 0.78;
+  }
+
+  .masonry-feed .card-category {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.32rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .masonry-feed .card-title {
+    font-size: 0.86rem;
+    line-height: 1.28;
+  }
+
+  .masonry-feed .card-copy p {
+    display: -webkit-box;
+    margin-top: 0.34rem;
+    overflow: hidden;
+    font-size: 0.76rem;
+    line-height: 1.38;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .masonry-feed .card-meta {
+    gap: 0.35rem;
+    margin-top: 0.48rem;
+    font-size: 0.76rem;
+  }
+
+  .masonry-feed .author-chip {
+    max-width: min(6rem, 62%);
+  }
+
+  .masonry-feed .verified-avatar {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .masonry-feed .ad-card-frame {
+    min-height: 8.5rem;
+    padding: 0.55rem;
+  }
+
+  .masonry-feed .ad-network-frame {
+    min-height: 7.2rem;
   }
 
   .detail-section {
