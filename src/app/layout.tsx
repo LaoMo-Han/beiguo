@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { defaultDescription, defaultOgImage, defaultTitle, siteName, siteUrl } from "@/lib/seo";
+import { defaultDescription, defaultKeywords, defaultOgImage, defaultTitle, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,9 +11,30 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`
   },
   description: defaultDescription,
-  keywords: ["异环", "异环攻略", "异环角色", "异环强度榜", "弧盘", "卡带", "呗果"],
+  keywords: defaultKeywords,
   alternates: {
-    canonical: "/"
+    canonical: "/",
+    languages: {
+      "zh-CN": "/",
+      "en-US": "/en",
+      "x-default": "/"
+    }
+  },
+  authors: [{ name: "呗果资料组", url: siteUrl }],
+  creator: "呗果资料组",
+  publisher: siteName,
+  category: "game guide",
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
   icons: {
     icon: "/icon.svg",
@@ -43,10 +64,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    alternateName: ["Beiguo", "Exoring"],
+    url: siteUrl,
+    inLanguage: ["zh-CN", "en-US"],
+    description: defaultDescription,
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/assets/beiguo-icon.svg`
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteUrl}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  };
 
   return (
     <html lang="zh-CN">
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         {gaMeasurementId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />

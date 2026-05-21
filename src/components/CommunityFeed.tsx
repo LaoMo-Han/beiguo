@@ -10,9 +10,10 @@ const AD_INSERT_AFTER_INDEX = 8;
 
 type CommunityFeedProps = {
   staticPosts: Post[];
+  locale?: "zh" | "en";
 };
 
-export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
+export function CommunityFeed({ staticPosts, locale = "zh" }: CommunityFeedProps) {
   const [communityPosts, setCommunityPosts] = useState<CommunityPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -70,7 +71,7 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
         }
 
         setHasMore(false);
-        setStatus("社区帖子暂时加载失败");
+        setStatus(locale === "en" ? "Community posts are temporarily unavailable." : "社区帖子暂时加载失败");
       })
       .finally(() => {
         window.clearTimeout(timer);
@@ -93,7 +94,7 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
       }
       controller.abort();
     };
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     const cancelLoad = loadPosts(0);
@@ -135,8 +136,8 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
   const posts = useMemo(() => (communityPosts.length > 0 ? communityPosts : isLoading ? [] : staticPosts), [communityPosts, isLoading, staticPosts]);
 
   return (
-    <section className="discover-posts is-primary" aria-label="发现文章">
-      <h2 className="visually-hidden">发现文章</h2>
+    <section className="discover-posts is-primary" aria-label={locale === "en" ? "Discover posts" : "发现文章"}>
+      <h2 className="visually-hidden">{locale === "en" ? "Discover posts" : "发现文章"}</h2>
       {isLoading ? <FeedRefreshUi /> : null}
       {status ? <p className="feed-status">{status}</p> : null}
       <div className="masonry-feed">
@@ -145,7 +146,7 @@ export function CommunityFeed({ staticPosts }: CommunityFeedProps) {
 
           return (
             <Fragment key={postKey}>
-              <PostCard post={post} />
+              <PostCard post={post} locale={locale} />
               {index === AD_INSERT_AFTER_INDEX ? <AdPostCard /> : null}
             </Fragment>
           );

@@ -13,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1
     },
     {
+      url: absoluteUrl("/en"),
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9
+    },
+    {
       url: absoluteUrl("/data"),
       lastModified: now,
       changeFrequency: "weekly",
@@ -35,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.65
+    })),
+    ...allPosts.map((post) => ({
+      url: absoluteUrl(`/en/posts/${post.slug}`),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.55
     }))
   ];
 }

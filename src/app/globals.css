@@ -218,6 +218,17 @@ img {
   box-shadow: 0 8px 18px rgba(255, 90, 150, 0.22);
 }
 
+.chrome-nav .language-switch {
+  display: grid;
+  place-items: center;
+  width: 2.45rem;
+  min-width: 2.45rem;
+  padding-inline: 0;
+  color: #fff;
+  font-weight: 950;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .primary-action,
 .danger-action {
   width: fit-content;

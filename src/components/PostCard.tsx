@@ -5,10 +5,11 @@ import type { CommunityPost } from "@/lib/community-types";
 
 type PostCardProps = {
   post: Post | CommunityPost;
+  locale?: "zh" | "en";
 };
 
-export function PostCard({ post }: PostCardProps) {
-  const href = "id" in post ? `/posts/community-${post.id}` : post.href ?? `/posts/${post.slug}`;
+export function PostCard({ post, locale = "zh" }: PostCardProps) {
+  const href = getPostHref(post, locale);
   const likes = typeof post.likes === "number" ? post.likes.toLocaleString("zh-CN") : post.likes;
   const isModuleEntry = !("id" in post) && post.href?.startsWith("/modules/");
   const isWorldPost = Boolean(post.verified && post.authorKind && post.authorKind !== "player");
@@ -47,4 +48,17 @@ export function PostCard({ post }: PostCardProps) {
       </div>
     </article>
   );
+}
+
+function getPostHref(post: Post | CommunityPost, locale: "zh" | "en") {
+  if ("id" in post) {
+    return locale === "en" ? `/en/posts/community-${post.id}` : `/posts/community-${post.id}`;
+  }
+
+  if (post.href?.startsWith("/modules/")) {
+    return post.href;
+  }
+
+  const href = post.href ?? `/posts/${post.slug}`;
+  return locale === "en" && href.startsWith("/posts/") ? `/en${href}` : href;
 }
